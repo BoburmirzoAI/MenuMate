@@ -1,105 +1,186 @@
 # 🍽️ Menu Mate
 
-Family Menu Planner — oilaviy ovqat menyu rejalashtiruvchi ilova.
+**Family meal planner.** An intelligent system that automatically generates
+weekly or monthly meal menus tailored to each family member's dietary
+restrictions, health conditions, and preferences — then produces a categorized
+shopping list for what you actually need to buy.
 
-Oila a'zolarining ovqat xohishi, allergiyasi va sog'liq holatiga qarab avtomatik
-haftalik yoki oylik menyu tuzuvchi, kerakli mahsulotlarni hisoblab beruvchi tizim.
+Built as a full-stack platform: a Django REST API, a Flutter mobile app, and a
+React admin panel — everything runs from a single `docker compose up`.
 
-## 🏗️ Arxitektura
+---
+
+## ✨ Features
+
+- 🧠 **Smart menu generation** — 7 or 30-day plans that respect allergies,
+  diabetes, halal/vegan requirements, weather, and holidays
+- 👨‍👩‍👧 **Family profiles** — each member has their own allergies, liked/disliked
+  recipes, and health conditions (22 predefined conditions across 5 categories)
+- 📖 **Recipe library** — 35 Uzbek and international recipes with 3-language
+  support (Uzbek, Russian, English)
+- 🛒 **Shopping list** — automatically calculated from the menu, grouped by
+  category (meat, dairy, vegetables, spices, etc.) with unit conversions
+- 🖼️ **Automatic images** — recipe and ingredient photos are fetched live from
+  Wikipedia + Korzinka catalogs; nothing needs to be uploaded manually
+- 🌤️ **Weather-aware** — hot summer days get lighter meals; cold days get soups
+- 🎉 **Holiday-aware** — 10 Uzbek holidays trigger special menu suggestions
+- 🔔 **Push notifications** via FCM
+- 🌍 **Full i18n** — every string, error message, and recipe available in
+  Uzbek / Russian / English (backend uses `django-modeltranslation`, mobile
+  uses a custom string map, admin honors `Accept-Language`)
+
+---
+
+## 🏗️ Architecture
 
 ```
 Menu Mate/
-├── backend/          # Django REST API (Python)
-├── mobile/           # Flutter mobil ilova (Dart)
-├── admin/            # Admin panel (React yoki Django admin)
-├── deploy/           # nginx.conf va boshqa deploy fayllari
+├── backend/          # Django 5 + DRF — 12 apps, 40+ endpoints
+├── mobile/           # Flutter — ~20 screens, feature-first
+├── admin/            # React 19 + Vite + TypeScript — web admin panel
+├── deploy/           # nginx.conf for production
 ├── docker-compose.yml
 ├── docker-compose.prod.yml
 ├── Makefile
-└── .github/workflows/  # CI/CD
+└── .github/workflows/  # CI/CD (backend-ci, docker-build, deploy)
 ```
 
-## ⚡ Tez ishga tushirish
+### Tech stack
 
-**Talab qilinadi:** Docker + Docker Compose, `make`
+| Layer     | Stack |
+|-----------|-------|
+| Backend   | Django 5, DRF, PostgreSQL 16, Redis, Celery, JWT (SimpleJWT) |
+| Mobile    | Flutter 3, Riverpod, Dio, go_router, secure_storage |
+| Admin     | React 19, Vite 6, TypeScript 5.7, Zustand, TanStack Query, CSS Modules |
+| Infra     | Docker Compose, GitHub Actions, Nginx |
+| External  | OpenWeatherMap (weather), Wikipedia (images), Karzinka Go (products) |
+
+---
+
+## ⚡ Quick start
+
+**Requirements:** Docker, Docker Compose, `make`
 
 ```bash
-# 1. Repository'ni klonlash
+# 1. Clone
 git clone <repo-url> menu-mate
 cd menu-mate
 
-# 2. Environment sozlash
+# 2. Configure environment
 cp .env.example .env
-# .env faylini ochib parol va API keylarni to'ldiring
+# Open .env and fill in SECRET_KEY, OPENWEATHER_API_KEY, etc.
 
-# 3. Barcha servislarni ishga tushirish
-make init         # build + up + migrate + sync-endpoints
-make superuser    # admin foydalanuvchi yaratish
+# 3. Boot the whole stack
+make init                # build + up + migrate + sync-endpoints
+make superuser           # create Django admin user
 ```
 
-**Ochish:**
-- 🌐 Backend API: http://localhost:8000
-- 📚 Swagger docs: http://localhost:8000/api/v1/docs/
-- 🔧 Django Admin: http://localhost:8000/admin/
+That single `make init` brings up Postgres, Redis, the API, Celery worker and
+beat. On first boot, a Celery `worker_ready` signal auto-loads all fixtures —
+35 recipes, 73 ingredients, 22 health conditions, 10 holidays — so the system
+is instantly usable.
 
-## 🛠️ Ko'p ishlatiladigan buyruqlar
+**Open:**
+- 🌐 REST API — http://localhost:8000/api/v1/
+- 📚 Swagger UI — http://localhost:8000/api/v1/docs/
+- 🔧 Django Admin — http://localhost:8000/admin/
+
+### Admin panel (React)
 
 ```bash
-make help              # barcha buyruqlar ro'yxati
+cd admin
+cp .env.example .env
+npm install
+npm run dev              # http://localhost:5173
+```
 
-make up                # servislarni ishga tushirish
-make down              # to'xtatish
-make logs              # backend loglar
-make shell             # backend container ichiga kirish
-make dj-shell          # Django shell
-make migrate           # migration
+### Mobile app (Flutter)
+
+```bash
+cd mobile
+flutter pub get
+flutter run              # pick a device / simulator
+```
+
+---
+
+## 🛠️ Common commands
+
+```bash
+make help                # list all commands
+
+make up                  # start services
+make down                # stop
+make logs                # tail backend logs
+make shell               # exec into backend container
+make dj-shell            # Django shell
+make migrate             # apply migrations
 make makemigrations
-make test              # testlar
-make db-backup         # DB backup
+make test                # run backend tests
+make db-backup           # snapshot the database
 ```
 
-## 🐳 Docker stack
+---
 
-Development'da 4 ta container ishlaydi:
+## 🐳 Docker services
 
-| Servis     | Port  | Vazifasi                |
-|------------|-------|-------------------------|
-| `backend`  | 8000  | Django REST API         |
-| `db`       | 5432  | PostgreSQL 16           |
-| `redis`    | 6379  | Cache + Celery broker   |
-| `celery`   | —     | Async task worker       |
-| `celery_beat` | —  | Scheduled tasks (cron)  |
+| Service        | Port  | Purpose                    |
+|----------------|-------|----------------------------|
+| `backend`      | 8000  | Django REST API            |
+| `db`           | 5433  | PostgreSQL 16              |
+| `redis`        | 6379  | Cache + Celery broker      |
+| `celery`       | —     | Async task worker          |
+| `celery_beat`  | —     | Cron scheduler             |
+| `pgadmin`      | 5051  | Postgres GUI (dev only)    |
 
-Production'da qo'shimcha:
-- `nginx` — reverse proxy, static/media serve
+Production adds an `nginx` reverse proxy for TLS termination and static files.
 
-## 📱 Mobile (Flutter)
+---
 
-Backend to'liq tayyor bo'lgach `mobile/` papkasida Flutter loyihasi
-yaratiladi (`flutter create .`). Flutter Docker'ga tushmaydi — u
-APK/IPA fayl bo'lib kompilyatsiya qilinadi.
+## 📡 API surface (40+ endpoints)
 
-## 🚀 Production Deploy
+| Domain | Highlights |
+|--------|------------|
+| `/users/` | register, login, refresh, forgot/reset password, email verification, profile CRUD, soft-delete |
+| `/family/` | family + members + health conditions |
+| `/recipes/` | 35 recipes with filters (category, season, allergens, search) |
+| `/menu/` | generate, list, clear, per-day stats, meal swap |
+| `/products/` | auto-generated shopping list per menu, toggle purchased |
+| `/weather/` | OpenWeatherMap wrapper with 3h Redis cache |
+| `/notifications/` | user notifications + 10 holidays + upcoming |
+| `/devices/` | device registration for FCM push |
 
-`.github/workflows/`da 3 ta pipeline:
+All responses follow a uniform envelope:
 
-1. **`backend-ci.yml`** — har push'da lint + test
-2. **`docker-build.yml`** — main branch push'da Docker image GitHub Container Registry'ga
-3. **`deploy.yml`** — SSH orqali serverga deploy (env secretlar kerak)
-
-Kerakli GitHub Secrets:
+```json
+{ "success": true, "id": "MENU_GENERATED", "message": "...", "data": { ... } }
 ```
-DEPLOY_HOST         # server IP yoki domain
+
+Error responses swap `data` for `errors` and use the same shape — so the mobile
+and admin clients handle every error the same way.
+
+---
+
+## 🚀 Deployment
+
+Three GitHub Actions pipelines under `.github/workflows/`:
+
+1. **`backend-ci.yml`** — lint + tests on every push
+2. **`docker-build.yml`** — pushes to `main` build and publish a Docker image
+   to GitHub Container Registry
+3. **`deploy.yml`** — SSH-based deploy to the production server
+
+Required GitHub Secrets:
+
+```
+DEPLOY_HOST         # server IP or domain
 DEPLOY_USER         # SSH user
-DEPLOY_SSH_KEY      # private key
-DEPLOY_PATH         # server'dagi loyiha yo'li
+DEPLOY_SSH_KEY      # SSH private key
+DEPLOY_PATH         # project path on the server
 ```
 
-## 📖 Tafsilotlar
+---
 
-- Backend hujjatlar: [`backend/README.md`](backend/README.md)
-- Loyiha rejasi: [`loyiha_reja.md`](loyiha_reja.md)
+## 📜 License & author
 
-## 📜 Litsenziya
-
-Intern loyihasi — Boburmirzo Sobirjonov, 2026.
+Built by **Boburmirzo Sobirjonov**, 2026. Internship project.
