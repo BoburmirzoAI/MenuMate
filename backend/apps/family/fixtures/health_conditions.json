@@ -1,0 +1,332 @@
+[
+  {
+    "model": "family.healthcondition",
+    "pk": 1,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Sut mahsulotlariga allergiya",
+      "name_ru": "Аллергия на молочные продукты",
+      "name_en": "Dairy allergy",
+      "category": "ALLERGY",
+      "description": "Laktoza yoki sut oqsili (kazein)ga chidamsizlik",
+      "name": "Sut mahsulotlariga allergiya"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 2,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Tuxumga allergiya",
+      "name_ru": "Аллергия на яйца",
+      "name_en": "Egg allergy",
+      "category": "ALLERGY",
+      "description": "Tuxum oqsiliga allergik reaksiya",
+      "name": "Tuxumga allergiya"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 3,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Yong'oqlarga allergiya",
+      "name_ru": "Аллергия на орехи",
+      "name_en": "Nut allergy",
+      "category": "ALLERGY",
+      "description": "Yong'oq, bodom, funduk va boshqa yong'oq turlariga",
+      "name": "Yong'oqlarga allergiya"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 4,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Yeryong'oqqa allergiya",
+      "name_ru": "Аллергия на арахис",
+      "name_en": "Peanut allergy",
+      "category": "ALLERGY",
+      "description": "Yeryong'oq (dukkakli o'simlik) — kuchli allergen",
+      "name": "Yeryong'oqqa allergiya"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 5,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Glutenga chidamsizlik (Selyakiya)",
+      "name_ru": "Непереносимость глютена (Целиакия)",
+      "name_en": "Gluten intolerance (Celiac)",
+      "category": "ALLERGY",
+      "description": "Bug'doy, arpa, javdardagi gluten oqsiliga chidamsizlik",
+      "name": "Glutenga chidamsizlik (Selyakiya)"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 6,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Baliq va dengiz mahsulotlariga allergiya",
+      "name_ru": "Аллергия на рыбу и морепродукты",
+      "name_en": "Fish and seafood allergy",
+      "category": "ALLERGY",
+      "description": "",
+      "name": "Baliq va dengiz mahsulotlariga allergiya"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 7,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Dukkakli o'simliklarga allergiya",
+      "name_ru": "Аллергия на бобовые",
+      "name_en": "Legume allergy",
+      "category": "ALLERGY",
+      "description": "Loviya, no'xat, mash, adas",
+      "name": "Dukkakli o'simliklarga allergiya"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 8,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Soyaga allergiya",
+      "name_ru": "Аллергия на сою",
+      "name_en": "Soy allergy",
+      "category": "ALLERGY",
+      "description": "",
+      "name": "Soyaga allergiya"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 9,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Sitrus mevalarga allergiya",
+      "name_ru": "Аллергия на цитрусовые",
+      "name_en": "Citrus allergy",
+      "category": "ALLERGY",
+      "description": "Apelsin, limon, greypfrut, mandarin",
+      "name": "Sitrus mevalarga allergiya"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 10,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000010",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qandli diabet (1-tur)",
+      "name_ru": "Сахарный диабет (тип 1)",
+      "name_en": "Diabetes type 1",
+      "category": "DIABETES",
+      "description": "Shakar/uglevodli ovqatlar cheklangan bo'lishi kerak",
+      "name": "Qandli diabet (1-tur)"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 11,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000011",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qandli diabet (2-tur)",
+      "name_ru": "Сахарный диабет (тип 2)",
+      "name_en": "Diabetes type 2",
+      "category": "DIABETES",
+      "description": "Past glikemik indeksli ovqatlar tavsiya etiladi",
+      "name": "Qandli diabet (2-tur)"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 12,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000012",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Yurak-qon tomir kasalligi",
+      "name_ru": "Сердечно-сосудистое заболевание",
+      "name_en": "Cardiovascular disease",
+      "category": "HEART",
+      "description": "Kam tuzli, kam yog'li ovqatlar tavsiya etiladi",
+      "name": "Yurak-qon tomir kasalligi"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 13,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000013",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Yuqori qon bosim (Gipertenziya)",
+      "name_ru": "Артериальная гипертензия",
+      "name_en": "Hypertension",
+      "category": "HEART",
+      "description": "Tuzni cheklash, sabzavotli ovqatlar",
+      "name": "Yuqori qon bosim (Gipertenziya)"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 14,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000014",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Yuqori xolesterin",
+      "name_ru": "Высокий холестерин",
+      "name_en": "High cholesterol",
+      "category": "HEART",
+      "description": "To'yingan yog'lar cheklangan bo'lishi kerak",
+      "name": "Yuqori xolesterin"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 15,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000015",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Ortiqcha vazn (Semizlik)",
+      "name_ru": "Избыточный вес (Ожирение)",
+      "name_en": "Obesity",
+      "category": "OBESITY",
+      "description": "Kam kaloriyali, balansli ovqatlar",
+      "name": "Ortiqcha vazn (Semizlik)"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 16,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000016",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Vegetarian",
+      "name_ru": "Вегетарианство",
+      "name_en": "Vegetarian",
+      "category": "OTHER",
+      "description": "Go'sht iste'mol qilinmaydi (tuxum va sut mumkin)",
+      "name": "Vegetarian"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 17,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000017",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Vegan",
+      "name_ru": "Веганство",
+      "name_en": "Vegan",
+      "category": "OTHER",
+      "description": "Hayvon mahsulotlari umuman iste'mol qilinmaydi",
+      "name": "Vegan"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 18,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000018",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Halol ovqat",
+      "name_ru": "Халяль",
+      "name_en": "Halal",
+      "category": "OTHER",
+      "description": "Faqat halol mahsulotlar (cho'chqa go'shti va alkogolsiz)",
+      "name": "Halol ovqat"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 19,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000019",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Buyrak kasalligi",
+      "name_ru": "Заболевание почек",
+      "name_en": "Kidney disease",
+      "category": "OTHER",
+      "description": "Kaliy, natriy, oqsil miqdori cheklanadi",
+      "name": "Buyrak kasalligi"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 20,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000020",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Oshqozon yarasi (Gastrit/Yara)",
+      "name_ru": "Гастрит / Язва желудка",
+      "name_en": "Gastritis / Ulcer",
+      "category": "OTHER",
+      "description": "O'tkir, achchiq va yog'li ovqatlar cheklanadi",
+      "name": "Oshqozon yarasi (Gastrit/Yara)"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 21,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000021",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Homiladorlik",
+      "name_ru": "Беременность",
+      "name_en": "Pregnancy",
+      "category": "OTHER",
+      "description": "Xom baliq, kofein va ba'zi mahsulotlar cheklanadi",
+      "name": "Homiladorlik"
+    }
+  },
+  {
+    "model": "family.healthcondition",
+    "pk": 22,
+    "fields": {
+      "uuid": "11111111-1111-1111-1111-000000000022",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Emizikli ona",
+      "name_ru": "Кормящая мать",
+      "name_en": "Breastfeeding",
+      "category": "OTHER",
+      "description": "Ozuqaviy modda boy ovqatlar tavsiya etiladi",
+      "name": "Emizikli ona"
+    }
+  }
+]

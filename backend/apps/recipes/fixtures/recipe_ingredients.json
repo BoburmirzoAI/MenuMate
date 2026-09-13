@@ -1,0 +1,2979 @@
+[
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 1001,
+    "fields": {
+      "uuid": "55555555-0001-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 1,
+      "ingredient": 52,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 1002,
+    "fields": {
+      "uuid": "55555555-0001-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 1,
+      "ingredient": 41,
+      "amount": "200",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 1003,
+    "fields": {
+      "uuid": "55555555-0001-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 1,
+      "ingredient": 68,
+      "amount": "15",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 1004,
+    "fields": {
+      "uuid": "55555555-0001-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 1,
+      "ingredient": 44,
+      "amount": "10",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 1005,
+    "fields": {
+      "uuid": "55555555-0001-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 1,
+      "ingredient": 61,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 2001,
+    "fields": {
+      "uuid": "55555555-0002-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 2,
+      "ingredient": 47,
+      "amount": "3",
+      "unit": "pcs"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 2002,
+    "fields": {
+      "uuid": "55555555-0002-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 2,
+      "ingredient": 41,
+      "amount": "30",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 2003,
+    "fields": {
+      "uuid": "55555555-0002-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 2,
+      "ingredient": 44,
+      "amount": "10",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 2004,
+    "fields": {
+      "uuid": "55555555-0002-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 2,
+      "ingredient": 61,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 2005,
+    "fields": {
+      "uuid": "55555555-0002-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 2,
+      "ingredient": 62,
+      "amount": "1",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 3001,
+    "fields": {
+      "uuid": "55555555-0003-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 3,
+      "ingredient": 46,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 3002,
+    "fields": {
+      "uuid": "55555555-0003-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 3,
+      "ingredient": 68,
+      "amount": "15",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 3003,
+    "fields": {
+      "uuid": "55555555-0003-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 3,
+      "ingredient": 71,
+      "amount": "20",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 3004,
+    "fields": {
+      "uuid": "55555555-0003-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 3,
+      "ingredient": 21,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 4001,
+    "fields": {
+      "uuid": "55555555-0004-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 4,
+      "ingredient": 51,
+      "amount": "70",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 4002,
+    "fields": {
+      "uuid": "55555555-0004-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 4,
+      "ingredient": 69,
+      "amount": "200",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 4003,
+    "fields": {
+      "uuid": "55555555-0004-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 4,
+      "ingredient": 44,
+      "amount": "15",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 4004,
+    "fields": {
+      "uuid": "55555555-0004-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 4,
+      "ingredient": 61,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 4005,
+    "fields": {
+      "uuid": "55555555-0004-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 4,
+      "ingredient": 41,
+      "amount": "50",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 5001,
+    "fields": {
+      "uuid": "55555555-0005-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 5,
+      "ingredient": 53,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 5002,
+    "fields": {
+      "uuid": "55555555-0005-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 5,
+      "ingredient": 44,
+      "amount": "10",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 5003,
+    "fields": {
+      "uuid": "55555555-0005-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 5,
+      "ingredient": 45,
+      "amount": "30",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 5004,
+    "fields": {
+      "uuid": "55555555-0005-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 5,
+      "ingredient": 70,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 5005,
+    "fields": {
+      "uuid": "55555555-0005-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 5,
+      "ingredient": 67,
+      "amount": "10",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 5006,
+    "fields": {
+      "uuid": "55555555-0005-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 5,
+      "ingredient": 69,
+      "amount": "250",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 6001,
+    "fields": {
+      "uuid": "55555555-0006-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "ingredient": 33,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 6002,
+    "fields": {
+      "uuid": "55555555-0006-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "ingredient": 48,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 6003,
+    "fields": {
+      "uuid": "55555555-0006-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "ingredient": 1,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 6004,
+    "fields": {
+      "uuid": "55555555-0006-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "ingredient": 3,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 6005,
+    "fields": {
+      "uuid": "55555555-0006-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "ingredient": 58,
+      "amount": "40",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 6006,
+    "fields": {
+      "uuid": "55555555-0006-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "ingredient": 2,
+      "amount": "10",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 6007,
+    "fields": {
+      "uuid": "55555555-0006-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "ingredient": 63,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 6008,
+    "fields": {
+      "uuid": "55555555-0006-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "ingredient": 61,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7001,
+    "fields": {
+      "uuid": "55555555-0007-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "ingredient": 32,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7002,
+    "fields": {
+      "uuid": "55555555-0007-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "ingredient": 48,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7003,
+    "fields": {
+      "uuid": "55555555-0007-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "ingredient": 1,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7004,
+    "fields": {
+      "uuid": "55555555-0007-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "ingredient": 3,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7005,
+    "fields": {
+      "uuid": "55555555-0007-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "ingredient": 4,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7006,
+    "fields": {
+      "uuid": "55555555-0007-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "ingredient": 5,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7007,
+    "fields": {
+      "uuid": "55555555-0007-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "ingredient": 58,
+      "amount": "20",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7008,
+    "fields": {
+      "uuid": "55555555-0007-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "ingredient": 61,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7009,
+    "fields": {
+      "uuid": "55555555-0007-0000-0000-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "ingredient": 63,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 7010,
+    "fields": {
+      "uuid": "55555555-0007-0000-0000-000000000010",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "ingredient": 14,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 8001,
+    "fields": {
+      "uuid": "55555555-0008-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "ingredient": 33,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 8002,
+    "fields": {
+      "uuid": "55555555-0008-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "ingredient": 4,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 8003,
+    "fields": {
+      "uuid": "55555555-0008-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "ingredient": 3,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 8004,
+    "fields": {
+      "uuid": "55555555-0008-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "ingredient": 1,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 8005,
+    "fields": {
+      "uuid": "55555555-0008-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "ingredient": 5,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 8006,
+    "fields": {
+      "uuid": "55555555-0008-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "ingredient": 7,
+      "amount": "50",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 8007,
+    "fields": {
+      "uuid": "55555555-0008-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "ingredient": 61,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 8008,
+    "fields": {
+      "uuid": "55555555-0008-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "ingredient": 63,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 8009,
+    "fields": {
+      "uuid": "55555555-0008-0000-0000-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "ingredient": 66,
+      "amount": "1",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 9001,
+    "fields": {
+      "uuid": "55555555-0009-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "ingredient": 49,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 9002,
+    "fields": {
+      "uuid": "55555555-0009-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "ingredient": 69,
+      "amount": "100",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 9003,
+    "fields": {
+      "uuid": "55555555-0009-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "ingredient": 37,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 9004,
+    "fields": {
+      "uuid": "55555555-0009-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "ingredient": 1,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 9005,
+    "fields": {
+      "uuid": "55555555-0009-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "ingredient": 61,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 9006,
+    "fields": {
+      "uuid": "55555555-0009-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "ingredient": 62,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 9007,
+    "fields": {
+      "uuid": "55555555-0009-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "ingredient": 58,
+      "amount": "20",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10001,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 50,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10002,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 32,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10003,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 1,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10004,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 7,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10005,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 5,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10006,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 18,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10007,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 2,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10008,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 58,
+      "amount": "20",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10009,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 61,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10010,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000010",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 62,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 10011,
+    "fields": {
+      "uuid": "55555555-0010-0000-0000-000000000011",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "ingredient": 15,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 11001,
+    "fields": {
+      "uuid": "55555555-0011-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "ingredient": 49,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 11002,
+    "fields": {
+      "uuid": "55555555-0011-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "ingredient": 69,
+      "amount": "80",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 11003,
+    "fields": {
+      "uuid": "55555555-0011-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "ingredient": 37,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 11004,
+    "fields": {
+      "uuid": "55555555-0011-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "ingredient": 1,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 11005,
+    "fields": {
+      "uuid": "55555555-0011-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "ingredient": 61,
+      "amount": "4",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 11006,
+    "fields": {
+      "uuid": "55555555-0011-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "ingredient": 62,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 11007,
+    "fields": {
+      "uuid": "55555555-0011-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "ingredient": 14,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 12001,
+    "fields": {
+      "uuid": "55555555-0012-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "ingredient": 32,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 12002,
+    "fields": {
+      "uuid": "55555555-0012-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "ingredient": 4,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 12003,
+    "fields": {
+      "uuid": "55555555-0012-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "ingredient": 1,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 12004,
+    "fields": {
+      "uuid": "55555555-0012-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "ingredient": 5,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 12005,
+    "fields": {
+      "uuid": "55555555-0012-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "ingredient": 58,
+      "amount": "20",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 12006,
+    "fields": {
+      "uuid": "55555555-0012-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "ingredient": 61,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 12007,
+    "fields": {
+      "uuid": "55555555-0012-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "ingredient": 62,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 12008,
+    "fields": {
+      "uuid": "55555555-0012-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "ingredient": 16,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 13001,
+    "fields": {
+      "uuid": "55555555-0013-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "ingredient": 34,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 13002,
+    "fields": {
+      "uuid": "55555555-0013-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "ingredient": 48,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 13003,
+    "fields": {
+      "uuid": "55555555-0013-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "ingredient": 1,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 13004,
+    "fields": {
+      "uuid": "55555555-0013-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "ingredient": 3,
+      "amount": "120",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 13005,
+    "fields": {
+      "uuid": "55555555-0013-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "ingredient": 58,
+      "amount": "30",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 13006,
+    "fields": {
+      "uuid": "55555555-0013-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "ingredient": 63,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 13007,
+    "fields": {
+      "uuid": "55555555-0013-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "ingredient": 61,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 13008,
+    "fields": {
+      "uuid": "55555555-0013-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "ingredient": 2,
+      "amount": "8",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 14001,
+    "fields": {
+      "uuid": "55555555-0014-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "ingredient": 54,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 14002,
+    "fields": {
+      "uuid": "55555555-0014-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "ingredient": 48,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 14003,
+    "fields": {
+      "uuid": "55555555-0014-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "ingredient": 32,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 14004,
+    "fields": {
+      "uuid": "55555555-0014-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "ingredient": 1,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 14005,
+    "fields": {
+      "uuid": "55555555-0014-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "ingredient": 3,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 14006,
+    "fields": {
+      "uuid": "55555555-0014-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "ingredient": 5,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 14007,
+    "fields": {
+      "uuid": "55555555-0014-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "ingredient": 58,
+      "amount": "15",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 14008,
+    "fields": {
+      "uuid": "55555555-0014-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "ingredient": 61,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 14009,
+    "fields": {
+      "uuid": "55555555-0014-0000-0000-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "ingredient": 63,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 15001,
+    "fields": {
+      "uuid": "55555555-0015-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "ingredient": 57,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 15002,
+    "fields": {
+      "uuid": "55555555-0015-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "ingredient": 1,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 15003,
+    "fields": {
+      "uuid": "55555555-0015-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "ingredient": 3,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 15004,
+    "fields": {
+      "uuid": "55555555-0015-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "ingredient": 4,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 15005,
+    "fields": {
+      "uuid": "55555555-0015-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "ingredient": 2,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 15006,
+    "fields": {
+      "uuid": "55555555-0015-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "ingredient": 61,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 15007,
+    "fields": {
+      "uuid": "55555555-0015-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "ingredient": 63,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 15008,
+    "fields": {
+      "uuid": "55555555-0015-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "ingredient": 16,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 15009,
+    "fields": {
+      "uuid": "55555555-0015-0000-0000-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "ingredient": 59,
+      "amount": "15",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 16001,
+    "fields": {
+      "uuid": "55555555-0016-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "ingredient": 34,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 16002,
+    "fields": {
+      "uuid": "55555555-0016-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "ingredient": 7,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 16003,
+    "fields": {
+      "uuid": "55555555-0016-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "ingredient": 20,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 16004,
+    "fields": {
+      "uuid": "55555555-0016-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "ingredient": 5,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 16005,
+    "fields": {
+      "uuid": "55555555-0016-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "ingredient": 1,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 16006,
+    "fields": {
+      "uuid": "55555555-0016-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "ingredient": 2,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 16007,
+    "fields": {
+      "uuid": "55555555-0016-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "ingredient": 59,
+      "amount": "20",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 16008,
+    "fields": {
+      "uuid": "55555555-0016-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "ingredient": 61,
+      "amount": "4",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 16009,
+    "fields": {
+      "uuid": "55555555-0016-0000-0000-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "ingredient": 62,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 17001,
+    "fields": {
+      "uuid": "55555555-0017-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 17,
+      "ingredient": 38,
+      "amount": "250",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 17002,
+    "fields": {
+      "uuid": "55555555-0017-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 17,
+      "ingredient": 26,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 17003,
+    "fields": {
+      "uuid": "55555555-0017-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 17,
+      "ingredient": 59,
+      "amount": "15",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 17004,
+    "fields": {
+      "uuid": "55555555-0017-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 17,
+      "ingredient": 2,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 17005,
+    "fields": {
+      "uuid": "55555555-0017-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 17,
+      "ingredient": 61,
+      "amount": "4",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 17006,
+    "fields": {
+      "uuid": "55555555-0017-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 17,
+      "ingredient": 62,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 17007,
+    "fields": {
+      "uuid": "55555555-0017-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 17,
+      "ingredient": 14,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 18001,
+    "fields": {
+      "uuid": "55555555-0018-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 18,
+      "ingredient": 35,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 18002,
+    "fields": {
+      "uuid": "55555555-0018-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 18,
+      "ingredient": 1,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 18003,
+    "fields": {
+      "uuid": "55555555-0018-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 18,
+      "ingredient": 47,
+      "amount": "1",
+      "unit": "pcs"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 18004,
+    "fields": {
+      "uuid": "55555555-0018-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 18,
+      "ingredient": 49,
+      "amount": "20",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 18005,
+    "fields": {
+      "uuid": "55555555-0018-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 18,
+      "ingredient": 61,
+      "amount": "4",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 18006,
+    "fields": {
+      "uuid": "55555555-0018-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 18,
+      "ingredient": 62,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 18007,
+    "fields": {
+      "uuid": "55555555-0018-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 18,
+      "ingredient": 58,
+      "amount": "20",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 19001,
+    "fields": {
+      "uuid": "55555555-0019-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 19,
+      "ingredient": 40,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 19002,
+    "fields": {
+      "uuid": "55555555-0019-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 19,
+      "ingredient": 48,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 19003,
+    "fields": {
+      "uuid": "55555555-0019-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 19,
+      "ingredient": 2,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 19004,
+    "fields": {
+      "uuid": "55555555-0019-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 19,
+      "ingredient": 59,
+      "amount": "20",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 19005,
+    "fields": {
+      "uuid": "55555555-0019-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 19,
+      "ingredient": 13,
+      "amount": "10",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 19006,
+    "fields": {
+      "uuid": "55555555-0019-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 19,
+      "ingredient": 61,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 19007,
+    "fields": {
+      "uuid": "55555555-0019-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 19,
+      "ingredient": 26,
+      "amount": "20",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 20001,
+    "fields": {
+      "uuid": "55555555-0020-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 20,
+      "ingredient": 35,
+      "amount": "250",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 20002,
+    "fields": {
+      "uuid": "55555555-0020-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 20,
+      "ingredient": 59,
+      "amount": "20",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 20003,
+    "fields": {
+      "uuid": "55555555-0020-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 20,
+      "ingredient": 2,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 20004,
+    "fields": {
+      "uuid": "55555555-0020-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 20,
+      "ingredient": 61,
+      "amount": "4",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 20005,
+    "fields": {
+      "uuid": "55555555-0020-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 20,
+      "ingredient": 62,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 20006,
+    "fields": {
+      "uuid": "55555555-0020-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 20,
+      "ingredient": 17,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 21001,
+    "fields": {
+      "uuid": "55555555-0021-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 21,
+      "ingredient": 5,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 21002,
+    "fields": {
+      "uuid": "55555555-0021-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 21,
+      "ingredient": 1,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 21003,
+    "fields": {
+      "uuid": "55555555-0021-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 21,
+      "ingredient": 8,
+      "amount": "10",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 21004,
+    "fields": {
+      "uuid": "55555555-0021-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 21,
+      "ingredient": 61,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 21005,
+    "fields": {
+      "uuid": "55555555-0021-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 21,
+      "ingredient": 17,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 22001,
+    "fields": {
+      "uuid": "55555555-0022-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 22,
+      "ingredient": 6,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 22002,
+    "fields": {
+      "uuid": "55555555-0022-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 22,
+      "ingredient": 13,
+      "amount": "10",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 22003,
+    "fields": {
+      "uuid": "55555555-0022-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 22,
+      "ingredient": 14,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 22004,
+    "fields": {
+      "uuid": "55555555-0022-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 22,
+      "ingredient": 43,
+      "amount": "30",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 22005,
+    "fields": {
+      "uuid": "55555555-0022-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 22,
+      "ingredient": 61,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 23001,
+    "fields": {
+      "uuid": "55555555-0023-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 23,
+      "ingredient": 9,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 23002,
+    "fields": {
+      "uuid": "55555555-0023-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 23,
+      "ingredient": 3,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 23003,
+    "fields": {
+      "uuid": "55555555-0023-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 23,
+      "ingredient": 60,
+      "amount": "10",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 23004,
+    "fields": {
+      "uuid": "55555555-0023-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 23,
+      "ingredient": 58,
+      "amount": "15",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 23005,
+    "fields": {
+      "uuid": "55555555-0023-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 23,
+      "ingredient": 61,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 23006,
+    "fields": {
+      "uuid": "55555555-0023-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 23,
+      "ingredient": 67,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 24001,
+    "fields": {
+      "uuid": "55555555-0024-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "ingredient": 4,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 24002,
+    "fields": {
+      "uuid": "55555555-0024-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "ingredient": 3,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 24003,
+    "fields": {
+      "uuid": "55555555-0024-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "ingredient": 56,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 24004,
+    "fields": {
+      "uuid": "55555555-0024-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "ingredient": 10,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 24005,
+    "fields": {
+      "uuid": "55555555-0024-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "ingredient": 1,
+      "amount": "30",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 24006,
+    "fields": {
+      "uuid": "55555555-0024-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "ingredient": 59,
+      "amount": "15",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 24007,
+    "fields": {
+      "uuid": "55555555-0024-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "ingredient": 61,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 25001,
+    "fields": {
+      "uuid": "55555555-0025-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "ingredient": 5,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 25002,
+    "fields": {
+      "uuid": "55555555-0025-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "ingredient": 6,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 25003,
+    "fields": {
+      "uuid": "55555555-0025-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "ingredient": 7,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 25004,
+    "fields": {
+      "uuid": "55555555-0025-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "ingredient": 1,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 25005,
+    "fields": {
+      "uuid": "55555555-0025-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "ingredient": 45,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 25006,
+    "fields": {
+      "uuid": "55555555-0025-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "ingredient": 59,
+      "amount": "15",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 25007,
+    "fields": {
+      "uuid": "55555555-0025-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "ingredient": 61,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 25008,
+    "fields": {
+      "uuid": "55555555-0025-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "ingredient": 17,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 26001,
+    "fields": {
+      "uuid": "55555555-0026-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 26,
+      "ingredient": 1,
+      "amount": "300",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 26002,
+    "fields": {
+      "uuid": "55555555-0026-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 26,
+      "ingredient": 44,
+      "amount": "30",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 26003,
+    "fields": {
+      "uuid": "55555555-0026-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 26,
+      "ingredient": 69,
+      "amount": "500",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 26004,
+    "fields": {
+      "uuid": "55555555-0026-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 26,
+      "ingredient": 53,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 26005,
+    "fields": {
+      "uuid": "55555555-0026-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 26,
+      "ingredient": 45,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 26006,
+    "fields": {
+      "uuid": "55555555-0026-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 26,
+      "ingredient": 61,
+      "amount": "4",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 26007,
+    "fields": {
+      "uuid": "55555555-0026-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 26,
+      "ingredient": 62,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 27001,
+    "fields": {
+      "uuid": "55555555-0027-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "ingredient": 55,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 27002,
+    "fields": {
+      "uuid": "55555555-0027-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "ingredient": 32,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 27003,
+    "fields": {
+      "uuid": "55555555-0027-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "ingredient": 1,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 27004,
+    "fields": {
+      "uuid": "55555555-0027-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "ingredient": 3,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 27005,
+    "fields": {
+      "uuid": "55555555-0027-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "ingredient": 4,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 27006,
+    "fields": {
+      "uuid": "55555555-0027-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "ingredient": 61,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 27007,
+    "fields": {
+      "uuid": "55555555-0027-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "ingredient": 63,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 27008,
+    "fields": {
+      "uuid": "55555555-0027-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "ingredient": 14,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 28001,
+    "fields": {
+      "uuid": "55555555-0028-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "ingredient": 12,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 28002,
+    "fields": {
+      "uuid": "55555555-0028-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "ingredient": 4,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 28003,
+    "fields": {
+      "uuid": "55555555-0028-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "ingredient": 1,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 28004,
+    "fields": {
+      "uuid": "55555555-0028-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "ingredient": 44,
+      "amount": "15",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 28005,
+    "fields": {
+      "uuid": "55555555-0028-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "ingredient": 41,
+      "amount": "100",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 28006,
+    "fields": {
+      "uuid": "55555555-0028-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "ingredient": 61,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 28007,
+    "fields": {
+      "uuid": "55555555-0028-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "ingredient": 62,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 29001,
+    "fields": {
+      "uuid": "55555555-0029-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 29,
+      "ingredient": 70,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 29002,
+    "fields": {
+      "uuid": "55555555-0029-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 29,
+      "ingredient": 69,
+      "amount": "250",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 30001,
+    "fields": {
+      "uuid": "55555555-0030-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 30,
+      "ingredient": 21,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 30002,
+    "fields": {
+      "uuid": "55555555-0030-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 30,
+      "ingredient": 24,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 30003,
+    "fields": {
+      "uuid": "55555555-0030-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 30,
+      "ingredient": 25,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 30004,
+    "fields": {
+      "uuid": "55555555-0030-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 30,
+      "ingredient": 67,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 30005,
+    "fields": {
+      "uuid": "55555555-0030-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 30,
+      "ingredient": 69,
+      "amount": "500",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 31001,
+    "fields": {
+      "uuid": "55555555-0031-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 31,
+      "ingredient": 26,
+      "amount": "50",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 31002,
+    "fields": {
+      "uuid": "55555555-0031-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 31,
+      "ingredient": 69,
+      "amount": "300",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 31003,
+    "fields": {
+      "uuid": "55555555-0031-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 31,
+      "ingredient": 68,
+      "amount": "10",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 32001,
+    "fields": {
+      "uuid": "55555555-0032-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 32,
+      "ingredient": 42,
+      "amount": "200",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 32002,
+    "fields": {
+      "uuid": "55555555-0032-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 32,
+      "ingredient": 69,
+      "amount": "100",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 32003,
+    "fields": {
+      "uuid": "55555555-0032-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 32,
+      "ingredient": 61,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 32004,
+    "fields": {
+      "uuid": "55555555-0032-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 32,
+      "ingredient": 14,
+      "amount": "2",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 33001,
+    "fields": {
+      "uuid": "55555555-0033-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 33,
+      "ingredient": 49,
+      "amount": "200",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 33002,
+    "fields": {
+      "uuid": "55555555-0033-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 33,
+      "ingredient": 69,
+      "amount": "100",
+      "unit": "ml"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 33003,
+    "fields": {
+      "uuid": "55555555-0033-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 33,
+      "ingredient": 61,
+      "amount": "3",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 33004,
+    "fields": {
+      "uuid": "55555555-0033-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 33,
+      "ingredient": 67,
+      "amount": "5",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 34001,
+    "fields": {
+      "uuid": "55555555-0034-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 34,
+      "ingredient": 21,
+      "amount": "100",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 34002,
+    "fields": {
+      "uuid": "55555555-0034-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 34,
+      "ingredient": 28,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 34003,
+    "fields": {
+      "uuid": "55555555-0034-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 34,
+      "ingredient": 29,
+      "amount": "60",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 34004,
+    "fields": {
+      "uuid": "55555555-0034-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 34,
+      "ingredient": 27,
+      "amount": "80",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 34005,
+    "fields": {
+      "uuid": "55555555-0034-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 34,
+      "ingredient": 68,
+      "amount": "15",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 34006,
+    "fields": {
+      "uuid": "55555555-0034-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 34,
+      "ingredient": 43,
+      "amount": "40",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 34007,
+    "fields": {
+      "uuid": "55555555-0034-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 34,
+      "ingredient": 71,
+      "amount": "20",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 35001,
+    "fields": {
+      "uuid": "55555555-0035-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 35,
+      "ingredient": 46,
+      "amount": "150",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 35002,
+    "fields": {
+      "uuid": "55555555-0035-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 35,
+      "ingredient": 68,
+      "amount": "20",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 35003,
+    "fields": {
+      "uuid": "55555555-0035-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 35,
+      "ingredient": 71,
+      "amount": "15",
+      "unit": "g"
+    }
+  },
+  {
+    "model": "recipes.recipeingredient",
+    "pk": 35004,
+    "fields": {
+      "uuid": "55555555-0035-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 35,
+      "ingredient": 29,
+      "amount": "60",
+      "unit": "g"
+    }
+  }
+]

@@ -1,0 +1,1216 @@
+[
+  {
+    "model": "recipes.ingredient",
+    "pk": 1,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Piyoz",
+      "name_ru": "Лук",
+      "name_en": "Onion",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Piyoz"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 2,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Sarimsoq",
+      "name_ru": "Чеснок",
+      "name_en": "Garlic",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Sarimsoq"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 3,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Sabzi",
+      "name_ru": "Морковь",
+      "name_en": "Carrot",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Sabzi"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 4,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Kartoshka",
+      "name_ru": "Картофель",
+      "name_en": "Potato",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Kartoshka"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 5,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Pomidor",
+      "name_ru": "Помидор",
+      "name_en": "Tomato",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Pomidor"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 6,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Bodring",
+      "name_ru": "Огурец",
+      "name_en": "Cucumber",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Bodring"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 7,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Bulg'or qalampiri",
+      "name_ru": "Болгарский перец",
+      "name_en": "Bell pepper",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Bulg'or qalampiri"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 8,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Achchiq qalampir",
+      "name_ru": "Острый перец",
+      "name_en": "Chili pepper",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Achchiq qalampir"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 9,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Karam",
+      "name_ru": "Капуста",
+      "name_en": "Cabbage",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Karam"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 10,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000010",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Turp",
+      "name_ru": "Редька",
+      "name_en": "Radish",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Turp"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 11,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000011",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Sholg'om",
+      "name_ru": "Репа",
+      "name_en": "Turnip",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Sholg'om"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 12,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000012",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Ismaloq",
+      "name_ru": "Шпинат",
+      "name_en": "Spinach",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Ismaloq"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 13,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000013",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Ko'k piyoz",
+      "name_ru": "Зелёный лук",
+      "name_en": "Green onion",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Ko'k piyoz"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 14,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000014",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Ukrop",
+      "name_ru": "Укроп",
+      "name_en": "Dill",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Ukrop"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 15,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000015",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Kashnich",
+      "name_ru": "Кинза",
+      "name_en": "Cilantro",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Kashnich"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 16,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000016",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Petrushka",
+      "name_ru": "Петрушка",
+      "name_en": "Parsley",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Petrushka"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 17,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000017",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Rayxon",
+      "name_ru": "Базилик",
+      "name_en": "Basil",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Rayxon"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 18,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000018",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Baqlajon",
+      "name_ru": "Баклажан",
+      "name_en": "Eggplant",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Baqlajon"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 19,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000019",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qovoq",
+      "name_ru": "Тыква",
+      "name_en": "Pumpkin",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Qovoq"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 20,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000020",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qovoqcha",
+      "name_ru": "Кабачок",
+      "name_en": "Zucchini",
+      "category": "VEGETABLE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Qovoqcha"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 21,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000021",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Olma",
+      "name_ru": "Яблоко",
+      "name_en": "Apple",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Olma"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 22,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000022",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Uzum",
+      "name_ru": "Виноград",
+      "name_en": "Grape",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Uzum"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 23,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000023",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Anor",
+      "name_ru": "Гранат",
+      "name_en": "Pomegranate",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Anor"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 24,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000024",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Nok",
+      "name_ru": "Груша",
+      "name_en": "Pear",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Nok"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 25,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000025",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Behi",
+      "name_ru": "Айва",
+      "name_en": "Quince",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Behi"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 26,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000026",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Limon",
+      "name_ru": "Лимон",
+      "name_en": "Lemon",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [
+        10
+      ],
+      "name": "Limon"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 27,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000027",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Apelsin",
+      "name_ru": "Апельсин",
+      "name_en": "Orange",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [
+        10
+      ],
+      "name": "Apelsin"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 28,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000028",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Banan",
+      "name_ru": "Банан",
+      "name_en": "Banana",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Banan"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 29,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000029",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qulupnay",
+      "name_ru": "Клубника",
+      "name_en": "Strawberry",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Qulupnay"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 30,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000030",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Tarvuz",
+      "name_ru": "Арбуз",
+      "name_en": "Watermelon",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Tarvuz"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 31,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000031",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qovun",
+      "name_ru": "Дыня",
+      "name_en": "Melon",
+      "category": "FRUIT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Qovun"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 32,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000032",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Mol go'shti",
+      "name_ru": "Говядина",
+      "name_en": "Beef",
+      "category": "MEAT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Mol go'shti"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 33,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000033",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qo'y go'shti",
+      "name_ru": "Баранина",
+      "name_en": "Lamb",
+      "category": "MEAT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Qo'y go'shti"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 34,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000034",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Tovuq go'shti",
+      "name_ru": "Курица",
+      "name_en": "Chicken",
+      "category": "MEAT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Tovuq go'shti"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 35,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000035",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Kurka go'shti",
+      "name_ru": "Индейка",
+      "name_en": "Turkey",
+      "category": "MEAT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Kurka go'shti"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 36,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000036",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Cho'chqa go'shti",
+      "name_ru": "Свинина",
+      "name_en": "Pork",
+      "category": "MEAT",
+      "default_unit": "g",
+      "allergen_tags": [
+        11
+      ],
+      "name": "Cho'chqa go'shti"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 37,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000037",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Farshli go'sht",
+      "name_ru": "Фарш",
+      "name_en": "Ground meat",
+      "category": "MEAT",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Farshli go'sht"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 38,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000038",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Baliq (som/karp)",
+      "name_ru": "Рыба (сом/карп)",
+      "name_en": "Fish",
+      "category": "MEAT",
+      "default_unit": "g",
+      "allergen_tags": [
+        6
+      ],
+      "name": "Baliq (som/karp)"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 39,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000039",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Losos",
+      "name_ru": "Лосось",
+      "name_en": "Salmon",
+      "category": "MEAT",
+      "default_unit": "g",
+      "allergen_tags": [
+        6
+      ],
+      "name": "Losos"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 40,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000040",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Krevetka",
+      "name_ru": "Креветки",
+      "name_en": "Shrimp",
+      "category": "MEAT",
+      "default_unit": "g",
+      "allergen_tags": [
+        7
+      ],
+      "name": "Krevetka"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 41,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000041",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Sut",
+      "name_ru": "Молоко",
+      "name_en": "Milk",
+      "category": "DAIRY",
+      "default_unit": "ml",
+      "allergen_tags": [
+        1
+      ],
+      "name": "Sut"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 42,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000042",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qatiq",
+      "name_ru": "Кефир",
+      "name_en": "Kefir",
+      "category": "DAIRY",
+      "default_unit": "ml",
+      "allergen_tags": [
+        1
+      ],
+      "name": "Qatiq"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 43,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000043",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Smetana",
+      "name_ru": "Сметана",
+      "name_en": "Sour cream",
+      "category": "DAIRY",
+      "default_unit": "g",
+      "allergen_tags": [
+        1
+      ],
+      "name": "Smetana"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 44,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000044",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Yog' (sariyog')",
+      "name_ru": "Масло сливочное",
+      "name_en": "Butter",
+      "category": "DAIRY",
+      "default_unit": "g",
+      "allergen_tags": [
+        1
+      ],
+      "name": "Yog' (sariyog')"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 45,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000045",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Pishloq",
+      "name_ru": "Сыр",
+      "name_en": "Cheese",
+      "category": "DAIRY",
+      "default_unit": "g",
+      "allergen_tags": [
+        1
+      ],
+      "name": "Pishloq"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 46,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000046",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Suzma",
+      "name_ru": "Творог",
+      "name_en": "Cottage cheese",
+      "category": "DAIRY",
+      "default_unit": "g",
+      "allergen_tags": [
+        1
+      ],
+      "name": "Suzma"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 47,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000047",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Tuxum",
+      "name_ru": "Яйцо",
+      "name_en": "Egg",
+      "category": "OTHER",
+      "default_unit": "pcs",
+      "allergen_tags": [
+        2
+      ],
+      "name": "Tuxum"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 48,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000048",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Guruch",
+      "name_ru": "Рис",
+      "name_en": "Rice",
+      "category": "GRAIN",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Guruch"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 49,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000049",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Un (bug'doy)",
+      "name_ru": "Мука пшеничная",
+      "name_en": "Wheat flour",
+      "category": "GRAIN",
+      "default_unit": "g",
+      "allergen_tags": [
+        3
+      ],
+      "name": "Un (bug'doy)"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 50,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000050",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Makaron",
+      "name_ru": "Макароны",
+      "name_en": "Pasta",
+      "category": "GRAIN",
+      "default_unit": "g",
+      "allergen_tags": [
+        3
+      ],
+      "name": "Makaron"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 51,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000051",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Grechka",
+      "name_ru": "Гречка",
+      "name_en": "Buckwheat",
+      "category": "GRAIN",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Grechka"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 52,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000052",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Suli (ovsyanka)",
+      "name_ru": "Овсянка",
+      "name_en": "Oats",
+      "category": "GRAIN",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Suli (ovsyanka)"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 53,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000053",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Non",
+      "name_ru": "Хлеб",
+      "name_en": "Bread",
+      "category": "GRAIN",
+      "default_unit": "g",
+      "allergen_tags": [
+        3
+      ],
+      "name": "Non"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 54,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000054",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Mosh",
+      "name_ru": "Маш",
+      "name_en": "Mung bean",
+      "category": "GRAIN",
+      "default_unit": "g",
+      "allergen_tags": [
+        9
+      ],
+      "name": "Mosh"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 55,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000055",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "No'xat",
+      "name_ru": "Нут",
+      "name_en": "Chickpea",
+      "category": "GRAIN",
+      "default_unit": "g",
+      "allergen_tags": [
+        9
+      ],
+      "name": "No'xat"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 56,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000056",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Loviya",
+      "name_ru": "Фасоль",
+      "name_en": "Bean",
+      "category": "GRAIN",
+      "default_unit": "g",
+      "allergen_tags": [
+        9
+      ],
+      "name": "Loviya"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 57,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000057",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Adas",
+      "name_ru": "Чечевица",
+      "name_en": "Lentil",
+      "category": "GRAIN",
+      "default_unit": "g",
+      "allergen_tags": [
+        9
+      ],
+      "name": "Adas"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 58,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000058",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Kungaboqar yog'i",
+      "name_ru": "Подсолнечное масло",
+      "name_en": "Sunflower oil",
+      "category": "OIL",
+      "default_unit": "ml",
+      "allergen_tags": [],
+      "name": "Kungaboqar yog'i"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 59,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000059",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Zaytun yog'i",
+      "name_ru": "Оливковое масло",
+      "name_en": "Olive oil",
+      "category": "OIL",
+      "default_unit": "ml",
+      "allergen_tags": [],
+      "name": "Zaytun yog'i"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 60,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000060",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Sirka",
+      "name_ru": "Уксус",
+      "name_en": "Vinegar",
+      "category": "OTHER",
+      "default_unit": "ml",
+      "allergen_tags": [],
+      "name": "Sirka"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 61,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000061",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Tuz",
+      "name_ru": "Соль",
+      "name_en": "Salt",
+      "category": "SPICE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Tuz"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 62,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000062",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qora murch",
+      "name_ru": "Чёрный перец",
+      "name_en": "Black pepper",
+      "category": "SPICE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Qora murch"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 63,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000063",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Zira",
+      "name_ru": "Зира",
+      "name_en": "Cumin",
+      "category": "SPICE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Zira"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 64,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000064",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qizil murch",
+      "name_ru": "Красный перец",
+      "name_en": "Red pepper",
+      "category": "SPICE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Qizil murch"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 65,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000065",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Ziravor (aralashma)",
+      "name_ru": "Приправа",
+      "name_en": "Spice mix",
+      "category": "SPICE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Ziravor (aralashma)"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 66,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000066",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Lavr yaprog'i",
+      "name_ru": "Лавровый лист",
+      "name_en": "Bay leaf",
+      "category": "SPICE",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Lavr yaprog'i"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 67,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000067",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Shakar",
+      "name_ru": "Сахар",
+      "name_en": "Sugar",
+      "category": "OTHER",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Shakar"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 68,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000068",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Asal",
+      "name_ru": "Мёд",
+      "name_en": "Honey",
+      "category": "OTHER",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Asal"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 69,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000069",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Suv",
+      "name_ru": "Вода",
+      "name_en": "Water",
+      "category": "OTHER",
+      "default_unit": "ml",
+      "allergen_tags": [],
+      "name": "Suv"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 70,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000070",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Choy barglari",
+      "name_ru": "Чай",
+      "name_en": "Tea",
+      "category": "OTHER",
+      "default_unit": "g",
+      "allergen_tags": [],
+      "name": "Choy barglari"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 71,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000071",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Yong'oq",
+      "name_ru": "Грецкий орех",
+      "name_en": "Walnut",
+      "category": "OTHER",
+      "default_unit": "g",
+      "allergen_tags": [
+        4
+      ],
+      "name": "Yong'oq"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 72,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000072",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Bodom",
+      "name_ru": "Миндаль",
+      "name_en": "Almond",
+      "category": "OTHER",
+      "default_unit": "g",
+      "allergen_tags": [
+        4
+      ],
+      "name": "Bodom"
+    }
+  },
+  {
+    "model": "recipes.ingredient",
+    "pk": 73,
+    "fields": {
+      "uuid": "33333333-0000-0000-0000-000000000073",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Yeryong'oq",
+      "name_ru": "Арахис",
+      "name_en": "Peanut",
+      "category": "OTHER",
+      "default_unit": "g",
+      "allergen_tags": [
+        5
+      ],
+      "name": "Yeryong'oq"
+    }
+  }
+]

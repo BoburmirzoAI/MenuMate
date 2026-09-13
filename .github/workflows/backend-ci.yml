@@ -1,0 +1,102 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-ci.yml'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'backend/**'
+
+jobs:
+  test:
+    name: Lint & Test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: menu_mate_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Poetry
+        run: pip install poetry==1.8.3
+
+      - name: Install dependencies
+        run: |
+          poetry config virtualenvs.create false
+          poetry install --no-interaction --no-root
+
+      - name: Install ruff (lint)
+        run: pip install ruff
+
+      - name: Ruff lint
+        run: ruff check . || true  # non-blocking dastlab
+
+      - name: Django check
+        env:
+          DJANGO_SETTINGS_MODULE: core.settings.dev
+          SECRET_KEY: ci-test-secret-key
+          DEBUG: "False"
+          DB_NAME: menu_mate_test
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          DB_HOST: localhost
+          DB_PORT: 5432
+        run: python manage.py check
+
+      - name: Run migrations
+        env:
+          DJANGO_SETTINGS_MODULE: core.settings.dev
+          SECRET_KEY: ci-test-secret-key
+          DB_NAME: menu_mate_test
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          DB_HOST: localhost
+          DB_PORT: 5432
+        run: python manage.py migrate --noinput
+
+      - name: Run tests
+        env:
+          DJANGO_SETTINGS_MODULE: core.settings.dev
+          SECRET_KEY: ci-test-secret-key
+          DB_NAME: menu_mate_test
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          DB_HOST: localhost
+          DB_PORT: 5432
+        run: python manage.py test --verbosity 2

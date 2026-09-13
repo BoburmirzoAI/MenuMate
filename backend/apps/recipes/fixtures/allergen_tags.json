@@ -1,0 +1,156 @@
+[
+  {
+    "model": "recipes.allergentag",
+    "pk": 1,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "dairy",
+      "name_uz": "Sut mahsulotlari",
+      "name_ru": "Молочные",
+      "name_en": "Dairy",
+      "name": "Sut mahsulotlari"
+    }
+  },
+  {
+    "model": "recipes.allergentag",
+    "pk": 2,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "egg",
+      "name_uz": "Tuxum",
+      "name_ru": "Яйца",
+      "name_en": "Egg",
+      "name": "Tuxum"
+    }
+  },
+  {
+    "model": "recipes.allergentag",
+    "pk": 3,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "gluten",
+      "name_uz": "Gluten",
+      "name_ru": "Глютен",
+      "name_en": "Gluten",
+      "name": "Gluten"
+    }
+  },
+  {
+    "model": "recipes.allergentag",
+    "pk": 4,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "nuts",
+      "name_uz": "Yong'oqlar",
+      "name_ru": "Орехи",
+      "name_en": "Nuts",
+      "name": "Yong'oqlar"
+    }
+  },
+  {
+    "model": "recipes.allergentag",
+    "pk": 5,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "peanut",
+      "name_uz": "Yeryong'oq",
+      "name_ru": "Арахис",
+      "name_en": "Peanut",
+      "name": "Yeryong'oq"
+    }
+  },
+  {
+    "model": "recipes.allergentag",
+    "pk": 6,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "fish",
+      "name_uz": "Baliq",
+      "name_ru": "Рыба",
+      "name_en": "Fish",
+      "name": "Baliq"
+    }
+  },
+  {
+    "model": "recipes.allergentag",
+    "pk": 7,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "seafood",
+      "name_uz": "Dengiz mahsulotlari",
+      "name_ru": "Морепродукты",
+      "name_en": "Seafood",
+      "name": "Dengiz mahsulotlari"
+    }
+  },
+  {
+    "model": "recipes.allergentag",
+    "pk": 8,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "soy",
+      "name_uz": "Soya",
+      "name_ru": "Соя",
+      "name_en": "Soy",
+      "name": "Soya"
+    }
+  },
+  {
+    "model": "recipes.allergentag",
+    "pk": 9,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "legume",
+      "name_uz": "Dukkakli o'simliklar",
+      "name_ru": "Бобовые",
+      "name_en": "Legume",
+      "name": "Dukkakli o'simliklar"
+    }
+  },
+  {
+    "model": "recipes.allergentag",
+    "pk": 10,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000010",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "citrus",
+      "name_uz": "Sitrus mevalar",
+      "name_ru": "Цитрусовые",
+      "name_en": "Citrus",
+      "name": "Sitrus mevalar"
+    }
+  },
+  {
+    "model": "recipes.allergentag",
+    "pk": 11,
+    "fields": {
+      "uuid": "22222222-1111-0000-0000-000000000011",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "slug": "pork",
+      "name_uz": "Cho'chqa go'shti",
+      "name_ru": "Свинина",
+      "name_en": "Pork",
+      "name": "Cho'chqa go'shti"
+    }
+  }
+]

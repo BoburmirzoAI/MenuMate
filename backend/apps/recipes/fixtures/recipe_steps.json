@@ -1,0 +1,1697 @@
+[
+  {
+    "model": "recipes.recipestep",
+    "pk": 1001,
+    "fields": {
+      "uuid": "66666666-0001-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 1,
+      "order": 1,
+      "description_uz": "Sulini sut bilan qaynating (10 daqiqa).",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sulini sut bilan qaynating (10 daqiqa)."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 1002,
+    "fields": {
+      "uuid": "66666666-0001-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 1,
+      "order": 2,
+      "description_uz": "Sariyog' va asal qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sariyog' va asal qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 1003,
+    "fields": {
+      "uuid": "66666666-0001-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 1,
+      "order": 3,
+      "description_uz": "Bir chimdim tuz bilan aralashtiring va issiq bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Bir chimdim tuz bilan aralashtiring va issiq bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 2001,
+    "fields": {
+      "uuid": "66666666-0002-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 2,
+      "order": 1,
+      "description_uz": "Tuxumni sut bilan urib chiqing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Tuxumni sut bilan urib chiqing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 2002,
+    "fields": {
+      "uuid": "66666666-0002-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 2,
+      "order": 2,
+      "description_uz": "Tovada sariyog' eritib, tuxum aralashmasini quying.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Tovada sariyog' eritib, tuxum aralashmasini quying."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 2003,
+    "fields": {
+      "uuid": "66666666-0002-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 2,
+      "order": 3,
+      "description_uz": "Sekin olovda 5 daqiqa pishiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sekin olovda 5 daqiqa pishiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 3001,
+    "fields": {
+      "uuid": "66666666-0003-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 3,
+      "order": 1,
+      "description_uz": "Suzmani ozod idishga soling.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Suzmani ozod idishga soling."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 3002,
+    "fields": {
+      "uuid": "66666666-0003-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 3,
+      "order": 2,
+      "description_uz": "Ustiga asal quying va maydalangan yong'oq sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Ustiga asal quying va maydalangan yong'oq sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 3003,
+    "fields": {
+      "uuid": "66666666-0003-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 3,
+      "order": 3,
+      "description_uz": "Olma bo'laklarini qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Olma bo'laklarini qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 4001,
+    "fields": {
+      "uuid": "66666666-0004-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 4,
+      "order": 1,
+      "description_uz": "Grechkani yuvib, suvda 15 daqiqa qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Grechkani yuvib, suvda 15 daqiqa qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 4002,
+    "fields": {
+      "uuid": "66666666-0004-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 4,
+      "order": 2,
+      "description_uz": "Tuz va sariyog' qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Tuz va sariyog' qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 4003,
+    "fields": {
+      "uuid": "66666666-0004-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 4,
+      "order": 3,
+      "description_uz": "Sut bilan bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sut bilan bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 5001,
+    "fields": {
+      "uuid": "66666666-0005-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 5,
+      "order": 1,
+      "description_uz": "Non ustiga sariyog' va pishloq qo'ying.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Non ustiga sariyog' va pishloq qo'ying."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 5002,
+    "fields": {
+      "uuid": "66666666-0005-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 5,
+      "order": 2,
+      "description_uz": "Choy damlab, shakar bilan bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Choy damlab, shakar bilan bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 6001,
+    "fields": {
+      "uuid": "66666666-0006-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "order": 1,
+      "description_uz": "Qozonda yog' qizdiring, sabzi va piyozni qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Qozonda yog' qizdiring, sabzi va piyozni qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 6002,
+    "fields": {
+      "uuid": "66666666-0006-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "order": 2,
+      "description_uz": "Qo'y go'shtini qo'shib, jigarrang bo'lguncha qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Qo'y go'shtini qo'shib, jigarrang bo'lguncha qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 6003,
+    "fields": {
+      "uuid": "66666666-0006-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "order": 3,
+      "description_uz": "Suv quyib, guruch soling. Zira, tuz va butun sarimsoq qo'ying.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Suv quyib, guruch soling. Zira, tuz va butun sarimsoq qo'ying."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 6004,
+    "fields": {
+      "uuid": "66666666-0006-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 6,
+      "order": 4,
+      "description_uz": "Sekin olovda 40 daqiqa dam bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sekin olovda 40 daqiqa dam bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 7001,
+    "fields": {
+      "uuid": "66666666-0007-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "order": 1,
+      "description_uz": "Go'shtni bo'laklab suvda qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Go'shtni bo'laklab suvda qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 7002,
+    "fields": {
+      "uuid": "66666666-0007-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "order": 2,
+      "description_uz": "Sabzavotlarni qovurib, go'sht qaynayotgan qozonga soling.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sabzavotlarni qovurib, go'sht qaynayotgan qozonga soling."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 7003,
+    "fields": {
+      "uuid": "66666666-0007-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "order": 3,
+      "description_uz": "Guruch qo'shib 20 daqiqa pishiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Guruch qo'shib 20 daqiqa pishiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 7004,
+    "fields": {
+      "uuid": "66666666-0007-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 7,
+      "order": 4,
+      "description_uz": "Ukrop sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Ukrop sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 8001,
+    "fields": {
+      "uuid": "66666666-0008-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "order": 1,
+      "description_uz": "Qo'y go'shtini suvda qaynating (1 soat).",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Qo'y go'shtini suvda qaynating (1 soat)."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 8002,
+    "fields": {
+      "uuid": "66666666-0008-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "order": 2,
+      "description_uz": "Kartoshka, sabzi, piyozni yirikroq to'g'rab qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Kartoshka, sabzi, piyozni yirikroq to'g'rab qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 8003,
+    "fields": {
+      "uuid": "66666666-0008-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "order": 3,
+      "description_uz": "Pomidor va qalampir soling.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Pomidor va qalampir soling."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 8004,
+    "fields": {
+      "uuid": "66666666-0008-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 8,
+      "order": 4,
+      "description_uz": "Zira, tuz, lavr yaprog'i qo'shib yana 20 daqiqa qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Zira, tuz, lavr yaprog'i qo'shib yana 20 daqiqa qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 9001,
+    "fields": {
+      "uuid": "66666666-0009-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "order": 1,
+      "description_uz": "Un va suvdan qattiq xamir qoring, 30 daqiqa dam bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Un va suvdan qattiq xamir qoring, 30 daqiqa dam bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 9002,
+    "fields": {
+      "uuid": "66666666-0009-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "order": 2,
+      "description_uz": "Farsh, mayda to'g'ralgan piyoz, tuz va murchni aralashtiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Farsh, mayda to'g'ralgan piyoz, tuz va murchni aralashtiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 9003,
+    "fields": {
+      "uuid": "66666666-0009-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "order": 3,
+      "description_uz": "Xamirni yupqa yoyib, kvadratlarga bo'lib farsh soling va yig'ing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Xamirni yupqa yoyib, kvadratlarga bo'lib farsh soling va yig'ing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 9004,
+    "fields": {
+      "uuid": "66666666-0009-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 9,
+      "order": 4,
+      "description_uz": "Mantivarkada 40 daqiqa pishiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Mantivarkada 40 daqiqa pishiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 10001,
+    "fields": {
+      "uuid": "66666666-0010-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "order": 1,
+      "description_uz": "Go'shtni bo'laklab qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Go'shtni bo'laklab qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 10002,
+    "fields": {
+      "uuid": "66666666-0010-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "order": 2,
+      "description_uz": "Piyoz, qalampir, baqlajon, pomidor qo'shib qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Piyoz, qalampir, baqlajon, pomidor qo'shib qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 10003,
+    "fields": {
+      "uuid": "66666666-0010-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "order": 3,
+      "description_uz": "Suv quyib, qaynatgach makaronni alohida qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Suv quyib, qaynatgach makaronni alohida qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 10004,
+    "fields": {
+      "uuid": "66666666-0010-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 10,
+      "order": 4,
+      "description_uz": "Kosaga solib, kashnich sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Kosaga solib, kashnich sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 11001,
+    "fields": {
+      "uuid": "66666666-0011-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "order": 1,
+      "description_uz": "Xamir qoring va dam bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Xamir qoring va dam bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 11002,
+    "fields": {
+      "uuid": "66666666-0011-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "order": 2,
+      "description_uz": "Farsh, piyoz, tuzli aralashma tayyorlang.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Farsh, piyoz, tuzli aralashma tayyorlang."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 11003,
+    "fields": {
+      "uuid": "66666666-0011-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "order": 3,
+      "description_uz": "Kichik chuchvaralar tayyor qilib, qaynayotgan sho'rvada 8 daqiqa qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Kichik chuchvaralar tayyor qilib, qaynayotgan sho'rvada 8 daqiqa qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 11004,
+    "fields": {
+      "uuid": "66666666-0011-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 11,
+      "order": 4,
+      "description_uz": "Ukrop sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Ukrop sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 12001,
+    "fields": {
+      "uuid": "66666666-0012-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "order": 1,
+      "description_uz": "Go'shtni jigarrang bo'lguncha qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Go'shtni jigarrang bo'lguncha qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 12002,
+    "fields": {
+      "uuid": "66666666-0012-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "order": 2,
+      "description_uz": "Piyoz, pomidor qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Piyoz, pomidor qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 12003,
+    "fields": {
+      "uuid": "66666666-0012-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "order": 3,
+      "description_uz": "Kartoshkani qo'shib, suv quying va 40 daqiqa dimlang.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Kartoshkani qo'shib, suv quying va 40 daqiqa dimlang."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 12004,
+    "fields": {
+      "uuid": "66666666-0012-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 12,
+      "order": 4,
+      "description_uz": "Petrushka sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Petrushka sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 13001,
+    "fields": {
+      "uuid": "66666666-0013-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "order": 1,
+      "description_uz": "Tovuqni bo'laklab qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Tovuqni bo'laklab qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 13002,
+    "fields": {
+      "uuid": "66666666-0013-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "order": 2,
+      "description_uz": "Piyoz va sabzi qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Piyoz va sabzi qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 13003,
+    "fields": {
+      "uuid": "66666666-0013-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "order": 3,
+      "description_uz": "Suv quyib guruch soling.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Suv quyib guruch soling."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 13004,
+    "fields": {
+      "uuid": "66666666-0013-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 13,
+      "order": 4,
+      "description_uz": "40 daqiqa dam bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "40 daqiqa dam bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 14001,
+    "fields": {
+      "uuid": "66666666-0014-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "order": 1,
+      "description_uz": "Moshni oldindan ivitib qo'ying.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Moshni oldindan ivitib qo'ying."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 14002,
+    "fields": {
+      "uuid": "66666666-0014-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "order": 2,
+      "description_uz": "Go'sht va sabzavotlarni qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Go'sht va sabzavotlarni qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 14003,
+    "fields": {
+      "uuid": "66666666-0014-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "order": 3,
+      "description_uz": "Suv qo'shib mosh va guruch soling.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Suv qo'shib mosh va guruch soling."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 14004,
+    "fields": {
+      "uuid": "66666666-0014-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 14,
+      "order": 4,
+      "description_uz": "1 soat qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "1 soat qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 15001,
+    "fields": {
+      "uuid": "66666666-0015-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "order": 1,
+      "description_uz": "Adasni yuvib qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Adasni yuvib qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 15002,
+    "fields": {
+      "uuid": "66666666-0015-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "order": 2,
+      "description_uz": "Sabzi, piyoz, sarimsoqni qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sabzi, piyoz, sarimsoqni qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 15003,
+    "fields": {
+      "uuid": "66666666-0015-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "order": 3,
+      "description_uz": "Adas qaynayotgan qozonga qo'shing va 20 daqiqa qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Adas qaynayotgan qozonga qo'shing va 20 daqiqa qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 15004,
+    "fields": {
+      "uuid": "66666666-0015-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 15,
+      "order": 4,
+      "description_uz": "Petrushka sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Petrushka sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 16001,
+    "fields": {
+      "uuid": "66666666-0016-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "order": 1,
+      "description_uz": "Tovuqni bo'laklab qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Tovuqni bo'laklab qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 16002,
+    "fields": {
+      "uuid": "66666666-0016-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "order": 2,
+      "description_uz": "Sabzavotlarni to'g'rab qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sabzavotlarni to'g'rab qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 16003,
+    "fields": {
+      "uuid": "66666666-0016-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 16,
+      "order": 3,
+      "description_uz": "Suv oz miqdorda quyib, 25 daqiqa dimlang.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Suv oz miqdorda quyib, 25 daqiqa dimlang."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 17001,
+    "fields": {
+      "uuid": "66666666-0017-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 17,
+      "order": 1,
+      "description_uz": "Baliqni tozalab, limon sharbati va zaytun yog'i bilan surting.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Baliqni tozalab, limon sharbati va zaytun yog'i bilan surting."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 17002,
+    "fields": {
+      "uuid": "66666666-0017-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 17,
+      "order": 2,
+      "description_uz": "Duxovkada 180°C da 25 daqiqa pishiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Duxovkada 180°C da 25 daqiqa pishiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 17003,
+    "fields": {
+      "uuid": "66666666-0017-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 17,
+      "order": 3,
+      "description_uz": "Ukrop sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Ukrop sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 18001,
+    "fields": {
+      "uuid": "66666666-0018-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 18,
+      "order": 1,
+      "description_uz": "Turkey farshiga piyoz, tuxum, un, tuz, murch qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Turkey farshiga piyoz, tuxum, un, tuz, murch qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 18002,
+    "fields": {
+      "uuid": "66666666-0018-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 18,
+      "order": 2,
+      "description_uz": "Kotletlar qo'lda shakllantirib, yog'da qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Kotletlar qo'lda shakllantirib, yog'da qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 18003,
+    "fields": {
+      "uuid": "66666666-0018-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 18,
+      "order": 3,
+      "description_uz": "Ikkala tomonini 6 daqiqadan pishiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Ikkala tomonini 6 daqiqadan pishiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 19001,
+    "fields": {
+      "uuid": "66666666-0019-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 19,
+      "order": 1,
+      "description_uz": "Guruchni pishiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Guruchni pishiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 19002,
+    "fields": {
+      "uuid": "66666666-0019-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 19,
+      "order": 2,
+      "description_uz": "Krevetkalarni sarimsoq va limon bilan qovuring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Krevetkalarni sarimsoq va limon bilan qovuring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 19003,
+    "fields": {
+      "uuid": "66666666-0019-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 19,
+      "order": 3,
+      "description_uz": "Guruch ustiga terib, ko'k piyoz sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Guruch ustiga terib, ko'k piyoz sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 20001,
+    "fields": {
+      "uuid": "66666666-0020-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 20,
+      "order": 1,
+      "description_uz": "Turkeyni zaytun yog'i, sarimsoq va tuz bilan marinovka qiling (30 daq).",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Turkeyni zaytun yog'i, sarimsoq va tuz bilan marinovka qiling (30 daq)."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 20002,
+    "fields": {
+      "uuid": "66666666-0020-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 20,
+      "order": 2,
+      "description_uz": "Grillda ikkala tomonini 10 daqiqadan pishiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Grillda ikkala tomonini 10 daqiqadan pishiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 20003,
+    "fields": {
+      "uuid": "66666666-0020-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 20,
+      "order": 3,
+      "description_uz": "Rayxon sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Rayxon sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 21001,
+    "fields": {
+      "uuid": "66666666-0021-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 21,
+      "order": 1,
+      "description_uz": "Pomidor va piyozni yupqa yarim halqalar shaklida to'g'rang.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Pomidor va piyozni yupqa yarim halqalar shaklida to'g'rang."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 21002,
+    "fields": {
+      "uuid": "66666666-0021-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 21,
+      "order": 2,
+      "description_uz": "Tuz va achchiq qalampir sepib aralashtiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Tuz va achchiq qalampir sepib aralashtiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 21003,
+    "fields": {
+      "uuid": "66666666-0021-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 21,
+      "order": 3,
+      "description_uz": "Rayxon qo'ying va 5 daqiqa dam bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Rayxon qo'ying va 5 daqiqa dam bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 22001,
+    "fields": {
+      "uuid": "66666666-0022-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 22,
+      "order": 1,
+      "description_uz": "Bodringlarni bo'lakchalar qilib to'g'rang.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Bodringlarni bo'lakchalar qilib to'g'rang."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 22002,
+    "fields": {
+      "uuid": "66666666-0022-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 22,
+      "order": 2,
+      "description_uz": "Smetana, ukrop, tuz va ko'k piyoz bilan aralashtiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Smetana, ukrop, tuz va ko'k piyoz bilan aralashtiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 23001,
+    "fields": {
+      "uuid": "66666666-0023-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 23,
+      "order": 1,
+      "description_uz": "Karam va sabzini yupqa qirib maydalang.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Karam va sabzini yupqa qirib maydalang."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 23002,
+    "fields": {
+      "uuid": "66666666-0023-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 23,
+      "order": 2,
+      "description_uz": "Sirka, yog', tuz va bir chimdim shakar bilan aralashtiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sirka, yog', tuz va bir chimdim shakar bilan aralashtiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 23003,
+    "fields": {
+      "uuid": "66666666-0023-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 23,
+      "order": 3,
+      "description_uz": "10 daqiqa dam bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "10 daqiqa dam bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 24001,
+    "fields": {
+      "uuid": "66666666-0024-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "order": 1,
+      "description_uz": "Kartoshka, sabzi, turpni po'stlog'i bilan qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Kartoshka, sabzi, turpni po'stlog'i bilan qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 24002,
+    "fields": {
+      "uuid": "66666666-0024-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "order": 2,
+      "description_uz": "So'vitib, po'stlog'ini olib, kubcha shaklda to'g'rang.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "So'vitib, po'stlog'ini olib, kubcha shaklda to'g'rang."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 24003,
+    "fields": {
+      "uuid": "66666666-0024-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "order": 3,
+      "description_uz": "Loviya va piyoz qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Loviya va piyoz qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 24004,
+    "fields": {
+      "uuid": "66666666-0024-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 24,
+      "order": 4,
+      "description_uz": "Zaytun yog'i va tuz bilan aralashtiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Zaytun yog'i va tuz bilan aralashtiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 25001,
+    "fields": {
+      "uuid": "66666666-0025-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "order": 1,
+      "description_uz": "Pomidor, bodring, qalampir, piyozni yirikroq to'g'rang.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Pomidor, bodring, qalampir, piyozni yirikroq to'g'rang."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 25002,
+    "fields": {
+      "uuid": "66666666-0025-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "order": 2,
+      "description_uz": "Pishloq va rayxon qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Pishloq va rayxon qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 25003,
+    "fields": {
+      "uuid": "66666666-0025-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 25,
+      "order": 3,
+      "description_uz": "Zaytun yog'i va tuz bilan aralashtiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Zaytun yog'i va tuz bilan aralashtiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 26001,
+    "fields": {
+      "uuid": "66666666-0026-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 26,
+      "order": 1,
+      "description_uz": "Piyozni sariyog'da 20 daqiqa qovuring (jigarrang).",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Piyozni sariyog'da 20 daqiqa qovuring (jigarrang)."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 26002,
+    "fields": {
+      "uuid": "66666666-0026-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 26,
+      "order": 2,
+      "description_uz": "Suv qo'shib qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Suv qo'shib qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 26003,
+    "fields": {
+      "uuid": "66666666-0026-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 26,
+      "order": 3,
+      "description_uz": "Kosaga solib ustiga qovurilgan non va pishloq qo'ying.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Kosaga solib ustiga qovurilgan non va pishloq qo'ying."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 27001,
+    "fields": {
+      "uuid": "66666666-0027-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "order": 1,
+      "description_uz": "No'xatni oldindan ivitib qo'ying.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "No'xatni oldindan ivitib qo'ying."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 27002,
+    "fields": {
+      "uuid": "66666666-0027-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "order": 2,
+      "description_uz": "Go'sht va no'xatni suvda 1 soat qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Go'sht va no'xatni suvda 1 soat qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 27003,
+    "fields": {
+      "uuid": "66666666-0027-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "order": 3,
+      "description_uz": "Sabzavotlar qo'shib yana 30 daqiqa qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sabzavotlar qo'shib yana 30 daqiqa qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 27004,
+    "fields": {
+      "uuid": "66666666-0027-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 27,
+      "order": 4,
+      "description_uz": "Ukrop sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Ukrop sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 28001,
+    "fields": {
+      "uuid": "66666666-0028-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "order": 1,
+      "description_uz": "Kartoshkani suvda qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Kartoshkani suvda qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 28002,
+    "fields": {
+      "uuid": "66666666-0028-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "order": 2,
+      "description_uz": "Piyozni sariyog'da qovurib qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Piyozni sariyog'da qovurib qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 28003,
+    "fields": {
+      "uuid": "66666666-0028-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "order": 3,
+      "description_uz": "Ismaloqni ko'chirib, blenderdan o'tkazing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Ismaloqni ko'chirib, blenderdan o'tkazing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 28004,
+    "fields": {
+      "uuid": "66666666-0028-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 28,
+      "order": 4,
+      "description_uz": "Sut quyib 5 daqiqa qaynating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sut quyib 5 daqiqa qaynating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 29001,
+    "fields": {
+      "uuid": "66666666-0029-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 29,
+      "order": 1,
+      "description_uz": "Qaynagan suvni bir oz sovitib (80°C), choy barglariga quying.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Qaynagan suvni bir oz sovitib (80°C), choy barglariga quying."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 29002,
+    "fields": {
+      "uuid": "66666666-0029-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 29,
+      "order": 2,
+      "description_uz": "3 daqiqa dam bering va ichib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "3 daqiqa dam bering va ichib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 30001,
+    "fields": {
+      "uuid": "66666666-0030-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 30,
+      "order": 1,
+      "description_uz": "Mevalarni yuving va katta bo'laklarga bo'ling.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Mevalarni yuving va katta bo'laklarga bo'ling."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 30002,
+    "fields": {
+      "uuid": "66666666-0030-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 30,
+      "order": 2,
+      "description_uz": "Qaynagan suvga shakar va mevalarni soling.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Qaynagan suvga shakar va mevalarni soling."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 30003,
+    "fields": {
+      "uuid": "66666666-0030-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 30,
+      "order": 3,
+      "description_uz": "10 daqiqa qaynatib olib qo'ying.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "10 daqiqa qaynatib olib qo'ying."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 30004,
+    "fields": {
+      "uuid": "66666666-0030-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 30,
+      "order": 4,
+      "description_uz": "Sovutib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Sovutib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 31001,
+    "fields": {
+      "uuid": "66666666-0031-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 31,
+      "order": 1,
+      "description_uz": "Limonni siqib, suv va asal bilan aralashtiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Limonni siqib, suv va asal bilan aralashtiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 31002,
+    "fields": {
+      "uuid": "66666666-0031-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 31,
+      "order": 2,
+      "description_uz": "Muzli suv qo'shsangiz yozda salqin bo'ladi.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Muzli suv qo'shsangiz yozda salqin bo'ladi."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 32001,
+    "fields": {
+      "uuid": "66666666-0032-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 32,
+      "order": 1,
+      "description_uz": "Qatiqni suv bilan aralashtirib chayqating.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Qatiqni suv bilan aralashtirib chayqating."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 32002,
+    "fields": {
+      "uuid": "66666666-0032-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 32,
+      "order": 2,
+      "description_uz": "Tuz va ukrop qo'shing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Tuz va ukrop qo'shing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 33001,
+    "fields": {
+      "uuid": "66666666-0033-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 33,
+      "order": 1,
+      "description_uz": "Un, suv, tuz va shakardan xamir qoring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Un, suv, tuz va shakardan xamir qoring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 33002,
+    "fields": {
+      "uuid": "66666666-0033-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 33,
+      "order": 2,
+      "description_uz": "1 soat achitib turing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "1 soat achitib turing."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 33003,
+    "fields": {
+      "uuid": "66666666-0033-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 33,
+      "order": 3,
+      "description_uz": "Duxovkada 220°C da 15 daqiqa pishiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Duxovkada 220°C da 15 daqiqa pishiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 34001,
+    "fields": {
+      "uuid": "66666666-0034-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 34,
+      "order": 1,
+      "description_uz": "Mevalarni yuvib, kubcha shaklda to'g'rang.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Mevalarni yuvib, kubcha shaklda to'g'rang."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 34002,
+    "fields": {
+      "uuid": "66666666-0034-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 34,
+      "order": 2,
+      "description_uz": "Asal va smetana bilan aralashtiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Asal va smetana bilan aralashtiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 34003,
+    "fields": {
+      "uuid": "66666666-0034-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 34,
+      "order": 3,
+      "description_uz": "Ustiga yong'oq sepib bering.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Ustiga yong'oq sepib bering."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 35001,
+    "fields": {
+      "uuid": "66666666-0035-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 35,
+      "order": 1,
+      "description_uz": "Suzmaga asal qo'shib aralashtiring.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Suzmaga asal qo'shib aralashtiring."
+    }
+  },
+  {
+    "model": "recipes.recipestep",
+    "pk": 35002,
+    "fields": {
+      "uuid": "66666666-0035-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "recipe": 35,
+      "order": 2,
+      "description_uz": "Qulupnay va yong'oq bilan bezing.",
+      "description_ru": "",
+      "description_en": "",
+      "description": "Qulupnay va yong'oq bilan bezing."
+    }
+  }
+]

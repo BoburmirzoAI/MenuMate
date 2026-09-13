@@ -1,0 +1,172 @@
+[
+  {
+    "model": "notifications.holiday",
+    "pk": 1,
+    "fields": {
+      "uuid": "77777777-0000-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Yangi yil",
+      "name_ru": "Новый год",
+      "name_en": "New Year",
+      "month": 1,
+      "day": 1,
+      "is_movable": false,
+      "description": "Yangi yil bayrami",
+      "name": "Yangi yil"
+    }
+  },
+  {
+    "model": "notifications.holiday",
+    "pk": 2,
+    "fields": {
+      "uuid": "77777777-0000-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Xotin-qizlar kuni",
+      "name_ru": "Международный женский день",
+      "name_en": "International Women's Day",
+      "month": 3,
+      "day": 8,
+      "is_movable": false,
+      "description": "8-mart bayrami",
+      "name": "Xotin-qizlar kuni"
+    }
+  },
+  {
+    "model": "notifications.holiday",
+    "pk": 3,
+    "fields": {
+      "uuid": "77777777-0000-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Navro'z",
+      "name_ru": "Навруз",
+      "name_en": "Nowruz",
+      "month": 3,
+      "day": 21,
+      "is_movable": false,
+      "description": "Bahor bayrami. An'anaviy: sumalak, halim, ko'k somsa",
+      "name": "Navro'z"
+    }
+  },
+  {
+    "model": "notifications.holiday",
+    "pk": 4,
+    "fields": {
+      "uuid": "77777777-0000-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Xotira va qadrlash kuni",
+      "name_ru": "День памяти и почестей",
+      "name_en": "Memory and Honor Day",
+      "month": 5,
+      "day": 9,
+      "is_movable": false,
+      "description": "9-may — xotira kuni",
+      "name": "Xotira va qadrlash kuni"
+    }
+  },
+  {
+    "model": "notifications.holiday",
+    "pk": 5,
+    "fields": {
+      "uuid": "77777777-0000-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Mustaqillik kuni",
+      "name_ru": "День независимости",
+      "name_en": "Independence Day",
+      "month": 9,
+      "day": 1,
+      "is_movable": false,
+      "description": "1-sentabr — mustaqillik bayrami",
+      "name": "Mustaqillik kuni"
+    }
+  },
+  {
+    "model": "notifications.holiday",
+    "pk": 6,
+    "fields": {
+      "uuid": "77777777-0000-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "O'qituvchilar va murabbiylar kuni",
+      "name_ru": "День учителей и наставников",
+      "name_en": "Teachers' Day",
+      "month": 10,
+      "day": 1,
+      "is_movable": false,
+      "description": "1-oktabr",
+      "name": "O'qituvchilar va murabbiylar kuni"
+    }
+  },
+  {
+    "model": "notifications.holiday",
+    "pk": 7,
+    "fields": {
+      "uuid": "77777777-0000-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Konstitutsiya kuni",
+      "name_ru": "День Конституции",
+      "name_en": "Constitution Day",
+      "month": 12,
+      "day": 8,
+      "is_movable": false,
+      "description": "8-dekabr — Konstitutsiya qabul qilingan kun",
+      "name": "Konstitutsiya kuni"
+    }
+  },
+  {
+    "model": "notifications.holiday",
+    "pk": 8,
+    "fields": {
+      "uuid": "77777777-0000-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Ro'za hayiti",
+      "name_ru": "Ураза-байрам",
+      "name_en": "Eid al-Fitr",
+      "month": 3,
+      "day": 30,
+      "is_movable": true,
+      "description": "Ramazon oyi tugagach. Sana har yili o'zgaradi (2026: taxminan 20-mart)",
+      "name": "Ro'za hayiti"
+    }
+  },
+  {
+    "model": "notifications.holiday",
+    "pk": 9,
+    "fields": {
+      "uuid": "77777777-0000-0000-0000-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qurbon hayiti",
+      "name_ru": "Курбан-байрам",
+      "name_en": "Eid al-Adha",
+      "month": 5,
+      "day": 27,
+      "is_movable": true,
+      "description": "Hajj tugagach. Sana har yili o'zgaradi (2026: taxminan 27-may)",
+      "name": "Qurbon hayiti"
+    }
+  },
+  {
+    "model": "notifications.holiday",
+    "pk": 10,
+    "fields": {
+      "uuid": "77777777-0000-0000-0000-000000000010",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Bayroq kuni",
+      "name_ru": "День флага",
+      "name_en": "Flag Day",
+      "month": 11,
+      "day": 18,
+      "is_movable": false,
+      "description": "18-noyabr",
+      "name": "Bayroq kuni"
+    }
+  }
+]

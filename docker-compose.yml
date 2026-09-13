@@ -1,0 +1,153 @@
+# Menu Mate — Development stack
+# Usage:
+#   docker compose up -d           # start all services
+#   docker compose logs -f backend
+#   docker compose down            # stop all
+#   docker compose down -v         # stop and wipe volumes (DB)
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: menu_mate_db
+    environment:
+      POSTGRES_DB: ${DB_NAME:-menu_mate}
+      POSTGRES_USER: ${DB_USER:-menu_mate}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-menu_mate_pass}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      # Host tarafda 5433 chunki lokalda 5432'da o'zining Postgres'i ishlashi mumkin.
+      # Container ichida db:5432 xizmati o'zgarmaydi.
+      - "${DB_EXTERNAL_PORT:-5433}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-menu_mate}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: menu_mate_pass
+    ports:
+      - "127.0.0.1:5051:80"
+    depends_on:
+      - db
+
+  redis:
+    image: redis:7-alpine
+    container_name: menu_mate_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: menu_mate_backend
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: core.settings.dev
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-menu_mate}
+      DB_USER: ${DB_USER:-menu_mate}
+      DB_PASSWORD: ${DB_PASSWORD:-menu_mate_pass}
+      SECRET_KEY: ${SECRET_KEY:-dev-insecure-key-change-me}
+      DEBUG: ${DEBUG:-True}
+      ALLOWED_HOSTS: "*"
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      OPENWEATHER_API_KEY: ${OPENWEATHER_API_KEY:-}
+      FCM_SERVER_KEY: ${FCM_SERVER_KEY:-}
+    volumes:
+      - ./backend:/app
+      - backend_media:/app/media
+      - backend_static:/app/static
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  celery:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: menu_mate_celery
+    command: celery -A core worker -l info
+    environment:
+      DJANGO_SETTINGS_MODULE: core.settings.dev
+      DB_HOST: db
+      DB_NAME: ${DB_NAME:-menu_mate}
+      DB_USER: ${DB_USER:-menu_mate}
+      DB_PASSWORD: ${DB_PASSWORD:-menu_mate_pass}
+      SECRET_KEY: ${SECRET_KEY:-dev-insecure-key-change-me}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - backend
+      - redis
+    restart: unless-stopped
+
+  celery_beat:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: menu_mate_celery_beat
+    command: celery -A core beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    environment:
+      DJANGO_SETTINGS_MODULE: core.settings.dev
+      DB_HOST: db
+      DB_NAME: ${DB_NAME:-menu_mate}
+      DB_USER: ${DB_USER:-menu_mate}
+      DB_PASSWORD: ${DB_PASSWORD:-menu_mate_pass}
+      SECRET_KEY: ${SECRET_KEY:-dev-insecure-key-change-me}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    volumes:
+      - ./backend:/app
+    depends_on:
+      db:
+        condition: service_healthy
+      backend:
+        condition: service_started
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # admin:
+  #   Adminka React ilovasi tayyor bo'lgach shu yerga qo'shiladi.
+  #   build:
+  #     context: ./admin
+  #   ports:
+  #     - "3000:80"
+  #   depends_on:
+  #     - backend
+
+volumes:
+  postgres_data:
+  redis_data:
+  backend_media:
+  backend_static:
+
+networks:
+  default:
+    name: menu_mate_network

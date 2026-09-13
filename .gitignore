@@ -1,0 +1,65 @@
+# --- Env / secrets ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# --- Python / Django ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.venv/
+venv/
+env/
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static/
+*.log
+
+# --- Poetry ---
+# poetry.lock — kept in repo (recommended)
+
+# --- Docker ---
+.docker/
+
+# --- IDE / OS ---
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# --- Node (admin/mobile if React/JS) ---
+node_modules/
+dist/
+build/
+.next/
+
+# --- Flutter (mobile/) ---
+mobile/build/
+mobile/.dart_tool/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.packages
+mobile/pubspec.lock
+mobile/.pub-cache/
+
+# --- Test / coverage ---
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# --- Backups ---
+backup*.sql
+*.bak
+*LOYIHA_TUSHUNTIRISH.md
+*Menu Mate.html
+*MOBILE_UI_TAVSIF.md

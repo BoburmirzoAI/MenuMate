@@ -1,0 +1,126 @@
+/*
+ * Design tokens — Menu Mate Admin (dark theme).
+ *
+ * Barcha ranglar bir joyda. Har qaysi komponent CSS Module'da faqat `var(--*)`
+ * ishlatadi — kelajakda tema o'zgarsa, faqat shu fayl tahrir qilinadi.
+ *
+ * Palitra: mobil ilovaning `terracotta`/`saffron` accent'lari + jiddiy dark
+ * fon (deyarli qora, biroz issiq oxra tuslari bilan) — brand hissi saqlanadi,
+ * uzoq ishlaganda ko'zga rohat.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* ═══ Fon qatlamlari (past → yuqori) ═══ */
+  --color-bg-canvas: #0a0605;         /* Eng orqadagi asosiy fon */
+  --color-bg-surface: #120c0a;        /* Karta va panellar */
+  --color-bg-surface-2: #1a120f;      /* Ichiga joylashgan blok */
+  --color-bg-surface-3: #241814;      /* Katta blok yoki hover */
+  --color-bg-hover: #2c1e1a;          /* Sichqoncha tegilgan holat */
+  --color-bg-active: #372420;         /* Bosilgan/tanlangan holat */
+  --color-bg-overlay: rgba(10, 6, 5, 0.72);  /* Modal orqa fon */
+
+  /* ═══ Matn ═══ */
+  --color-text-primary: #f5eae4;      /* Asosiy matn */
+  --color-text-secondary: #c9b5a8;    /* Ikkinchi darajali */
+  --color-text-muted: #8a7367;        /* Metadata, timestamp */
+  --color-text-disabled: #5a4a41;     /* Faol emas */
+  --color-text-inverse: #0a0605;      /* Yorug' fon ustidagi matn */
+
+  /* ═══ Chegara ═══ */
+  --color-border-subtle: #241814;
+  --color-border-default: #2c1e1a;
+  --color-border-strong: #3d2b25;
+  --color-border-focus: var(--color-accent);
+
+  /* ═══ Brand accent (terracotta) ═══ */
+  --color-accent: #e37d6b;            /* Asosiy — mobil ilovadagi CTA */
+  --color-accent-hover: #ec8e7c;
+  --color-accent-active: #d16a58;
+  --color-accent-soft: rgba(227, 125, 107, 0.14);
+  --color-accent-ring: rgba(227, 125, 107, 0.32);
+  --color-accent-contrast: #1a0a06;   /* Accent ustidagi matn */
+
+  /* ═══ Ikkinchi accent (saffron/gold) — statistika va rag'batlar uchun ═══ */
+  --color-highlight: #f2b341;
+  --color-highlight-soft: rgba(242, 179, 65, 0.14);
+
+  /* ═══ Semantic (holat) ═══ */
+  --color-success: #4ca771;
+  --color-success-soft: rgba(76, 167, 113, 0.15);
+  --color-warning: #f2b341;
+  --color-warning-soft: rgba(242, 179, 65, 0.15);
+  --color-danger: #e04b4b;
+  --color-danger-soft: rgba(224, 75, 75, 0.15);
+  --color-info: #5aa0d8;
+  --color-info-soft: rgba(90, 160, 216, 0.15);
+
+  /* ═══ Radius ═══ */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 24px;
+  --radius-pill: 999px;
+
+  /* ═══ Shadow ═══ */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
+  --shadow-focus: 0 0 0 3px var(--color-accent-ring);
+
+  /* ═══ Spacing ═══ */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+
+  /* ═══ Font ═══ */
+  --font-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+
+  /* ═══ Font o'lchamlari ═══ */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-md: 14px;
+  --text-lg: 16px;
+  --text-xl: 20px;
+  --text-2xl: 26px;
+  --text-3xl: 32px;
+  --text-4xl: 40px;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-loose: 1.7;
+
+  /* ═══ Z-index ═══ */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 900;
+  --z-modal: 1000;
+  --z-toast: 1100;
+
+  /* ═══ Layout ═══ */
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 72px;
+  --topbar-height: 60px;
+
+  /* ═══ Transition ═══ */
+  --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 260ms cubic-bezier(0.4, 0, 0.2, 1);
+}

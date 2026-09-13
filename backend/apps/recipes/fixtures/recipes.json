@@ -1,0 +1,829 @@
+[
+  {
+    "model": "recipes.recipe",
+    "pk": 1,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000001",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Suli bo'tqasi (Ovsyanka)",
+      "name_ru": "Овсянка",
+      "name_en": "Oatmeal",
+      "description": "",
+      "category": "BREAKFAST",
+      "season": "ALL",
+      "prep_time_minutes": 15,
+      "calories_per_serving": 250,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        1,
+        3
+      ],
+      "name": "Suli bo'tqasi (Ovsyanka)"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 2,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000002",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Omlet",
+      "name_ru": "Омлет",
+      "name_en": "Omelette",
+      "description": "",
+      "category": "BREAKFAST",
+      "season": "ALL",
+      "prep_time_minutes": 10,
+      "calories_per_serving": 280,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        1,
+        2
+      ],
+      "name": "Omlet"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 3,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000003",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Suzmali salat (nonushta)",
+      "name_ru": "Творожный завтрак",
+      "name_en": "Cottage cheese bowl",
+      "description": "",
+      "category": "SALAD",
+      "season": "ALL",
+      "prep_time_minutes": 5,
+      "calories_per_serving": 220,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [
+        1
+      ],
+      "name": "Suzmali salat (nonushta)"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 4,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000004",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Grechka bo'tqasi",
+      "name_ru": "Гречневая каша",
+      "name_en": "Buckwheat porridge",
+      "description": "",
+      "category": "BREAKFAST",
+      "season": "ALL",
+      "prep_time_minutes": 25,
+      "calories_per_serving": 210,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        1
+      ],
+      "name": "Grechka bo'tqasi"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 5,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000005",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Non-choy nonushtasi",
+      "name_ru": "Чай с бутербродом",
+      "name_en": "Tea with sandwich",
+      "description": "",
+      "category": "BREAKFAST",
+      "season": "ALL",
+      "prep_time_minutes": 5,
+      "calories_per_serving": 190,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        1,
+        3
+      ],
+      "name": "Non-choy nonushtasi"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 6,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000006",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Osh (Palov)",
+      "name_ru": "Плов",
+      "name_en": "Uzbek pilaf",
+      "description": "",
+      "category": "LUNCH",
+      "season": "ALL",
+      "prep_time_minutes": 90,
+      "calories_per_serving": 550,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Osh (Palov)"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 7,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000007",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Mastava",
+      "name_ru": "Мастава",
+      "name_en": "Mastava (rice soup)",
+      "description": "",
+      "category": "LUNCH",
+      "season": "ALL",
+      "prep_time_minutes": 60,
+      "calories_per_serving": 380,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Mastava"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 8,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000008",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Sho'rva",
+      "name_ru": "Шурпа",
+      "name_en": "Shurpa (meat soup)",
+      "description": "",
+      "category": "SOUP",
+      "season": "WINTER",
+      "prep_time_minutes": 90,
+      "calories_per_serving": 420,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Sho'rva"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 9,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000009",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Manti",
+      "name_ru": "Манты",
+      "name_en": "Manti (dumplings)",
+      "description": "",
+      "category": "LUNCH",
+      "season": "ALL",
+      "prep_time_minutes": 90,
+      "calories_per_serving": 480,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        3
+      ],
+      "name": "Manti"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 10,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000010",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Lag'mon",
+      "name_ru": "Лагман",
+      "name_en": "Laghman",
+      "description": "",
+      "category": "LUNCH",
+      "season": "ALL",
+      "prep_time_minutes": 70,
+      "calories_per_serving": 500,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        3
+      ],
+      "name": "Lag'mon"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 11,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000011",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Chuchvara",
+      "name_ru": "Чучвара",
+      "name_en": "Chuchvara (small dumplings)",
+      "description": "",
+      "category": "LUNCH",
+      "season": "WINTER",
+      "prep_time_minutes": 90,
+      "calories_per_serving": 400,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        3
+      ],
+      "name": "Chuchvara"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 12,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000012",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qovurma",
+      "name_ru": "Жаркое",
+      "name_en": "Meat stew",
+      "description": "",
+      "category": "LUNCH",
+      "season": "ALL",
+      "prep_time_minutes": 60,
+      "calories_per_serving": 460,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Qovurma"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 13,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000013",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Tovuqli guruchli osh",
+      "name_ru": "Плов с курицей",
+      "name_en": "Chicken pilaf",
+      "description": "",
+      "category": "LUNCH",
+      "season": "ALL",
+      "prep_time_minutes": 60,
+      "calories_per_serving": 480,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Tovuqli guruchli osh"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 14,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000014",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Mosh xo'rda",
+      "name_ru": "Маш хурда",
+      "name_en": "Mung bean stew",
+      "description": "",
+      "category": "LUNCH",
+      "season": "ALL",
+      "prep_time_minutes": 90,
+      "calories_per_serving": 350,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        9
+      ],
+      "name": "Mosh xo'rda"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 15,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000015",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Adas sho'rva",
+      "name_ru": "Чечевичный суп",
+      "name_en": "Lentil soup",
+      "description": "",
+      "category": "SOUP",
+      "season": "ALL",
+      "prep_time_minutes": 45,
+      "calories_per_serving": 280,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        9
+      ],
+      "name": "Adas sho'rva"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 16,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000016",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Tovuqli sabzavot",
+      "name_ru": "Курица с овощами",
+      "name_en": "Chicken with vegetables",
+      "description": "",
+      "category": "DINNER",
+      "season": "ALL",
+      "prep_time_minutes": 40,
+      "calories_per_serving": 380,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Tovuqli sabzavot"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 17,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000017",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Baliq pech (dukhovka)",
+      "name_ru": "Рыба в духовке",
+      "name_en": "Baked fish",
+      "description": "",
+      "category": "DINNER",
+      "season": "ALL",
+      "prep_time_minutes": 40,
+      "calories_per_serving": 320,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        6,
+        10
+      ],
+      "name": "Baliq pech (dukhovka)"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 18,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000018",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Turkey kotletlar",
+      "name_ru": "Котлеты из индейки",
+      "name_en": "Turkey cutlets",
+      "description": "",
+      "category": "DINNER",
+      "season": "ALL",
+      "prep_time_minutes": 35,
+      "calories_per_serving": 340,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        2,
+        3
+      ],
+      "name": "Turkey kotletlar"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 19,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000019",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Krevetka guruch bilan",
+      "name_ru": "Креветки с рисом",
+      "name_en": "Shrimp with rice",
+      "description": "",
+      "category": "DINNER",
+      "season": "SUMMER",
+      "prep_time_minutes": 30,
+      "calories_per_serving": 360,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        7
+      ],
+      "name": "Krevetka guruch bilan"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 20,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000020",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Kurka barbekyu",
+      "name_ru": "Индейка на гриле",
+      "name_en": "Grilled turkey",
+      "description": "",
+      "category": "DINNER",
+      "season": "SUMMER",
+      "prep_time_minutes": 40,
+      "calories_per_serving": 350,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Kurka barbekyu"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 21,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000021",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Achchiq-chuchuk",
+      "name_ru": "Ачик-чучук",
+      "name_en": "Fresh tomato salad",
+      "description": "",
+      "category": "SALAD",
+      "season": "SUMMER",
+      "prep_time_minutes": 10,
+      "calories_per_serving": 90,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Achchiq-chuchuk"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 22,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000022",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Bodring salati",
+      "name_ru": "Салат из огурцов",
+      "name_en": "Cucumber salad",
+      "description": "",
+      "category": "SALAD",
+      "season": "SUMMER",
+      "prep_time_minutes": 8,
+      "calories_per_serving": 70,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [
+        1
+      ],
+      "name": "Bodring salati"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 23,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000023",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Karam salati",
+      "name_ru": "Салат из капусты",
+      "name_en": "Cabbage salad",
+      "description": "",
+      "category": "SALAD",
+      "season": "ALL",
+      "prep_time_minutes": 10,
+      "calories_per_serving": 90,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Karam salati"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 24,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000024",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Vinegret",
+      "name_ru": "Винегрет",
+      "name_en": "Vinegret salad",
+      "description": "",
+      "category": "SALAD",
+      "season": "WINTER",
+      "prep_time_minutes": 30,
+      "calories_per_serving": 180,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [
+        9
+      ],
+      "name": "Vinegret"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 25,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000025",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Grekcha salat",
+      "name_ru": "Греческий салат",
+      "name_en": "Greek salad",
+      "description": "",
+      "category": "SALAD",
+      "season": "SUMMER",
+      "prep_time_minutes": 15,
+      "calories_per_serving": 220,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [
+        1
+      ],
+      "name": "Grekcha salat"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 26,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000026",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Piyoz sho'rva",
+      "name_ru": "Луковый суп",
+      "name_en": "Onion soup",
+      "description": "",
+      "category": "SOUP",
+      "season": "WINTER",
+      "prep_time_minutes": 40,
+      "calories_per_serving": 220,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        1,
+        3
+      ],
+      "name": "Piyoz sho'rva"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 27,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000027",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "No'xatli sho'rva",
+      "name_ru": "Нухат шурпа",
+      "name_en": "Chickpea soup",
+      "description": "",
+      "category": "SOUP",
+      "season": "ALL",
+      "prep_time_minutes": 90,
+      "calories_per_serving": 320,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        9
+      ],
+      "name": "No'xatli sho'rva"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 28,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000028",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Ismaloq sho'rva",
+      "name_ru": "Суп со шпинатом",
+      "name_en": "Spinach soup",
+      "description": "",
+      "category": "SOUP",
+      "season": "SPRING",
+      "prep_time_minutes": 30,
+      "calories_per_serving": 180,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        1
+      ],
+      "name": "Ismaloq sho'rva"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 29,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000029",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Ko'k choy",
+      "name_ru": "Зелёный чай",
+      "name_en": "Green tea",
+      "description": "",
+      "category": "DRINK",
+      "season": "ALL",
+      "prep_time_minutes": 5,
+      "calories_per_serving": 5,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Ko'k choy"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 30,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000030",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Kompot (mevali)",
+      "name_ru": "Компот",
+      "name_en": "Fruit compote",
+      "description": "",
+      "category": "DRINK",
+      "season": "SUMMER",
+      "prep_time_minutes": 20,
+      "calories_per_serving": 90,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [],
+      "name": "Kompot (mevali)"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 31,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000031",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Limonli suv",
+      "name_ru": "Лимонная вода",
+      "name_en": "Lemon water",
+      "description": "",
+      "category": "DRINK",
+      "season": "SUMMER",
+      "prep_time_minutes": 5,
+      "calories_per_serving": 30,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [
+        10
+      ],
+      "name": "Limonli suv"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 32,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000032",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Qatiqli ichimlik (Ayron)",
+      "name_ru": "Айран",
+      "name_en": "Ayran",
+      "description": "",
+      "category": "DRINK",
+      "season": "SUMMER",
+      "prep_time_minutes": 5,
+      "calories_per_serving": 80,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [
+        1
+      ],
+      "name": "Qatiqli ichimlik (Ayron)"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 33,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000033",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Non",
+      "name_ru": "Хлеб (лепёшка)",
+      "name_en": "Uzbek bread",
+      "description": "",
+      "category": "BREAD",
+      "season": "ALL",
+      "prep_time_minutes": 90,
+      "calories_per_serving": 260,
+      "servings": 1,
+      "is_hot": true,
+      "image": null,
+      "allergen_tags": [
+        3
+      ],
+      "name": "Non"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 34,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000034",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Meva salati",
+      "name_ru": "Фруктовый салат",
+      "name_en": "Fruit salad",
+      "description": "",
+      "category": "SALAD",
+      "season": "SUMMER",
+      "prep_time_minutes": 15,
+      "calories_per_serving": 150,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [
+        1,
+        4,
+        10
+      ],
+      "name": "Meva salati"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 35,
+    "fields": {
+      "uuid": "44444444-0000-0000-0000-000000000035",
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name_uz": "Suzmali desert",
+      "name_ru": "Творожный десерт",
+      "name_en": "Cottage cheese dessert",
+      "description": "",
+      "category": "DESSERT",
+      "season": "ALL",
+      "prep_time_minutes": 15,
+      "calories_per_serving": 220,
+      "servings": 1,
+      "is_hot": false,
+      "image": null,
+      "allergen_tags": [
+        1,
+        4
+      ],
+      "name": "Suzmali desert"
+    }
+  }
+]

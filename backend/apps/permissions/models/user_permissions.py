@@ -1,0 +1,42 @@
+from django.conf import settings
+from django.db import models
+
+from apps.shared.models import BaseModel
+from apps.permissions.models.permissions import Permission
+
+
+class UserPermission(BaseModel):
+    """
+    Direct permissions assigned to specific users — override or supplement
+    role permissions.
+    """
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='user_permissions_direct',
+    )
+    permission = models.ForeignKey(
+        Permission,
+        on_delete=models.CASCADE,
+        related_name='user_assignments',
+    )
+    granted_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='permissions_granted',
+    )
+    is_active = models.BooleanField(default=True, db_index=True)
+
+    class Meta:
+        db_table = 'users_user_permission'
+        unique_together = ('user', 'permission')
+        indexes = [
+            models.Index(fields=['user', 'is_active']),
+            models.Index(fields=['is_active']),
+        ]
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.user.email} — {self.permission.codename}"
