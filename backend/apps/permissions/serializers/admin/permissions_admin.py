@@ -50,6 +50,13 @@ class RoleAdminUpdateSerializer(serializers.ModelSerializer):
         model = Role
         fields = ['name', 'description', 'is_active', 'permission_ids']
 
+    def create(self, validated_data):
+        permission_ids = validated_data.pop('permission_ids', None)
+        role = Role.objects.create(**validated_data)
+        if permission_ids:
+            role.permissions.set(permission_ids)
+        return role
+
     def update(self, instance, validated_data):
         permission_ids = validated_data.pop('permission_ids', None)
         for k, v in validated_data.items():

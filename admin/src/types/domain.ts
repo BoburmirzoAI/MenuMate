@@ -107,6 +107,9 @@ export interface AllergenTag {
 export interface Ingredient {
   id: number;
   name: string;
+  name_uz?: string;
+  name_ru?: string;
+  name_en?: string;
   category: string;
   unit: string;
   image_url: string;

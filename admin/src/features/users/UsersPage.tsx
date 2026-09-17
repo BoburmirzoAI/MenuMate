@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Ban, CheckCircle2, Trash2, ShieldCheck } from 'lucide-react';
+import { Search, Ban, CheckCircle2, Trash2, ShieldCheck, Plus, Pencil } from 'lucide-react';
 
 import {
   Badge,
@@ -17,6 +17,7 @@ import {
 import type { User } from '@/types/domain';
 
 import { useUsers, useUpdateUser, useDeleteUser } from './api';
+import { UserFormModal } from './UserFormModal';
 import styles from './UsersPage.module.css';
 
 type StatusFilter = 'all' | 'active' | 'blocked' | 'unverified';
@@ -26,6 +27,8 @@ export function UsersPage(): JSX.Element {
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
   const [selected, setSelected] = useState<User | null>(null);
+  const [formOpen, setFormOpen] = useState(false);
+  const [editingUser, setEditingUser] = useState<User | null>(null);
 
   const params: Parameters<typeof useUsers>[0] = { search };
   if (statusFilter !== 'all') params.status = statusFilter;
@@ -116,6 +119,17 @@ export function UsersPage(): JSX.Element {
       <PageHeader
         title="Foydalanuvchilar"
         description={isLoading ? 'Yuklanmoqda…' : `Ro'yxatdan o'tgan ${users.length} foydalanuvchi`}
+        actions={
+          <Button
+            leftIcon={<Plus size={16} />}
+            onClick={() => {
+              setEditingUser(null);
+              setFormOpen(true);
+            }}
+          >
+            Yangi foydalanuvchi
+          </Button>
+        }
       />
 
       <Card padded={false} className={styles.filterCard}>
@@ -167,7 +181,18 @@ export function UsersPage(): JSX.Element {
           selected && (
             <>
               <Button variant="ghost" onClick={() => setSelected(null)}>
-                Bekor
+                Yopish
+              </Button>
+              <Button
+                variant="secondary"
+                leftIcon={<Pencil size={16} />}
+                onClick={() => {
+                  setEditingUser(selected);
+                  setSelected(null);
+                  setFormOpen(true);
+                }}
+              >
+                Tahrirlash
               </Button>
               <Button
                 variant={selected.is_active ? 'secondary' : 'primary'}
@@ -189,6 +214,12 @@ export function UsersPage(): JSX.Element {
       >
         {selected && <UserDetails user={selected} />}
       </Modal>
+
+      <UserFormModal
+        open={formOpen}
+        onClose={() => setFormOpen(false)}
+        user={editingUser}
+      />
     </>
   );
 }

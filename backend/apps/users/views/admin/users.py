@@ -7,14 +7,16 @@ from apps.shared.permissions import IsAdminUser
 from apps.shared.utils.custom_response import CustomResponse
 from apps.users.models.users import User
 from apps.users.serializers.admin import (
+    UserAdminCreateSerializer,
     UserAdminDetailSerializer,
     UserAdminListSerializer,
+    UserAdminPasswordSerializer,
     UserAdminUpdateSerializer,
 )
 
 
 class UsersAdminListAPIView(APIView):
-    """GET /admin/users/ — filter: search, status."""
+    """GET/POST /admin/users/ — ro'yxat va yangi qo'shish."""
     permission_classes = [IsAdminUser]
 
     def get(self, request):
@@ -39,6 +41,15 @@ class UsersAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=UserAdminListSerializer(qs, many=True).data,
+        )
+
+    def post(self, request):
+        serializer = UserAdminCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return CustomResponse.created(
+            request=request,
+            data=UserAdminDetailSerializer(user).data,
         )
 
 
@@ -76,3 +87,19 @@ class UsersAdminDetailAPIView(APIView):
             raise CustomException("VALIDATION_ERROR", errors={"detail": "Superuser o'chirilmaydi"})
         user.soft_delete() if hasattr(user, 'soft_delete') else user.delete()
         return CustomResponse.success(request=request, message_key="DELETED")
+
+
+class UsersAdminPasswordAPIView(APIView):
+    """POST /admin/users/<id>/set-password/ — admin parol o'zgartirish."""
+    permission_classes = [IsAdminUser]
+
+    def post(self, request, user_id):
+        user = User.objects.filter(id=user_id, is_deleted=False).first()
+        if not user:
+            raise CustomException("USER_NOT_FOUND")
+
+        serializer = UserAdminPasswordSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user.set_password(serializer.validated_data['password'])
+        user.save(update_fields=['password'])
+        return CustomResponse.success(request=request, message_key="OK")

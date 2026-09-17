@@ -1,5 +1,6 @@
-"""Admin: Rollar, permissionlar va endpointlar."""
+"""Admin: Rollar, permissionlar va endpointlar CRUD."""
 from django.db.models import Q
+from rest_framework import serializers
 from rest_framework.views import APIView
 
 from apps.permissions.models.permissions import Endpoint, Permission, Role
@@ -12,6 +13,11 @@ from apps.permissions.serializers.admin import (
 from apps.shared.exceptions.custom_exceptions import CustomException
 from apps.shared.permissions import IsAdminUser
 from apps.shared.utils.custom_response import CustomResponse
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+#  Roles CRUD
+# ═══════════════════════════════════════════════════════════════════════════
 
 
 class RolesAdminListAPIView(APIView):
@@ -67,7 +73,19 @@ class RolesAdminDetailAPIView(APIView):
         return CustomResponse.success(request=request, message_key="DELETED")
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+#  Permissions CRUD
+# ═══════════════════════════════════════════════════════════════════════════
+
+
+class _PermissionWriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Permission
+        fields = ['name', 'codename', 'description', 'parent']
+
+
 class PermissionsAdminListAPIView(APIView):
+    """GET/POST /admin/permissions/permissions/"""
     permission_classes = [IsAdminUser]
 
     def get(self, request):
@@ -80,8 +98,60 @@ class PermissionsAdminListAPIView(APIView):
             data=PermissionAdminSerializer(qs, many=True).data,
         )
 
+    def post(self, request):
+        serializer = _PermissionWriteSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        perm = serializer.save()
+        return CustomResponse.created(
+            request=request,
+            data=PermissionAdminSerializer(perm).data,
+        )
+
+
+class PermissionsAdminDetailAPIView(APIView):
+    """GET/PATCH/DELETE /admin/permissions/permissions/<id>/"""
+    permission_classes = [IsAdminUser]
+
+    def _get(self, perm_id):
+        perm = Permission.objects.filter(id=perm_id).first()
+        if not perm:
+            raise CustomException("NOT_FOUND")
+        return perm
+
+    def get(self, request, perm_id):
+        return CustomResponse.success(
+            request=request,
+            data=PermissionAdminSerializer(self._get(perm_id)).data,
+        )
+
+    def patch(self, request, perm_id):
+        perm = self._get(perm_id)
+        serializer = _PermissionWriteSerializer(perm, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return CustomResponse.success(
+            request=request,
+            data=PermissionAdminSerializer(perm).data,
+        )
+
+    def delete(self, request, perm_id):
+        self._get(perm_id).delete()
+        return CustomResponse.success(request=request, message_key="DELETED")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+#  Endpoints (access_type + permission sozlash)
+# ═══════════════════════════════════════════════════════════════════════════
+
+
+class _EndpointWriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Endpoint
+        fields = ['access_type', 'permission', 'is_active', 'name', 'description']
+
 
 class EndpointsAdminListAPIView(APIView):
+    """GET /admin/permissions/endpoints/"""
     permission_classes = [IsAdminUser]
 
     def get(self, request):
@@ -95,4 +165,31 @@ class EndpointsAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=EndpointAdminSerializer(qs, many=True).data,
+        )
+
+
+class EndpointsAdminDetailAPIView(APIView):
+    """GET/PATCH /admin/permissions/endpoints/<id>/ — Endpoint faqat sozlashda tahrirlanadi."""
+    permission_classes = [IsAdminUser]
+
+    def _get(self, endpoint_id):
+        ep = Endpoint.objects.filter(id=endpoint_id).first()
+        if not ep:
+            raise CustomException("NOT_FOUND")
+        return ep
+
+    def get(self, request, endpoint_id):
+        return CustomResponse.success(
+            request=request,
+            data=EndpointAdminSerializer(self._get(endpoint_id)).data,
+        )
+
+    def patch(self, request, endpoint_id):
+        ep = self._get(endpoint_id)
+        serializer = _EndpointWriteSerializer(ep, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return CustomResponse.success(
+            request=request,
+            data=EndpointAdminSerializer(ep).data,
         )

@@ -1,20 +1,29 @@
-"""Admin: Recipes / Ingredients / AllergenTags API'lari."""
+"""Admin: Recipes / Ingredients / AllergenTags CRUD API'lari."""
 from django.db.models import Q
 from rest_framework.views import APIView
 
 from apps.recipes.models.recipes import AllergenTag, Ingredient, Recipe
 from apps.recipes.serializers.admin import (
     AllergenTagAdminSerializer,
+    AllergenTagWritableSerializer,
     IngredientAdminSerializer,
+    IngredientWritableSerializer,
     RecipeAdminDetailSerializer,
     RecipeAdminListSerializer,
+    RecipeWritableSerializer,
 )
 from apps.shared.exceptions.custom_exceptions import CustomException
 from apps.shared.permissions import IsAdminUser
 from apps.shared.utils.custom_response import CustomResponse
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+#  Recipes
+# ═══════════════════════════════════════════════════════════════════════════
+
+
 class RecipesAdminListAPIView(APIView):
+    """GET/POST /admin/recipes/"""
     permission_classes = [IsAdminUser]
 
     def get(self, request):
@@ -37,21 +46,54 @@ class RecipesAdminListAPIView(APIView):
             data=RecipeAdminListSerializer(qs, many=True).data,
         )
 
-
-class RecipesAdminDetailAPIView(APIView):
-    permission_classes = [IsAdminUser]
-
-    def get(self, request, recipe_id):
-        recipe = Recipe.objects.filter(id=recipe_id).first()
-        if not recipe:
-            raise CustomException("RECIPE_NOT_FOUND")
-        return CustomResponse.success(
+    def post(self, request):
+        serializer = RecipeWritableSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        recipe = serializer.save()
+        return CustomResponse.created(
             request=request,
             data=RecipeAdminDetailSerializer(recipe).data,
         )
 
 
+class RecipesAdminDetailAPIView(APIView):
+    """GET/PATCH/DELETE /admin/recipes/<id>/"""
+    permission_classes = [IsAdminUser]
+
+    def _get(self, recipe_id) -> Recipe:
+        recipe = Recipe.objects.filter(id=recipe_id).first()
+        if not recipe:
+            raise CustomException("RECIPE_NOT_FOUND")
+        return recipe
+
+    def get(self, request, recipe_id):
+        return CustomResponse.success(
+            request=request,
+            data=RecipeAdminDetailSerializer(self._get(recipe_id)).data,
+        )
+
+    def patch(self, request, recipe_id):
+        recipe = self._get(recipe_id)
+        serializer = RecipeWritableSerializer(recipe, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return CustomResponse.success(
+            request=request,
+            data=RecipeAdminDetailSerializer(recipe).data,
+        )
+
+    def delete(self, request, recipe_id):
+        self._get(recipe_id).delete()
+        return CustomResponse.success(request=request, message_key="DELETED")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+#  Ingredients
+# ═══════════════════════════════════════════════════════════════════════════
+
+
 class IngredientsAdminListAPIView(APIView):
+    """GET/POST /admin/recipes/ingredients/"""
     permission_classes = [IsAdminUser]
 
     def get(self, request):
@@ -67,8 +109,62 @@ class IngredientsAdminListAPIView(APIView):
             data=IngredientAdminSerializer(qs, many=True).data,
         )
 
+    def post(self, request):
+        serializer = IngredientWritableSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        ingredient = serializer.save()
+        return CustomResponse.created(
+            request=request,
+            data=IngredientAdminSerializer(ingredient).data,
+        )
+
+
+class IngredientsAdminDetailAPIView(APIView):
+    """GET/PATCH/DELETE /admin/recipes/ingredients/<id>/"""
+    permission_classes = [IsAdminUser]
+
+    def _get(self, ingredient_id) -> Ingredient:
+        ing = Ingredient.objects.filter(id=ingredient_id).first()
+        if not ing:
+            raise CustomException("NOT_FOUND")
+        return ing
+
+    def get(self, request, ingredient_id):
+        return CustomResponse.success(
+            request=request,
+            data=IngredientAdminSerializer(self._get(ingredient_id)).data,
+        )
+
+    def patch(self, request, ingredient_id):
+        ing = self._get(ingredient_id)
+        serializer = IngredientWritableSerializer(ing, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return CustomResponse.success(
+            request=request,
+            data=IngredientAdminSerializer(ing).data,
+        )
+
+    def delete(self, request, ingredient_id):
+        ing = self._get(ingredient_id)
+        try:
+            ing.delete()
+        except Exception:
+            # PROTECT bilan bog'langan retseptlar bo'lsa o'chirilmaydi
+            raise CustomException(
+                "VALIDATION_ERROR",
+                errors={"detail": "Ingredient retseptlarda ishlatilmoqda"},
+            )
+        return CustomResponse.success(request=request, message_key="DELETED")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+#  Allergen tags
+# ═══════════════════════════════════════════════════════════════════════════
+
 
 class AllergenTagsAdminListAPIView(APIView):
+    """GET/POST /admin/recipes/allergens/"""
     permission_classes = [IsAdminUser]
 
     def get(self, request):
@@ -77,3 +173,43 @@ class AllergenTagsAdminListAPIView(APIView):
             request=request,
             data=AllergenTagAdminSerializer(qs, many=True).data,
         )
+
+    def post(self, request):
+        serializer = AllergenTagWritableSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        tag = serializer.save()
+        return CustomResponse.created(
+            request=request,
+            data=AllergenTagAdminSerializer(tag).data,
+        )
+
+
+class AllergenTagsAdminDetailAPIView(APIView):
+    """GET/PATCH/DELETE /admin/recipes/allergens/<id>/"""
+    permission_classes = [IsAdminUser]
+
+    def _get(self, tag_id) -> AllergenTag:
+        tag = AllergenTag.objects.filter(id=tag_id).first()
+        if not tag:
+            raise CustomException("NOT_FOUND")
+        return tag
+
+    def get(self, request, tag_id):
+        return CustomResponse.success(
+            request=request,
+            data=AllergenTagAdminSerializer(self._get(tag_id)).data,
+        )
+
+    def patch(self, request, tag_id):
+        tag = self._get(tag_id)
+        serializer = AllergenTagWritableSerializer(tag, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return CustomResponse.success(
+            request=request,
+            data=AllergenTagAdminSerializer(tag).data,
+        )
+
+    def delete(self, request, tag_id):
+        self._get(tag_id).delete()
+        return CustomResponse.success(request=request, message_key="DELETED")

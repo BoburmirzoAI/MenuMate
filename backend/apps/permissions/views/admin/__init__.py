@@ -1,13 +1,17 @@
 from apps.permissions.views.admin.permissions import (
-    RolesAdminListAPIView,
-    RolesAdminDetailAPIView,
-    PermissionsAdminListAPIView,
+    EndpointsAdminDetailAPIView,
     EndpointsAdminListAPIView,
+    PermissionsAdminDetailAPIView,
+    PermissionsAdminListAPIView,
+    RolesAdminDetailAPIView,
+    RolesAdminListAPIView,
 )
 
 __all__ = [
     'RolesAdminListAPIView',
     'RolesAdminDetailAPIView',
     'PermissionsAdminListAPIView',
+    'PermissionsAdminDetailAPIView',
     'EndpointsAdminListAPIView',
+    'EndpointsAdminDetailAPIView',
 ]

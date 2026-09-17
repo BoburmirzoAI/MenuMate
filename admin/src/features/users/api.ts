@@ -9,6 +9,39 @@ interface UsersListParams {
   status?: 'active' | 'blocked' | 'unverified';
 }
 
+/** Yangi user yaratish uchun payload. */
+export interface UserCreatePayload {
+  email: string;
+  password: string;
+  first_name?: string;
+  last_name?: string;
+  phone_number?: string;
+  birth_date?: string | null;
+  gender?: 'MALE' | 'FEMALE' | null;
+  timezone?: string;
+  language?: 'uz' | 'ru' | 'en';
+  is_active?: boolean;
+  is_email_verified?: boolean;
+  is_push_enabled?: boolean;
+  role_ids?: number[];
+}
+
+/** User tahrirlash payload — barcha maydonlar ixtiyoriy (patch). */
+export interface UserUpdatePayload {
+  id: number;
+  first_name?: string;
+  last_name?: string;
+  phone_number?: string;
+  birth_date?: string | null;
+  gender?: 'MALE' | 'FEMALE' | null;
+  timezone?: string;
+  language?: 'uz' | 'ru' | 'en';
+  is_active?: boolean;
+  is_email_verified?: boolean;
+  is_push_enabled?: boolean;
+  role_ids?: number[];
+}
+
 export function useUsers(params: UsersListParams = {}) {
   return useQuery({
     queryKey: ['admin', 'users', params],
@@ -21,14 +54,32 @@ export function useUsers(params: UsersListParams = {}) {
   });
 }
 
-export function useUpdateUser() {
+export function useCreateUser() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: (payload: { id: number; is_active?: boolean; role_ids?: number[] }) =>
-      api.patch<User>(endpoints.admin.users.detail(payload.id), payload),
+    mutationFn: (payload: UserCreatePayload) =>
+      api.post<User>(endpoints.admin.users.list, payload),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['admin', 'users'] });
     },
+  });
+}
+
+export function useUpdateUser() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, ...payload }: UserUpdatePayload) =>
+      api.patch<User>(endpoints.admin.users.detail(id), payload),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['admin', 'users'] });
+    },
+  });
+}
+
+export function useSetUserPassword() {
+  return useMutation({
+    mutationFn: ({ id, password }: { id: number; password: string }) =>
+      api.post(`${endpoints.admin.users.detail(id)}set-password/`, { password }),
   });
 }
 

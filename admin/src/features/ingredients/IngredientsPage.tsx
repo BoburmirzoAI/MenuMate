@@ -1,10 +1,20 @@
 import { useMemo, useState } from 'react';
-import { Search, Sprout } from 'lucide-react';
+import { Search, Sprout, Plus, Pencil, Trash2 } from 'lucide-react';
 
-import { Card, EmptyState, Input, PageHeader, Select, Spinner } from '@shared/ui';
+import {
+  Button,
+  Card,
+  EmptyState,
+  Input,
+  PageHeader,
+  Select,
+  Spinner,
+  toast,
+} from '@shared/ui';
 import type { Ingredient } from '@/types/domain';
 
-import { useIngredients } from '@features/recipes/api';
+import { useIngredients, useDeleteIngredient } from '@features/recipes/api';
+import { IngredientFormModal } from './IngredientFormModal';
 import styles from './IngredientsPage.module.css';
 
 const CATEGORY_LABELS: Record<string, { label: string; icon: string }> = {
@@ -18,14 +28,17 @@ const CATEGORY_LABELS: Record<string, { label: string; icon: string }> = {
   OTHER: { label: 'Boshqa', icon: '📦' },
 };
 
-/** Ingredientlar boshqaruvi — rasm + kategoriya bo'yicha guruh. */
+/** Ingredientlar boshqaruvi — kategoriya bo'yicha guruh + CRUD. */
 export function IngredientsPage(): JSX.Element {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState<string>('all');
+  const [formOpen, setFormOpen] = useState(false);
+  const [editingIng, setEditingIng] = useState<Ingredient | null>(null);
 
   const ingredientParams: Parameters<typeof useIngredients>[0] = { search };
   if (category !== 'all') ingredientParams.category = category;
   const { data: ingredients = [], isLoading } = useIngredients(ingredientParams);
+  const deleteIngredient = useDeleteIngredient();
 
   const grouped = useMemo(() => {
     const groups: Record<string, Ingredient[]> = {};
@@ -36,6 +49,17 @@ export function IngredientsPage(): JSX.Element {
     return groups;
   }, [ingredients]);
 
+  const handleDelete = async (ing: Ingredient, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!window.confirm(`"${ing.name}" ingredientini o'chirasizmi?`)) return;
+    try {
+      await deleteIngredient.mutateAsync(ing.id);
+      toast.info("Ingredient o'chirildi", ing.name);
+    } catch (err) {
+      toast.error('Xatolik', err instanceof Error ? err.message : "Retseptlarda ishlatilmoqda");
+    }
+  };
+
   return (
     <>
       <PageHeader
@@ -43,7 +67,18 @@ export function IngredientsPage(): JSX.Element {
         description={
           isLoading
             ? 'Yuklanmoqda…'
-            : `${ingredients.length} ingredient — kategoriya bo'yicha guruhlangan, avtomatik rasm bilan`
+            : `${ingredients.length} ingredient — kategoriya bo'yicha guruhlangan`
+        }
+        actions={
+          <Button
+            leftIcon={<Plus size={16} />}
+            onClick={() => {
+              setEditingIng(null);
+              setFormOpen(true);
+            }}
+          >
+            Yangi ingredient
+          </Button>
         }
       />
 
@@ -77,7 +112,18 @@ export function IngredientsPage(): JSX.Element {
         <EmptyState
           icon={<Sprout size={20} />}
           title="Ingredient topilmadi"
-          description="Filterni o'zgartirib ko'ring"
+          description="Filterni o'zgartirib ko'ring yoki yangi qo'shing"
+          action={
+            <Button
+              leftIcon={<Plus size={16} />}
+              onClick={() => {
+                setEditingIng(null);
+                setFormOpen(true);
+              }}
+            >
+              Birinchi ingredient
+            </Button>
+          }
         />
       ) : (
         <div className={styles.groups}>
@@ -92,13 +138,42 @@ export function IngredientsPage(): JSX.Element {
                 </div>
                 <div className={styles.grid}>
                   {items.map((ing) => (
-                    <div key={ing.id} className={styles.ingCard}>
+                    <div
+                      key={ing.id}
+                      className={styles.ingCard}
+                      onClick={() => {
+                        setEditingIng(ing);
+                        setFormOpen(true);
+                      }}
+                      role="button"
+                      tabIndex={0}
+                    >
                       <div
                         className={styles.ingImage}
                         style={{ backgroundImage: `url(${ing.image_url})` }}
                       />
                       <div className={styles.ingName}>{ing.name}</div>
                       <div className={styles.ingUnit}>{ing.unit}</div>
+                      <div className={styles.ingActions}>
+                        <button
+                          className={styles.ingIconBtn}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setEditingIng(ing);
+                            setFormOpen(true);
+                          }}
+                          aria-label="Tahrirlash"
+                        >
+                          <Pencil size={12} />
+                        </button>
+                        <button
+                          className={styles.ingIconBtnDanger}
+                          onClick={(e) => handleDelete(ing, e)}
+                          aria-label="O'chirish"
+                        >
+                          <Trash2 size={12} />
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -107,6 +182,12 @@ export function IngredientsPage(): JSX.Element {
           })}
         </div>
       )}
+
+      <IngredientFormModal
+        open={formOpen}
+        onClose={() => setFormOpen(false)}
+        ingredient={editingIng}
+      />
     </>
   );
 }

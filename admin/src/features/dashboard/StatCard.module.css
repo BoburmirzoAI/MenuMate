@@ -54,3 +54,18 @@
   font-size: var(--text-xs);
   color: var(--color-text-muted);
 }
+
+.arrow {
+  color: var(--color-text-muted);
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.clickable:hover .arrow {
+  color: var(--color-accent);
+  transform: translate(2px, -2px);
+}
+
+.clickable:hover .icon {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+}

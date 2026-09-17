@@ -1,0 +1,124 @@
+.userPicker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pickerLabel {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* Foydalanuvchilar ro'yxati (create rejimida — Input ostidagi list) */
+
+.userList {
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  display: flex;
+  flex-direction: column;
+}
+
+.userListEmpty {
+  padding: var(--space-4);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: background-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.userRow:last-child {
+  border-bottom: none;
+}
+
+.userRow:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.userAvatar,
+.selectedAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  flex-shrink: 0;
+}
+
+.userInfo,
+.selectedInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName,
+.selectedName {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userEmail,
+.selectedEmail {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userId {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  padding: 2px 6px;
+  background-color: var(--color-bg-surface-2);
+  border-radius: var(--radius-sm);
+}
+
+/* Tanlangan foydalanuvchi kartochkasi */
+
+.selectedUser {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-soft);
+}
+
+.changeBtn {
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  transition: background-color var(--transition-fast);
+}
+
+.changeBtn:hover {
+  background-color: var(--color-bg-surface);
+}

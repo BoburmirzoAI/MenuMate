@@ -1,8 +1,18 @@
 import { useState } from 'react';
-import { Search, Clock, Flame, Snowflake, ChefHat } from 'lucide-react';
+import {
+  Search,
+  Clock,
+  Flame,
+  Snowflake,
+  ChefHat,
+  Plus,
+  Pencil,
+  Trash2,
+} from 'lucide-react';
 
 import {
   Badge,
+  Button,
   Card,
   EmptyState,
   Input,
@@ -10,10 +20,12 @@ import {
   PageHeader,
   Select,
   Spinner,
+  toast,
 } from '@shared/ui';
 import type { Recipe, RecipeCategory } from '@/types/domain';
 
-import { useRecipes } from './api';
+import { useRecipes, useDeleteRecipe } from './api';
+import { RecipeFormModal } from './RecipeFormModal';
 import styles from './RecipesPage.module.css';
 
 const CATEGORY_LABELS: Record<RecipeCategory, string> = {
@@ -32,10 +44,24 @@ export function RecipesPage(): JSX.Element {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState<'all' | RecipeCategory>('all');
   const [selected, setSelected] = useState<Recipe | null>(null);
+  const [formOpen, setFormOpen] = useState(false);
+  const [editingRecipe, setEditingRecipe] = useState<Recipe | null>(null);
 
   const recipesParams: Parameters<typeof useRecipes>[0] = { search };
   if (category !== 'all') recipesParams.category = category;
   const { data: recipes = [], isLoading } = useRecipes(recipesParams);
+  const deleteRecipe = useDeleteRecipe();
+
+  const handleDelete = async (recipe: Recipe) => {
+    if (!window.confirm(`"${recipe.name}" retseptini o'chirasizmi?`)) return;
+    try {
+      await deleteRecipe.mutateAsync(recipe.id);
+      toast.info("Retsept o'chirildi", recipe.name);
+      setSelected(null);
+    } catch (err) {
+      toast.error('Xatolik', err instanceof Error ? err.message : "O'chirilmadi");
+    }
+  };
 
   return (
     <>
@@ -43,6 +69,17 @@ export function RecipesPage(): JSX.Element {
         title="Retseptlar"
         description={
           isLoading ? 'Yuklanmoqda…' : `${recipes.length} retsept — 3 tilda (uz/ru/en) va rasm bilan`
+        }
+        actions={
+          <Button
+            leftIcon={<Plus size={16} />}
+            onClick={() => {
+              setEditingRecipe(null);
+              setFormOpen(true);
+            }}
+          >
+            Yangi retsept
+          </Button>
         }
       />
 
@@ -133,6 +170,33 @@ export function RecipesPage(): JSX.Element {
         onClose={() => setSelected(null)}
         title={selected?.name}
         size="lg"
+        footer={
+          selected && (
+            <>
+              <Button variant="ghost" onClick={() => setSelected(null)}>
+                Yopish
+              </Button>
+              <Button
+                variant="secondary"
+                leftIcon={<Pencil size={16} />}
+                onClick={() => {
+                  setEditingRecipe(selected);
+                  setSelected(null);
+                  setFormOpen(true);
+                }}
+              >
+                Tahrirlash
+              </Button>
+              <Button
+                variant="danger"
+                leftIcon={<Trash2 size={16} />}
+                onClick={() => handleDelete(selected)}
+              >
+                O'chirish
+              </Button>
+            </>
+          )
+        }
       >
         {selected && (
           <div className={styles.modalContent}>
@@ -173,6 +237,12 @@ export function RecipesPage(): JSX.Element {
           </div>
         )}
       </Modal>
+
+      <RecipeFormModal
+        open={formOpen}
+        onClose={() => setFormOpen(false)}
+        recipe={editingRecipe}
+      />
     </>
   );
 }

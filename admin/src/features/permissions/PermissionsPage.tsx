@@ -1,15 +1,13 @@
 import { useMemo, useState } from 'react';
-import { Search, Shield, Users, Lock, Key, Pencil } from 'lucide-react';
+import { Search, Shield, Users, Lock, Key, Pencil, Plus, Trash2, Settings2 } from 'lucide-react';
 
 import {
   Badge,
   Button,
   Card,
   CardHeader,
-  Checkbox,
   EmptyState,
   Input,
-  Modal,
   PageHeader,
   Select,
   Table,
@@ -19,13 +17,17 @@ import {
 
 import {
   useRoles,
-  useUpdateRole,
+  useDeleteRole,
   usePermissions,
+  useDeletePermission,
   useEndpoints,
   type RoleAdmin,
   type PermissionAdmin,
   type EndpointAdmin,
 } from './api';
+import { RoleFormModal } from './RoleFormModal';
+import { PermissionFormModal } from './PermissionFormModal';
+import { EndpointFormModal } from './EndpointFormModal';
 import styles from './PermissionsPage.module.css';
 
 type Tab = 'roles' | 'permissions' | 'endpoints';
@@ -44,19 +46,25 @@ const ACCESS_TONE: Record<EndpointAdmin['access_type'], 'neutral' | 'accent' | '
   permission: 'warning',
 };
 
-// Permissionni kategoriyaga bo'lish (codename.split('.')[0])
 function categoryOf(perm: PermissionAdmin): string {
   return (perm.codename.split('.')[0] || 'other').replace(/^./, (c) => c.toUpperCase());
 }
 
-/** Rollar / permissionlar / endpointlar sahifasi — 3 tab. */
+/** Rollar / permissionlar / endpointlar sahifasi — 3 tab, to'liq CRUD. */
 export function PermissionsPage(): JSX.Element {
   const [tab, setTab] = useState<Tab>('roles');
   const { data: roles = [], isLoading: rolesLoading } = useRoles();
   const { data: permissions = [], isLoading: permsLoading } = usePermissions();
   const { data: allEndpoints = [], isLoading: endpointsLoading } = useEndpoints();
-  const updateRole = useUpdateRole();
+  const deleteRole = useDeleteRole();
+  const deletePermission = useDeletePermission();
+
+  const [roleModalOpen, setRoleModalOpen] = useState(false);
   const [editingRole, setEditingRole] = useState<RoleAdmin | null>(null);
+  const [permModalOpen, setPermModalOpen] = useState(false);
+  const [editingPerm, setEditingPerm] = useState<PermissionAdmin | null>(null);
+  const [endpointModalOpen, setEndpointModalOpen] = useState(false);
+  const [editingEndpoint, setEditingEndpoint] = useState<EndpointAdmin | null>(null);
 
   const [rolesSearch, setRolesSearch] = useState('');
   const [permSearch, setPermSearch] = useState('');
@@ -69,7 +77,6 @@ export function PermissionsPage(): JSX.Element {
     [permissions],
   );
 
-  /** Har permission qaysi rollarga biriktirilganini hisoblab beradi. */
   const rolesByPermissionId = useMemo(() => {
     const map = new Map<number, RoleAdmin[]>();
     for (const perm of permissions) {
@@ -91,10 +98,7 @@ export function PermissionsPage(): JSX.Element {
     return permissions.filter((p) => {
       if (permCategory !== 'all' && categoryOf(p) !== permCategory) return false;
       if (!q) return true;
-      return (
-        p.name.toLowerCase().includes(q) ||
-        p.codename.toLowerCase().includes(q)
-      );
+      return p.name.toLowerCase().includes(q) || p.codename.toLowerCase().includes(q);
     });
   }, [permSearch, permCategory, permissions]);
 
@@ -107,14 +111,25 @@ export function PermissionsPage(): JSX.Element {
     });
   }, [endpointSearch, accessFilter, allEndpoints]);
 
-  const saveRolePermissions = async (roleId: number, permissionIds: number[]) => {
+  const handleDeleteRole = async (r: RoleAdmin, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!window.confirm(`"${r.name}" rolini o'chirasizmi?`)) return;
     try {
-      await updateRole.mutateAsync({ id: roleId, permission_ids: permissionIds });
-      const role = roles.find((r) => r.id === roleId);
-      toast.success('Rol ruxsatlari yangilandi', `${role?.name} — ${permissionIds.length} ruxsat`);
-      setEditingRole(null);
+      await deleteRole.mutateAsync(r.id);
+      toast.info("Rol o'chirildi", r.name);
     } catch (err) {
-      toast.error('Xatolik', err instanceof Error ? err.message : 'Saqlanmadi');
+      toast.error('Xatolik', err instanceof Error ? err.message : "O'chirilmadi");
+    }
+  };
+
+  const handleDeletePerm = async (p: PermissionAdmin, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!window.confirm(`"${p.name}" permissionini o'chirasizmi?`)) return;
+    try {
+      await deletePermission.mutateAsync(p.id);
+      toast.info("Permission o'chirildi", p.name);
+    } catch (err) {
+      toast.error('Xatolik', err instanceof Error ? err.message : "O'chirilmadi");
     }
   };
 
@@ -151,20 +166,31 @@ export function PermissionsPage(): JSX.Element {
     },
     {
       header: '',
-      width: '120px',
+      width: '200px',
       align: 'right',
       cell: (r) => (
-        <Button
-          variant="secondary"
-          size="sm"
-          leftIcon={<Pencil size={12} />}
-          onClick={(e) => {
-            e.stopPropagation();
-            setEditingRole(r);
-          }}
-        >
-          Tahrirlash
-        </Button>
+        <div style={{ display: 'inline-flex', gap: 6 }}>
+          <Button
+            variant="secondary"
+            size="sm"
+            leftIcon={<Pencil size={12} />}
+            onClick={(e) => {
+              e.stopPropagation();
+              setEditingRole(r);
+              setRoleModalOpen(true);
+            }}
+          >
+            Tahrirlash
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={(e) => handleDeleteRole(r, e)}
+            aria-label="O'chirish"
+          >
+            <Trash2 size={12} />
+          </Button>
+        </div>
       ),
     },
   ];
@@ -203,6 +229,35 @@ export function PermissionsPage(): JSX.Element {
         );
       },
     },
+    {
+      header: '',
+      width: '160px',
+      align: 'right',
+      cell: (p) => (
+        <div style={{ display: 'inline-flex', gap: 6 }}>
+          <Button
+            variant="secondary"
+            size="sm"
+            leftIcon={<Pencil size={12} />}
+            onClick={(e) => {
+              e.stopPropagation();
+              setEditingPerm(p);
+              setPermModalOpen(true);
+            }}
+          >
+            Tahrir
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={(e) => handleDeletePerm(p, e)}
+            aria-label="O'chirish"
+          >
+            <Trash2 size={12} />
+          </Button>
+        </div>
+      ),
+    },
   ];
 
   const endpointColumns: TableColumn<EndpointAdmin>[] = [
@@ -239,6 +294,25 @@ export function PermissionsPage(): JSX.Element {
           <span className={styles.dim}>—</span>
         ),
     },
+    {
+      header: '',
+      width: '120px',
+      align: 'right',
+      cell: (ep) => (
+        <Button
+          variant="secondary"
+          size="sm"
+          leftIcon={<Settings2 size={12} />}
+          onClick={(e) => {
+            e.stopPropagation();
+            setEditingEndpoint(ep);
+            setEndpointModalOpen(true);
+          }}
+        >
+          Sozlash
+        </Button>
+      ),
+    },
   ];
 
   return (
@@ -246,6 +320,29 @@ export function PermissionsPage(): JSX.Element {
       <PageHeader
         title="Rollar va ruxsatlar"
         description={`${roles.length} rol, ${permissions.length} permission, ${allEndpoints.length} endpoint`}
+        actions={
+          tab === 'roles' ? (
+            <Button
+              leftIcon={<Plus size={16} />}
+              onClick={() => {
+                setEditingRole(null);
+                setRoleModalOpen(true);
+              }}
+            >
+              Yangi rol
+            </Button>
+          ) : tab === 'permissions' ? (
+            <Button
+              leftIcon={<Plus size={16} />}
+              onClick={() => {
+                setEditingPerm(null);
+                setPermModalOpen(true);
+              }}
+            >
+              Yangi permission
+            </Button>
+          ) : null
+        }
       />
 
       <Card padded={false} className={styles.tabsCard}>
@@ -280,7 +377,7 @@ export function PermissionsPage(): JSX.Element {
             <p className={styles.explainer}>
               Har foydalanuvchi <strong>rol</strong>lar orqali <strong>permission</strong>larni oladi. Har
               endpoint DB'da yozilgan va <code>EndpointPermissionMiddleware</code> orqali tekshiriladi.
-              Rolni bosib ruxsatlarini tahrirlay olasiz.
+              Rolni tahrirlab ruxsatlarini o'zgartiring yoki yangisini qo'shing.
             </p>
           </Card>
 
@@ -367,128 +464,25 @@ export function PermissionsPage(): JSX.Element {
         </>
       )}
 
-      {editingRole && (
-        <RolePermissionsModal
-          role={editingRole}
-          permissions={permissions}
-          onClose={() => setEditingRole(null)}
-          onSave={(ids) => saveRolePermissions(editingRole.id, ids)}
-        />
-      )}
+      <RoleFormModal
+        open={roleModalOpen}
+        onClose={() => setRoleModalOpen(false)}
+        role={editingRole}
+        permissions={permissions}
+      />
+      <PermissionFormModal
+        open={permModalOpen}
+        onClose={() => setPermModalOpen(false)}
+        permission={editingPerm}
+        permissions={permissions}
+      />
+      <EndpointFormModal
+        open={endpointModalOpen}
+        onClose={() => setEndpointModalOpen(false)}
+        endpoint={editingEndpoint}
+        permissions={permissions}
+      />
     </>
-  );
-}
-
-/** Rolning permissionlarini tahrirlash modali — kategoriyalar bo'yicha checkbox'lar. */
-function RolePermissionsModal({
-  role,
-  permissions,
-  onClose,
-  onSave,
-}: {
-  role: RoleAdmin;
-  permissions: PermissionAdmin[];
-  onClose: () => void;
-  onSave: (permissionIds: number[]) => void;
-}): JSX.Element {
-  const [selected, setSelected] = useState<Set<number>>(new Set(role.permission_ids));
-
-  const grouped = useMemo(() => {
-    const map: Record<string, PermissionAdmin[]> = {};
-    for (const p of permissions) {
-      const cat = categoryOf(p);
-      if (!map[cat]) map[cat] = [];
-      map[cat]!.push(p);
-    }
-    return map;
-  }, [permissions]);
-
-  const toggle = (id: number) => {
-    setSelected((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  };
-
-  const toggleCategory = (category: string) => {
-    const catPerms = grouped[category] ?? [];
-    const allSelected = catPerms.every((p) => selected.has(p.id));
-    setSelected((prev) => {
-      const next = new Set(prev);
-      if (allSelected) catPerms.forEach((p) => next.delete(p.id));
-      else catPerms.forEach((p) => next.add(p.id));
-      return next;
-    });
-  };
-
-  return (
-    <Modal
-      open
-      onClose={onClose}
-      title={
-        <span>
-          <Shield size={16} className={styles.modalTitleIcon} /> {role.name} ruxsatlari
-        </span>
-      }
-      size="lg"
-      footer={
-        <>
-          <Button variant="ghost" onClick={onClose}>
-            Bekor
-          </Button>
-          <Button onClick={() => onSave(Array.from(selected))}>
-            Saqlash ({selected.size} ruxsat)
-          </Button>
-        </>
-      }
-    >
-      <div className={styles.modalHint}>
-        Ushbu rol qaysi permissionlarga ega bo'lishini tanlang. Kategoriya sarlavhasini bossangiz
-        undagi hammasi bir vaqtda tanlanadi/tanlanmaydi.
-      </div>
-
-      <div className={styles.permGroups}>
-        {Object.entries(grouped).map(([category, catPerms]) => {
-          const selectedCount = catPerms.filter((p) => selected.has(p.id)).length;
-          const allSelected = selectedCount === catPerms.length;
-          return (
-            <div key={category} className={styles.permGroup}>
-              <button
-                className={styles.permGroupHeader}
-                onClick={() => toggleCategory(category)}
-                type="button"
-              >
-                <Checkbox
-                  checked={allSelected}
-                  onChange={() => toggleCategory(category)}
-                  onClick={(e) => e.stopPropagation()}
-                />
-                <span className={styles.permGroupName}>{category}</span>
-                <Badge tone={selectedCount > 0 ? 'accent' : 'neutral'}>
-                  {selectedCount} / {catPerms.length}
-                </Badge>
-              </button>
-              <div className={styles.permGroupBody}>
-                {catPerms.map((p) => (
-                  <label key={p.id} className={styles.permRow}>
-                    <Checkbox
-                      checked={selected.has(p.id)}
-                      onChange={() => toggle(p.id)}
-                    />
-                    <div className={styles.permRowText}>
-                      <div className={styles.permRowName}>{p.name}</div>
-                      <code className={styles.permRowCode}>{p.codename}</code>
-                    </div>
-                  </label>
-                ))}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </Modal>
   );
 }
 

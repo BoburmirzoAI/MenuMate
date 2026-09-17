@@ -94,3 +94,45 @@
   background-color: var(--color-bg-surface-2);
   border-radius: var(--radius-pill);
 }
+
+.ingCard {
+  position: relative;
+  cursor: pointer;
+}
+
+.ingActions {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.ingCard:hover .ingActions {
+  opacity: 1;
+}
+
+.ingIconBtn,
+.ingIconBtnDanger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-surface-3);
+  color: var(--color-text-secondary);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.ingIconBtn:hover {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.ingIconBtnDanger:hover {
+  background-color: var(--color-danger-soft);
+  color: var(--color-danger);
+}

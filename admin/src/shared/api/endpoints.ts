@@ -51,7 +51,13 @@ export const endpoints = {
       list: '/admin/permissions/roles/',
       detail: (id: number | string) => `/admin/permissions/roles/${id}/`,
     },
-    permissions: '/admin/permissions/permissions/',
-    endpoints: '/admin/permissions/endpoints/',
+    permissions: {
+      list: '/admin/permissions/permissions/',
+      detail: (id: number | string) => `/admin/permissions/permissions/${id}/`,
+    },
+    endpoints: {
+      list: '/admin/permissions/endpoints/',
+      detail: (id: number | string) => `/admin/permissions/endpoints/${id}/`,
+    },
   },
 } as const;
