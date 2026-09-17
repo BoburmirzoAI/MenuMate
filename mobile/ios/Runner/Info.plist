@@ -68,5 +68,14 @@
 		</array>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<!-- Push notification (silent background) uchun -->
+		<key>UIBackgroundModes</key>
+		<array>
+			<string>fetch</string>
+			<string>remote-notification</string>
+		</array>
+		<!-- Firebase Method Swizzling (opsional lekin qulay) -->
+		<key>FirebaseAppDelegateProxyEnabled</key>
+		<false/>
 	</dict>
 </plist>

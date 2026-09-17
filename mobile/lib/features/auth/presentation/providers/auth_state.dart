@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/api/api_exception.dart';
+import '../../../../core/notifications/device_registrar.dart';
 import '../../../../core/storage/secure_storage.dart';
 import '../../data/auth_repository.dart';
 import '../../domain/user.dart';
@@ -53,6 +56,8 @@ class AuthNotifier extends AsyncNotifier<AuthState> {
     try {
       final repo = ref.read(authRepositoryProvider);
       final user = await repo.me();
+      // Mavjud sessiya — FCM tokenni backendga yangilaymiz (best-effort)
+      unawaited(_registerDevice());
       return AuthAuthenticated(user);
     } catch (_) {
       // Token yaroqsiz yoki tarmoq xatosi — login sahifasiga o'tamiz
@@ -68,8 +73,20 @@ class AuthNotifier extends AsyncNotifier<AuthState> {
     state = await AsyncValue.guard(() async {
       final repo = ref.read(authRepositoryProvider);
       final (user, _) = await repo.login(email: email, password: password);
+      // FCM tokenni backendga ulash — best-effort (login xato bo'lmasin)
+      unawaited(_registerDevice());
       return AuthAuthenticated(user);
     });
+  }
+
+  /// Login/register muvaffaqiyatli bo'lgach FCM tokenni backendga yuborish.
+  Future<void> _registerDevice() async {
+    try {
+      final registrar = ref.read(deviceRegistrarProvider);
+      await registrar.register();
+    } catch (_) {
+      // Push registration muhim emas — bu ilova qismini blok qilmaydi.
+    }
   }
 
   Future<void> register({
@@ -93,6 +110,7 @@ class AuthNotifier extends AsyncNotifier<AuthState> {
         language: language,
         referralCode: referralCode,
       );
+      unawaited(_registerDevice());
       return AuthAuthenticated(user);
     });
   }

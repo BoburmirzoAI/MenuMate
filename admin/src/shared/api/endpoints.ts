@@ -12,38 +12,46 @@ export const endpoints = {
     refresh: '/users/refresh/',
     me: '/users/me/',
   },
-  users: {
-    list: '/users/',
-    detail: (id: number | string) => `/users/${id}/`,
-  },
-  families: {
-    list: '/family/',
-    members: '/family/members/',
-    memberDetail: (id: number | string) => `/family/members/${id}/`,
-    healthConditions: '/family/health-conditions/',
-  },
-  recipes: {
-    list: '/recipes/',
-    detail: (id: number | string) => `/recipes/${id}/`,
-    allergens: '/recipes/allergens/',
-    ingredients: '/recipes/ingredients/',
-  },
-  menus: {
-    list: '/menu/',
-    detail: (id: number | string) => `/menu/${id}/`,
-    stats: (id: number | string) => `/menu/${id}/stats/`,
-    clear: (id: number | string) => `/menu/${id}/clear/`,
-  },
-  products: {
-    shoppingList: (menuId: number | string) => `/menu/${menuId}/products/`,
-    item: (itemId: number | string) => `/products/shopping-items/${itemId}/`,
-  },
-  weather: '/weather/',
-  notifications: {
-    list: '/notifications/',
-    read: (id: number | string) => `/notifications/${id}/read/`,
-    markAll: '/notifications/mark-all-read/',
-    holidays: '/notifications/holidays/',
-    upcoming: '/notifications/holidays/upcoming/',
+  // ══ Admin panel API'lari — /api/v1/admin/* ══
+  admin: {
+    stats: '/admin/stats/',
+    users: {
+      list: '/admin/users/',
+      detail: (id: number | string) => `/admin/users/${id}/`,
+    },
+    families: {
+      list: '/admin/families/',
+      detail: (id: number | string) => `/admin/families/${id}/`,
+    },
+    recipes: {
+      list: '/admin/recipes/',
+      detail: (id: number | string) => `/admin/recipes/${id}/`,
+      ingredients: '/admin/recipes/ingredients/',
+      allergens: '/admin/recipes/allergens/',
+    },
+    menus: {
+      list: '/admin/menus/',
+      detail: (id: number | string) => `/admin/menus/${id}/`,
+    },
+    shopping: {
+      list: '/admin/shopping/',
+      byMenu: (menuId: number | string) => `/admin/shopping/by-menu/${menuId}/`,
+    },
+    holidays: {
+      list: '/admin/notifications/holidays/',
+      detail: (id: number | string) => `/admin/notifications/holidays/${id}/`,
+    },
+    notifications: {
+      list: '/admin/notifications/',
+      broadcast: '/admin/notifications/broadcast/',
+    },
+    devices: '/admin/devices/',
+    weather: '/admin/weather/',
+    roles: {
+      list: '/admin/permissions/roles/',
+      detail: (id: number | string) => `/admin/permissions/roles/${id}/`,
+    },
+    permissions: '/admin/permissions/permissions/',
+    endpoints: '/admin/permissions/endpoints/',
   },
 } as const;

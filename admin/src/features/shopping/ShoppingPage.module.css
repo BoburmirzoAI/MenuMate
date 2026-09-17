@@ -1,0 +1,146 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.selectorCard {
+  padding: var(--space-4);
+}
+
+.selectorLabel {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2);
+}
+
+.progressCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.progressStats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.progressIcon {
+  color: var(--color-success);
+}
+
+.progressValue {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.progressLabel {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.progressBar {
+  height: 6px;
+  background-color: var(--color-bg-surface-2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: var(--color-accent);
+  transition: width var(--transition-base);
+}
+
+.familyInfo {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.group {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg-surface-2);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.groupIcon {
+  font-size: 18px;
+}
+
+.groupLabel {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.groupCount {
+  margin-left: auto;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  padding: 2px 8px;
+  background-color: var(--color-bg-surface-3);
+  border-radius: var(--radius-pill);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.itemPurchased .itemName,
+.itemPurchased .itemAmount {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.iconDone {
+  color: var(--color-success);
+}
+
+.iconPending {
+  color: var(--color-text-muted);
+}
+
+.itemName {
+  flex: 1;
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}
+
+.itemAmount {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}

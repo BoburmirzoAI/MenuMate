@@ -1,0 +1,40 @@
+.filterCard {
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: var(--space-3);
+}
+
+.deviceCell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.deviceIcon {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.deviceLabel {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.deviceId {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}

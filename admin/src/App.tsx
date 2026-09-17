@@ -3,6 +3,7 @@ import { RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { bindAuthToApi, useAuthStore } from '@shared/auth/store';
+import { ToastContainer } from '@shared/ui';
 import { router } from '@router/routes';
 
 /**
@@ -40,6 +41,7 @@ export function App(): JSX.Element {
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
+      <ToastContainer />
     </QueryClientProvider>
   );
 }

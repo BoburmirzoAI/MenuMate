@@ -1,0 +1,231 @@
+.tabsCard {
+  padding: var(--space-2);
+  margin-bottom: var(--space-4);
+  display: inline-block;
+}
+
+.tabs {
+  display: inline-flex;
+  gap: var(--space-1);
+  background-color: var(--color-bg-surface-2);
+  padding: 4px;
+  border-radius: var(--radius-md);
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.tab:hover {
+  color: var(--color-text-primary);
+}
+
+.tabActive {
+  background-color: var(--color-bg-surface);
+  color: var(--color-accent);
+}
+
+.summaryCard {
+  margin-bottom: var(--space-4);
+}
+
+.explainer {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-loose);
+}
+
+.explainer code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 1px 6px;
+  background-color: var(--color-bg-surface-2);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent);
+}
+
+.filterCard {
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: var(--space-3);
+}
+
+.roleCell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.roleIcon {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  border-radius: var(--radius-md);
+}
+
+.roleName {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.roleCode {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.countCell {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-secondary);
+}
+
+.pathCell {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-primary);
+}
+
+.permCodeSmall {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-warning);
+  padding: 2px 6px;
+  background-color: var(--color-warning-soft);
+  border-radius: var(--radius-sm);
+}
+
+.dim {
+  color: var(--color-text-muted);
+}
+
+.permName {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.permCode {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.rolesList {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ═══ Rol permissionlarini tahrirlash modali ═══ */
+
+.modalTitleIcon {
+  vertical-align: middle;
+  margin-right: var(--space-2);
+  color: var(--color-accent);
+}
+
+.modalHint {
+  padding: var(--space-3);
+  background-color: var(--color-info-soft);
+  color: var(--color-info);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+}
+
+.permGroups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.permGroup {
+  background-color: var(--color-bg-surface-2);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.permGroupHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg-surface-3);
+  border-bottom: 1px solid var(--color-border-subtle);
+  text-align: left;
+  transition: background-color var(--transition-fast);
+}
+
+.permGroupHeader:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.permGroupName {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.permGroupBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.permRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.permRow:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.permRow:last-child {
+  border-bottom: none;
+}
+
+.permRowText {
+  flex: 1;
+  min-width: 0;
+}
+
+.permRowName {
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}
+
+.permRowCode {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}

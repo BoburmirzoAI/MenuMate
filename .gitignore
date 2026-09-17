@@ -31,6 +31,7 @@ static/
 # --- IDE / OS ---
 .idea/
 .vscode/
+.claude/
 *.swp
 *.swo
 .DS_Store
@@ -60,6 +61,24 @@ htmlcov/
 # --- Backups ---
 backup*.sql
 *.bak
-*LOYIHA_TUSHUNTIRISH.md
-*Menu Mate.html
-*MOBILE_UI_TAVSIF.md
+
+# --- Ichki hujjat fayllar (faqat README.md GitHub'ga tushadi) ---
+LOYIHA_TUSHUNTIRISH.md
+MOBILE_UI_TAVSIF.md
+PUSH_NOTIFICATION_SETUP.md
+TELEGRAM_MESSAGE.md
+loyiha_reja.md
+Menu Mate.html
+Menu-Mate.html
+
+# --- Android signing (parollarni saqlash) ---
+mobile/android/key.properties
+mobile/android/**/*.jks
+mobile/android/**/*.keystore
+
+# --- Firebase (maxfiy) ---
+firebase-service-account.json
+backend/firebase-service-account.json
+mobile/android/app/google-services.json
+mobile/ios/Runner/GoogleService-Info.plist
+mobile/ios/firebase_app_id_file.json

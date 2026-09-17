@@ -6,14 +6,18 @@ class AppConfig {
   AppConfig._();
 
   /// Backend API base URL.
-  /// - Real telefon (bir Wi-Fi'da) → kompyuter IP: http://192.168.1.105:8000
-  /// - Chrome / iOS Simulator → http://localhost:8000 (Android emulator: 10.0.2.2)
   ///
-  /// Build vaqtida override qilish uchun:
-  ///   flutter run --dart-define=API_BASE_URL=http://IP:8000
+  /// - **Production/Release APK** — Cloudflare Tunnel orqali kelayotgan doimiy
+  ///   URL: `https://menumate.anipulse.uz`. Task beruvchi telefoni istagan
+  ///   tarmoqda bo'lsa ham backend'ga ulanadi (Mac yoqilgan bo'lishi sharti).
+  /// - **Lokal dev (Chrome, iOS Simulator, real telefon debug)** — build
+  ///   vaqtida override qilib berish:
+  ///     flutter run --dart-define=API_BASE_URL=http://localhost:8000
+  ///     flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8000  (Android emulator)
+  ///     flutter run --dart-define=API_BASE_URL=http://192.168.1.110:8000  (LAN)
   static const String apiBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://localhost:8000',
+    defaultValue: 'https://menumate.anipulse.uz',
   );
 
   static const String apiVersion = 'v1';

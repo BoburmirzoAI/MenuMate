@@ -1,0 +1,54 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background-color: var(--color-bg-surface-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-xs);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.check {
+  color: transparent;
+  transition: color var(--transition-fast);
+}
+
+.input:checked + .box {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.input:checked + .box .check {
+  color: var(--color-accent-contrast);
+}
+
+.input:focus-visible + .box {
+  box-shadow: var(--shadow-focus);
+}
+
+.input:disabled + .box {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.label {
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}

@@ -286,6 +286,11 @@ class ProfileScreen extends ConsumerWidget {
     );
     passwordCtrl.dispose();
     if (confirmed == true && context.mounted) {
+      // Muvaffaqiyatli o'chirilganidan keyin login sahifasiga qaytish.
+      // Router `refreshListenable` orqali AuthUnauthenticated'ni ushlagan
+      // bo'lsa ham modal stack tufayli avtomatik redirect ba'zan ishlamaydi —
+      // explicit `go` bilan barcha stacklarni tozalab qaytamiz.
+      context.go(AppRoutes.login);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(ref.tr('profile_delete_account'))),
       );

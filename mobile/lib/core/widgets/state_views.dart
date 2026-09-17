@@ -129,24 +129,61 @@ class ErrorRetryView extends ConsumerWidget {
   }
 }
 
-/// Ro'yxatga qulay skeleton element (kartochka o'rniga xira karta).
-class ListSkeleton extends StatelessWidget {
+/// Ro'yxatga qulay skeleton element — shimmer animatsiyasi bilan xira karta.
+class ListSkeleton extends StatefulWidget {
   const ListSkeleton({super.key, this.itemHeight = 80, this.itemCount = 5});
   final double itemHeight;
   final int itemCount;
 
   @override
+  State<ListSkeleton> createState() => _ListSkeletonState();
+}
+
+class _ListSkeletonState extends State<ListSkeleton>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1400),
+    )..repeat();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ListView.separated(
       padding: const EdgeInsets.all(AppSpacing.xxl),
-      itemCount: itemCount,
+      itemCount: widget.itemCount,
       separatorBuilder: (_, _) => const SizedBox(height: AppSpacing.md),
-      itemBuilder: (_, _) => Container(
-        height: itemHeight,
-        decoration: BoxDecoration(
-          color: AppColors.creamCard.withValues(alpha: 0.6),
-          borderRadius: BorderRadius.circular(AppRadius.lg),
-        ),
+      itemBuilder: (_, _) => AnimatedBuilder(
+        animation: _controller,
+        builder: (context, _) {
+          final t = _controller.value;
+          return Container(
+            height: widget.itemHeight,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppRadius.lg),
+              gradient: LinearGradient(
+                begin: Alignment(-1 + 2 * t, 0),
+                end: Alignment(1 + 2 * t, 0),
+                colors: [
+                  AppColors.creamCard.withValues(alpha: 0.4),
+                  AppColors.creamCard.withValues(alpha: 0.75),
+                  AppColors.creamCard.withValues(alpha: 0.4),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

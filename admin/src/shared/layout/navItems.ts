@@ -36,39 +36,37 @@ export interface NavGroup {
 export const navGroups: NavGroup[] = [
   {
     label: 'Umumiy',
-    items: [
-      { label: 'Boshqaruv paneli', path: '/', icon: LayoutDashboard },
-    ],
+    items: [{ label: 'Boshqaruv paneli', path: '/', icon: LayoutDashboard }],
   },
   {
     label: 'Foydalanuvchilar',
     items: [
-      { label: 'Foydalanuvchilar', path: '/users', icon: Users, disabled: true },
-      { label: 'Oilalar', path: '/families', icon: UsersRound, disabled: true },
+      { label: 'Foydalanuvchilar', path: '/users', icon: Users },
+      { label: 'Oilalar', path: '/families', icon: UsersRound },
     ],
   },
   {
     label: 'Kontent',
     items: [
-      { label: 'Retseptlar', path: '/recipes', icon: ChefHat, disabled: true },
-      { label: 'Ingredientlar', path: '/ingredients', icon: Sprout, disabled: true },
-      { label: 'Menyular', path: '/menus', icon: CalendarDays, disabled: true },
-      { label: 'Xarid ro‘yxatlari', path: '/shopping', icon: ShoppingBasket, disabled: true },
+      { label: 'Retseptlar', path: '/recipes', icon: ChefHat },
+      { label: 'Ingredientlar', path: '/ingredients', icon: Sprout },
+      { label: 'Menyular', path: '/menus', icon: CalendarDays },
+      { label: 'Xarid roʼyxatlari', path: '/shopping', icon: ShoppingBasket },
     ],
   },
   {
     label: 'Bildirishnomalar',
     items: [
-      { label: 'Bayramlar', path: '/holidays', icon: PartyPopper, disabled: true },
-      { label: 'Xabarlar', path: '/notifications', icon: Bell, disabled: true },
+      { label: 'Bayramlar', path: '/holidays', icon: PartyPopper },
+      { label: 'Xabarlar', path: '/notifications', icon: Bell },
     ],
   },
   {
     label: 'Tizim',
     items: [
-      { label: 'Ob-havo cache', path: '/weather', icon: Cloud, disabled: true },
-      { label: 'Qurilmalar', path: '/devices', icon: Smartphone, disabled: true },
-      { label: 'Rollar va ruxsatlar', path: '/permissions', icon: Shield, disabled: true },
+      { label: 'Ob-havo cache', path: '/weather', icon: Cloud },
+      { label: 'Qurilmalar', path: '/devices', icon: Smartphone },
+      { label: 'Rollar va ruxsatlar', path: '/permissions', icon: Shield },
     ],
   },
 ];

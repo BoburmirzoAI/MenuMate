@@ -11,17 +11,16 @@ import {
 
 import { Card, CardHeader, PageHeader, Badge } from '@shared/ui';
 
+import { useDashboardStats } from './api';
 import { StatCard } from './StatCard';
 import styles from './DashboardPage.module.css';
 
-/**
- * Boshqaruv paneli — birinchi tashrif sahifasi.
- *
- * ⚠️  Hozircha statistika demo data — backend'da tegishli endpoint
- * (`GET /admin/stats/` va h.k.) qo'shilganidan keyin `useQuery` bilan
- * to'ldiriladi.
- */
+/** Boshqaruv paneli — real backend statistikasi. */
 export function DashboardPage(): JSX.Element {
+  const { data, isLoading } = useDashboardStats();
+  const kpi = data?.kpi;
+  const chartData = data?.chart_menus_last_30_days ?? [];
+
   return (
     <>
       <PageHeader
@@ -30,10 +29,30 @@ export function DashboardPage(): JSX.Element {
       />
 
       <div className={styles.stats}>
-        <StatCard label="Foydalanuvchilar" value={0} icon={Users} hint="Barcha ro'yxatdan o'tganlar" />
-        <StatCard label="Oilalar" value={0} icon={UsersRound} hint="Faol oilalar" />
-        <StatCard label="Retseptlar" value={35} icon={ChefHat} hint="Rasm bilan 100%" />
-        <StatCard label="Aktiv menyular" value={0} icon={CalendarDays} hint="Bugungi holat" />
+        <StatCard
+          label="Foydalanuvchilar"
+          value={isLoading ? '…' : kpi?.total_users ?? 0}
+          icon={Users}
+          hint={`${kpi?.active_users ?? 0} faol`}
+        />
+        <StatCard
+          label="Oilalar"
+          value={isLoading ? '…' : kpi?.total_families ?? 0}
+          icon={UsersRound}
+          hint="Ro'yxatdan o'tgan oilalar"
+        />
+        <StatCard
+          label="Retseptlar"
+          value={isLoading ? '…' : kpi?.total_recipes ?? 0}
+          icon={ChefHat}
+          hint={`${kpi?.total_ingredients ?? 0} ingredient`}
+        />
+        <StatCard
+          label="Aktiv menyular"
+          value={isLoading ? '…' : kpi?.active_menus ?? 0}
+          icon={CalendarDays}
+          hint={`Oxirgi 30 kun: ${kpi?.menus_last_30_days ?? 0}`}
+        />
       </div>
 
       <div className={styles.grid}>
@@ -41,11 +60,11 @@ export function DashboardPage(): JSX.Element {
           <CardHeader
             title="Menyu yaratilishi (30 kun)"
             subtitle="Kunlik yangi menyular soni"
-            action={<Badge tone="accent">Demo</Badge>}
+            action={<Badge tone="accent">Live</Badge>}
           />
           <div className={styles.chartWrapper}>
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={demoChartData} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
+              <AreaChart data={chartData} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
                 <defs>
                   <linearGradient id="accentFill" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="var(--color-accent)" stopOpacity={0.45} />
@@ -110,9 +129,3 @@ function QuickLink({ icon, label }: { icon: React.ReactNode; label: string }): J
     </button>
   );
 }
-
-/** Vaqtinchalik grafik uchun demo ma'lumot (30 kun). */
-const demoChartData = Array.from({ length: 30 }, (_, i) => ({
-  day: `${i + 1}`,
-  menus: Math.round(4 + Math.sin(i / 3) * 3 + Math.random() * 2),
-}));

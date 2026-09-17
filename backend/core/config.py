@@ -47,6 +47,16 @@ REDIS_CACHE_URL = env.str(
 OPENWEATHER_API_KEY = env.str('OPENWEATHER_API_KEY', default='')
 FCM_SERVER_KEY = env.str('FCM_SERVER_KEY', default='')
 
+# Firebase Admin SDK — Service Account JSON fayl yo'li (yoki inline JSON string).
+# Yo'l bo'sh bo'lsa push yuborilmaydi (loglanadi), tizim boshqa aspektlarda ishlayveradi.
+FIREBASE_SERVICE_ACCOUNT_PATH = env.str(
+    'FIREBASE_SERVICE_ACCOUNT_PATH',
+    default='/app/firebase-service-account.json',
+)
+# Kelajakda "Menu tuzilgan" yoki "Bayram bugun" kabi avtomatik push'lar
+# xohishga qarab yoqilib/o'chirilishi uchun feature flag.
+PUSH_NOTIFICATIONS_ENABLED = env.bool('PUSH_NOTIFICATIONS_ENABLED', default=True)
+
 # Karzinka Go (Yandex Lavka B2B API) — Proxymandan olingan JWT token va koordinata.
 # Token ~1 soatda tugaydi; qayta yig'ish uchun Proxyman'dan yangi webviewtoken oling.
 KARZINKA_LAVKA_TOKEN = env.str('KARZINKA_LAVKA_TOKEN', default='')

@@ -1,6 +1,6 @@
 /**
  * shared/ui — barcha umumiy UI komponentlarni bitta joydan eksport.
- * `import { Button, Card } from '@shared/ui'` — clean import.
+ * `import { Button, Card, Table } from '@shared/ui'` — clean import.
  */
 export { Button, type ButtonProps } from './Button/Button';
 export { Card, CardHeader, CardBody, CardFooter } from './Card/Card';
@@ -10,3 +10,9 @@ export { Spinner } from './Spinner/Spinner';
 export { Skeleton } from './Skeleton/Skeleton';
 export { EmptyState } from './EmptyState/EmptyState';
 export { PageHeader } from './PageHeader/PageHeader';
+export { Table, type TableColumn } from './Table/Table';
+export { Modal } from './Modal/Modal';
+export { Select, type SelectOption, type SelectProps } from './Select/Select';
+export { Checkbox } from './Checkbox/Checkbox';
+export { ToastContainer } from './Toast/ToastContainer';
+export { toast } from './Toast/toastStore';
