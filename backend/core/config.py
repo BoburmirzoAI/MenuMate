@@ -69,3 +69,8 @@ KARZINKA_LAVKA_LON = env.float('KARZINKA_LAVKA_LON', default=69.24657079428343)
 # Telegram (for error alerts)
 TELEGRAM_BOT_TOKEN = env.str('TELEGRAM_BOT_TOKEN', default='')
 TELEGRAM_CHANNEL_ID = env.str('TELEGRAM_CHANNEL_ID', default='')
+
+# Sentry (xato monitoringi) — DSN bo'sh bo'lsa Sentry yoqilmaydi.
+SENTRY_DSN = env.str('SENTRY_DSN', default='')
+SENTRY_ENVIRONMENT = env.str('SENTRY_ENVIRONMENT', default='production')
+SENTRY_RELEASE = env.str('SENTRY_RELEASE', default='')

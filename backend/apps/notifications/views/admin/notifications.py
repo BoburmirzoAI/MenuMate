@@ -10,6 +10,7 @@ from apps.notifications.serializers.admin import (
     NotificationAdminSerializer,
 )
 from apps.shared.permissions import IsAdminUser
+from apps.shared.throttling import BroadcastThrottle
 from apps.shared.utils.custom_response import CustomResponse
 from apps.users.models.users import User
 
@@ -36,6 +37,7 @@ class BroadcastAPIView(APIView):
          qaytaramiz (push loyihasining ko'rinish tomoni).
     """
     permission_classes = [IsAdminUser]
+    throttle_classes = [BroadcastThrottle]
 
     def post(self, request):
         serializer = BroadcastNotificationSerializer(data=request.data)

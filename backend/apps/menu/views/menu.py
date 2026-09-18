@@ -16,6 +16,7 @@ from apps.menu.utils.recommender import recommend_recipes
 from apps.menu.utils.stats import menu_stats
 from apps.recipes.models.recipes import Recipe
 from apps.shared.exceptions.custom_exceptions import CustomException
+from apps.shared.throttling import MenuGenerateThrottle
 from apps.shared.utils.custom_response import CustomResponse
 
 
@@ -44,6 +45,13 @@ def _get_user_meal(user, meal_id: int) -> MenuMeal:
 
 class MenuListCreateAPIView(APIView):
     permission_classes = [IsAuthenticated]
+
+    def get_throttles(self):
+        # POST (menyu yaratish) — og'ir hisoblash, alohida limit.
+        # GET (ro'yxat) — oddiy default user throttle bilan ketadi.
+        if self.request.method == 'POST':
+            return [MenuGenerateThrottle()]
+        return super().get_throttles()
 
     def get(self, request):
         family = _get_family(request.user)

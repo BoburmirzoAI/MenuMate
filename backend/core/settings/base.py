@@ -173,6 +173,25 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
     'EXCEPTION_HANDLER': 'apps.shared.exceptions.handler.custom_exception_handler',
     'DEFAULT_PAGINATION_CLASS': 'apps.shared.utils.custom_pagination.CustomPageNumberPagination',
+
+    # ── Rate limiting (per-view scoped throttles + global anon/user limitlari) ──
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        # Global limitlar — hech qanday `throttle_classes` belgilamagan
+        # endpointlar uchun avtomatik qo'llanadi.
+        'anon': '60/min',        # Autentifikatsiyasiz IP: daqiqasiga 60
+        'user': '300/min',       # Autentifikatsiya qilingan foydalanuvchi
+
+        # Alohida (scoped) limitlar — apps.shared.throttling'dagi sinflar ishlatadi
+        'login': '5/min',            # Brute-force login'ga qarshi
+        'register': '5/hour',        # Spam ro'yxatdan o'tish
+        'password': '5/hour',        # Parol tiklash email spam
+        'menu_generate': '5/min',    # Og'ir hisoblash
+        'broadcast': '10/hour',      # Admin push spam
+    },
 }
 
 # -------------------------------------------------------------------

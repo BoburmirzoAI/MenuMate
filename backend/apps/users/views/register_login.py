@@ -3,6 +3,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from apps.shared.throttling import LoginThrottle, RegisterThrottle
 from apps.shared.utils.custom_response import CustomResponse
 from apps.users.serializers.auth import LogoutSerializer
 from apps.users.serializers.register_login import (
@@ -19,6 +20,7 @@ def _tokens_for(user):
 
 class RegisterAPIView(APIView):
     permission_classes = [AllowAny]
+    throttle_classes = [RegisterThrottle]
     serializer_class = RegisterSerializer
 
     def post(self, request):
@@ -37,6 +39,7 @@ class RegisterAPIView(APIView):
 
 class LoginAPIView(APIView):
     permission_classes = [AllowAny]
+    throttle_classes = [LoginThrottle]
     serializer_class = LoginSerializer
 
     def post(self, request):

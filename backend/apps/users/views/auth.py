@@ -7,6 +7,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from apps.shared.throttling import PasswordThrottle
 from apps.shared.utils.custom_response import CustomResponse
 from apps.users.serializers.auth import (
     ChangePasswordSerializer,
@@ -43,6 +44,7 @@ class ForgotPasswordAPIView(APIView):
     Emailga kod yuboradi. Xavfsizlik uchun email topilmasa ham 200 qaytadi.
     """
     permission_classes = [AllowAny]
+    throttle_classes = [PasswordThrottle]
     serializer_class = ForgotPasswordSerializer
 
     def post(self, request):
@@ -60,6 +62,7 @@ class ResetPasswordAPIView(APIView):
     Body: { email, code, new_password, new_password_confirm }
     """
     permission_classes = [AllowAny]
+    throttle_classes = [PasswordThrottle]
     serializer_class = ResetPasswordSerializer
 
     def post(self, request):
