@@ -71,14 +71,12 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     """Menu Mate foydalanuvchisi (oila boshlig'i)."""
 
-    # === Auth ===
     email = models.EmailField(max_length=255, unique=True, db_index=True)
     phone_number = models.CharField(
         max_length=20, validators=[phone_regex],
         unique=True, null=True, blank=True, db_index=True,
     )
 
-    # === Shaxsiy ma'lumot ===
     first_name = models.CharField(max_length=64, blank=True, default='')
     last_name = models.CharField(max_length=64, blank=True, default='')
     birth_date = models.DateField(null=True, blank=True)
@@ -92,18 +90,15 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
         related_name='+',
     )
 
-    # === Sozlamalar ===
     language = models.CharField(
         max_length=5, choices=Language.choices, default=Language.UZ,
     )
     timezone = models.CharField(max_length=64, default='Asia/Tashkent')
     is_push_enabled = models.BooleanField(default=True)
 
-    # === Tasdiqlash ===
     is_email_verified = models.BooleanField(default=False, db_index=True)
     email_verified_at = models.DateTimeField(null=True, blank=True)
 
-    # === Ruxsatlar ===
     roles = models.ManyToManyField(
         'permissions.Role', related_name='users', blank=True,
     )
@@ -111,11 +106,9 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 
-    # === Soft delete ===
     is_deleted = models.BooleanField(default=False, db_index=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
-    # === Onboarding ===
     is_onboarded = models.BooleanField(
         default=False,
         help_text="Oila yaratilganmi",

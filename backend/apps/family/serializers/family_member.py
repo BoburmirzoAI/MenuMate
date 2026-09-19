@@ -15,10 +15,6 @@ from apps.recipes.models.recipes import Ingredient, Recipe
 from apps.shared.exceptions.custom_exceptions import CustomException
 
 
-# ---------------------------------------------------------------------
-# Read serializer — response uchun
-# ---------------------------------------------------------------------
-
 class NestedIngredientSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     name = serializers.CharField()
@@ -59,10 +55,6 @@ class FamilyMemberReadSerializer(serializers.ModelSerializer):
         read_only_fields = fields
 
 
-# ---------------------------------------------------------------------
-# Write serializer — create / update
-# ---------------------------------------------------------------------
-
 class FamilyMemberWriteSerializer(serializers.Serializer):
     """
     A'zo yaratish/yangilash. M2M ID list sifatida qabul qilinadi.
@@ -85,14 +77,17 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
         child=serializers.IntegerField(), required=False, default=list,
     )
 
-    # ---- Validators ----
-
     def validate_name(self, value: str) -> str:
         value = value.strip()
         if not value:
             raise CustomException(
                 "VALIDATION_ERROR",
-                errors={"name": "Ism bo'sh bo'lmasligi kerak"},
+                status_code=400,
+                errors={
+                    "detail": "name must not be empty after strip",
+                    "field": "name",
+                    "reason": "empty_name",
+                },
             )
         return value
 
@@ -184,8 +179,6 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
             )
         return attrs
 
-    # ---- Save ----
-
     @transaction.atomic
     def create(self, validated_data):
         family = self.context['family']
@@ -200,13 +193,12 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        # Scalar fields
         for field in ('name', 'age', 'gender'):
             if field in validated_data:
                 setattr(instance, field, validated_data[field])
         instance.save()
 
-        # M2M — faqat request'da yuborilgan bo'lsa update qilinadi
+        # M2M faqat request'da kelgan bo'lsa yangilanadi — kelmasa saqlanadi.
         m2m_updates = {
             'liked_recipes': validated_data.get('liked_recipe_ids'),
             'disliked_recipes': validated_data.get('disliked_recipe_ids'),

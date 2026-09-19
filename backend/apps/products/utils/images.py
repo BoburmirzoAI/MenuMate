@@ -20,15 +20,13 @@ from apps.products.utils.karzinka import find_karzinka_match
 
 logger = logging.getLogger(__name__)
 
-_WIKI_TTL = 60 * 60 * 24 * 7  # 7 kun
+_WIKI_TTL = 60 * 60 * 24 * 7
 _WIKI_TIMEOUT = 5
 
-# Retsept nomi (name_uz) → Wikipedia article + lang.
-# Hozir DB dagi 35 retseptning har biri uchun to'g'ri, mazmun bo'yicha aniq rasm keltiradi.
-# Wikipedia article aynan taom rasmi bilan chiqadigan qilib tanlangan (davlat bayrog'i, ingredient
-# yoki halolsiz variantlar mahsus chetlab o'tilgan).
+# Retsept nomi (name_uz) → Wikipedia article + til. Har article aynan taom
+# rasmi bilan chiqadigan qilib qo'lda tanlangan; davlat bayrog'i, halolsiz
+# variantlar yoki noaniq disambiguation sahifalari chetlab o'tilgan.
 RECIPE_WIKI_OVERRIDES: dict[str, tuple[str, str]] = {
-    # O'zbek/markaziy osiyo taomlari
     "Osh (Palov)":               ("Плов", "ru"),
     "Tovuqli guruchli osh":      ("Плов", "ru"),
     "Lag'mon":                   ("Лагман", "ru"),
@@ -41,23 +39,17 @@ RECIPE_WIKI_OVERRIDES: dict[str, tuple[str, str]] = {
     "Dimlama":                   ("Дымлама", "ru"),
     "Xonim":                     ("Ханум (блюдо)", "ru"),
     "Mastava":                   ("Мастава", "ru"),
-    # Mosh xo'rda uchun Wikipedia'da alohida article yo'q — mos ovqat rasmi Mastava (o'xshash sho'rva)
     "Mosh xo'rda":               ("Мастава", "ru"),
-    # Halol qovurma — cho'chqa emas (Kavurma turk taomi, halol)
     "Qovurma":                   ("Kavurma", "en"),
-    # cache eski jaуно natijasini "wiki_img:override:Kavurma:en" kalitiga qo'shadi.
 
-    # Bo'tqalar
     "Grechka bo'tqasi":          ("Гречневая каша", "ru"),
     "Suli bo'tqasi (Ovsyanka)":  ("Овсяная каша", "ru"),
     "Manniy bo'tqa":             ("Манная каша", "ru"),
 
-    # Sut mahsulotlari asosidagi
     "Sirniki":                   ("Сырники", "ru"),
     "Suzmali desert":            ("Cheesecake", "en"),
     "Suzmali salat (nonushta)":  ("Сырники", "ru"),
 
-    # Sho'rvalar
     "Adas sho'rva":              ("Lentil soup", "en"),
     "Ismaloq sho'rva":           ("Spinach soup", "en"),
     "Piyoz sho'rva":             ("Луковый суп", "ru"),
@@ -65,7 +57,6 @@ RECIPE_WIKI_OVERRIDES: dict[str, tuple[str, str]] = {
     "Borsch":                    ("Борщ", "ru"),
     "Solyanka":                  ("Солянка", "ru"),
 
-    # Go'shtli
     "Kebab (Shashlik)":          ("Шашлык", "ru"),
     "Kotlet":                    ("Котлета", "ru"),
     "Turkey kotletlar":          ("Turkey meat", "en"),
@@ -73,11 +64,9 @@ RECIPE_WIKI_OVERRIDES: dict[str, tuple[str, str]] = {
     "Kurka barbekyu":            ("Barbecue chicken", "en"),
     "Tovuqli sabzavot":          ("Chicken cacciatore", "en"),
 
-    # Baliq/dengiz mahsulotlari
     "Baliq pech (dukhovka)":     ("Fish as food", "en"),
     "Krevetka guruch bilan":     ("Fried rice", "en"),
 
-    # Salatlar
     "Vinegret":                  ("Винегрет", "ru"),
     "Olivye salati":             ("Оливье (салат)", "ru"),
     "Grekcha salat":             ("Греческий салат", "ru"),
@@ -87,13 +76,11 @@ RECIPE_WIKI_OVERRIDES: dict[str, tuple[str, str]] = {
     "Karam salati":              ("Coleslaw", "en"),
     "Achchiq-chuchuk":           ("Ачик-чучук", "ru"),
 
-    # Nonushta
     "Blin":                      ("Блины", "ru"),
     "Omlet":                     ("Омлет", "ru"),
     "Yaishnitsa":                ("Яичница", "ru"),
     "Piroski":                   ("Пирожки", "ru"),
 
-    # Ichimliklar
     "Kompot":                    ("Компот", "ru"),
     "Kompot (mevali)":           ("Компот", "ru"),
     "Ko'k choy":                 ("Зелёный чай", "ru"),
@@ -104,13 +91,9 @@ RECIPE_WIKI_OVERRIDES: dict[str, tuple[str, str]] = {
     "Limonli suv":               ("Лимонад", "ru"),
     "Kefir":                     ("Кефир", "ru"),
 
-    # Shirinliklar
     "Halvo":                     ("Халва", "ru"),
     "Chak-chak":                 ("Чак-чак", "ru"),
 
-    # ────────────────────── INGREDIENTLAR ──────────────────────
-    # Rasmsiz qolgan yoki noaniq keladigan ingredientlar uchun aniq Wikipedia article.
-    # Sut mahsulotlari va sabzavot uchun ham override — Karzinka topmasa fallback ishlaydi.
     "Mol go'shti":               ("Beef", "en"),
     "Qo'y go'shti":              ("Lamb and mutton", "en"),
     "Farshli go'sht":            ("Ground meat", "en"),
@@ -206,7 +189,6 @@ def _wiki_summary_image(title: str, lang: str) -> str | None:
             return orig
     except requests.RequestException:
         return None
-    # REST summary'da lead rasm yo'q — pageimages API bilan urinamiz.
     return _wiki_pageimage(title, lang)
 
 
@@ -258,9 +240,6 @@ def _wiki_image(name_uz: str, name_ru: str, name_en: str) -> str:
     2. Override natija bergani bo'lmasa yoki override umuman yo'q bo'lsa —
        en/ru/uz Wikipedia'da summary + search fallback bilan qidiradi.
     """
-    # 1. Aniq override — rasmi bo'lsa qaytamiz, bo'lmasa fallback'ga tushamiz.
-    #    Bo'sh natijani qisqa muddatga (1 soat) cache'lamoqchimiz — ehtimol keyingi
-    #    urinishida Wikipedia rate-limit'i pasaygan bo'ladi va rasm keladi.
     if name_uz in RECIPE_WIKI_OVERRIDES:
         article, lang = RECIPE_WIKI_OVERRIDES[name_uz]
         cache_key = f"wiki_img:override:{article}:{lang}"
@@ -269,12 +248,11 @@ def _wiki_image(name_uz: str, name_ru: str, name_en: str) -> str:
             return cached
         if cached is None:
             img = _wiki_summary_image(article, lang) or ''
-            # Bo'sh natijani faqat 1 soat saqlaymiz — retry imkoni qolsin.
+            # Bo'sh natijani 1 soat saqlaymiz — Wikipedia rate-limit'i pasayganda retry uchun.
             cache.set(cache_key, img, _WIKI_TTL if img else 3600)
             if img:
                 return img
 
-    # 2. Umumiy qidiruv fallback
     cache_key = f"wiki_img:{name_uz}|{name_ru}|{name_en}"
     cached = cache.get(cache_key)
     if cached:
@@ -294,7 +272,7 @@ def _wiki_image(name_uz: str, name_ru: str, name_en: str) -> str:
                 cache.set(cache_key, img, _WIKI_TTL)
                 return img
 
-    cache.set(cache_key, '', 3600)  # 1 soatga bo'sh cache — keyin retry
+    cache.set(cache_key, '', 3600)
     return ''
 
 
@@ -329,7 +307,7 @@ def recipe_image_url(recipe) -> str:
     if img:
         return img
 
-    # Karzinka'da tayyor ovqat sifatida bo'lishi mumkin (Osh, Manti)
+    # Ba'zi retseptlar (Osh, Manti) Karzinka'da tayyor ovqat sifatida sotiladi.
     proxy = type('_P', (), {
         'name': recipe.name,
         'name_uz': recipe.name_uz or recipe.name,
@@ -341,7 +319,6 @@ def recipe_image_url(recipe) -> str:
     if match and match.image_url:
         return match.image_url
 
-    # Birinchi ingredient rasmi
     first_ri = recipe.ingredients.order_by('id').select_related('ingredient').first()
     if first_ri:
         return ingredient_image_url(first_ri.ingredient)

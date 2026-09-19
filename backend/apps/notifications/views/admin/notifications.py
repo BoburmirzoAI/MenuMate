@@ -69,8 +69,7 @@ class BroadcastAPIView(APIView):
                 for uid in users
             ])
 
-        # NOTE: `bulk_create` `post_save` signal chaqirmaydi. Push yuborishni
-        # to'g'ridan-to'g'ri o'zimiz olib boramiz — bir marta multicast.
+        # bulk_create post_save signal chaqirmaydi — push'ni bu yerdan qo'lda triger qilamiz.
         _enqueue_broadcast_push(
             title=data['title'],
             body=data['body'],
@@ -112,7 +111,7 @@ def _enqueue_broadcast_push(
     if not tokens:
         return
 
-    # Transaction commit'dan keyin ishga tushiramiz
+    # DB commit'dan keyin — rollback bo'lsa push ham ketmasin.
     transaction.on_commit(
         lambda: send_push_multicast.delay(
             tokens,

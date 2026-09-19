@@ -1,11 +1,8 @@
 """Karzinka Go bilan real integratsiya.
 
-Ochiq API: https://catalog.korzinka.uz/api/catalogs/categories/
-- API key kerak emas.
-- Har mahsulotda: nom (3 tilda), narx, rasm, product_url (deep link).
-- Cache Redis'da 60 daqiqa saqlanadi — Karzinka'ga ortiqcha yuk bermaymiz.
-
-Ingredient bilan Karzinka product moslash (matching) — nom o'xshashligi bo'yicha.
+Ikki manba: public catalog.korzinka.uz (223 promo mahsulot, tokensiz) va
+Yandex Lavka B2B API (5000+ mahsulot, JWT token bilan). Ingredient bilan
+mahsulot moslash nom o'xshashligi (name prefix) bo'yicha ishlaydi.
 """
 from __future__ import annotations
 
@@ -25,10 +22,8 @@ from apps.recipes.models.recipes import Ingredient
 logger = logging.getLogger(__name__)
 
 _API_URL = "https://catalog.korzinka.uz/api/catalogs/categories/"
-# Cache versiyasi (v2) — schema o'zgardi (in_stock qo'shildi), eski cache
-# yozuvlari yangi kod bilan mos kelmasligi uchun key ni yangiladik.
+# `:v2` — in_stock schema o'zgargani sababli eski `:v1` yozuvlari o'qilmaydi.
 _CACHE_KEY = "karzinka:catalog:v2"
-# 5 daqiqa — real vaqtga yaqin ma'lumot, Karzinka'ga yuk kam.
 _CACHE_TTL = 5 * 60
 _HTTP_TIMEOUT = 10
 
@@ -164,17 +159,11 @@ def get_catalog() -> list[KarzinkaProduct]:
 
 
 def _parse_stock(p: dict) -> bool:
-    """catalog.korzinka.uz javobidan mahsulotning mavjudligini aniqlaydi.
+    """catalog.korzinka.uz javobidan mahsulot mavjudligini aniqlaydi.
 
-    Karzinka API field nomlari aniq hujjatlashtirilmagan, shuning uchun
-    keng tarqalgan variantlarni tekshirib chiqamiz. Hech biri topilmasa
-    default True qaytariladi (eski xatti-harakat saqlanadi).
-
-    Tekshiriladigan field nomlari (bool, priority order):
-      - "in_stock", "available", "is_available", "is_in_stock"
-      - "is_sold_out", "sold_out", "is_out_of_stock", "out_of_stock" (teskari)
-      - "stock" > 0 (raqamli)
-      - "stock_status" == "in_stock" (matn)
+    Karzinka API field nomlari hujjatlashtirilmagan — bir necha keng tarqalgan
+    variantni birma-bir sinaymiz. Hech biri topilmasa default True (eski
+    xatti-harakat).
     """
     for key in ("in_stock", "available", "is_available", "is_in_stock"):
         if key in p:
@@ -193,10 +182,6 @@ def _parse_stock(p: dict) -> bool:
         return False
     return True
 
-
-# ---------------------------------------------------------------------------
-# Ingredient ↔ Karzinka product matching
-# ---------------------------------------------------------------------------
 
 def _normalize(text: str) -> str:
     """Nomni o'zaro solishtirish uchun tozalash: kichik harf, ortiqcha bo'shliqlar, harflar."""

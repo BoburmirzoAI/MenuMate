@@ -41,10 +41,6 @@ class ShoppingItemSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = [f for f in fields if f != 'is_purchased']
 
-    # ------------------------------------------------------------------
-    # Karzinka mahsulot topilgan bo'lsa uni ishlatamiz
-    # ------------------------------------------------------------------
-
     def _kg_product(self, obj) -> KarzinkaProduct | None:
         matches = (self.context or {}).get('karzinka_matches') or {}
         return matches.get(obj.ingredient_id)
@@ -65,10 +61,8 @@ class ShoppingItemSerializer(serializers.ModelSerializer):
         return p.weight_param if p else ''
 
     def get_price_total(self, obj) -> str | None:
-        # Karzinka'da narx — dona uchun (masalan 1 kg pishloq 65000 so'm).
-        # Bizning miqdorimiz (masalan 200g) esa asosiy birlikda.
-        # Ideal holda per_gramm konversiya kerak, hozircha faqat narxni beramiz —
-        # foydalanuvchi mahsulotni shu narxda savatga qo'shadi.
+        # TODO: per-gramm konversiya. Hozircha Karzinka birlik narxini qaytaramiz —
+        # foydalanuvchi Karzinka Go savatida haqiqiy miqdorni tanlashi kerak.
         p = self._kg_product(obj)
         return str(p.price) if p else None
 
@@ -107,10 +101,6 @@ class ShoppingListSerializer(serializers.ModelSerializer):
             'created_at', 'updated_at',
         ]
         read_only_fields = fields
-
-    # ------------------------------------------------------------------
-    # Barcha itemlar uchun bir marta Karzinka matching — cache
-    # ------------------------------------------------------------------
 
     def _matches(self, obj) -> dict:
         cached = getattr(self, '_matches_cache', None)

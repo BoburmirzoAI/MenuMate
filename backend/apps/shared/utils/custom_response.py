@@ -56,10 +56,6 @@ class ResponseBody:
 class CustomResponse:
     """Loyihaning standard response'lari."""
 
-    # ------------------------------------------------------------------
-    # Success
-    # ------------------------------------------------------------------
-
     @staticmethod
     def success(
             message_key: str = "SUCCESS",
@@ -94,10 +90,6 @@ class CustomResponse:
     @staticmethod
     def no_content(status_code: int = 204) -> Response:
         return Response(status=status_code)
-
-    # ------------------------------------------------------------------
-    # Error
-    # ------------------------------------------------------------------
 
     @staticmethod
     def error(

@@ -73,12 +73,10 @@ class EndpointPermissionMiddleware(MiddlewareMixin):
             is_active=True,
         ).first()
 
-        # Endpoint ro'yxatdan o'tmagan bo'lsa — view'ga o'tkazamiz.
-        # DRF'ning o'z permission_classes (IsAuthenticated va h.k.) tekshiradi.
+        # Endpoint jadvalida yo'q bo'lsa DRF permission_classes'ga topshiramiz.
         if not endpoint:
             return None
 
-        # i18n message'lar bilan javob
         if endpoint.access_type == 'authenticated':
             message_key = 'UNAUTHORIZED'
         elif endpoint.access_type == 'permission':

@@ -38,10 +38,9 @@ from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
-# Firebase SDK obyektini bir marta yaratamiz.
 _firebase_initialized = False
 
-# Firebase yuborish natijasi uchun bir kelib chiqadigan tur.
+
 @dataclass(frozen=True)
 class FcmResult:
     """Bir yuborish urinishining natijasi."""
@@ -139,7 +138,7 @@ def _build_message(
     )
     apns = messaging.APNSConfig(payload=apns_payload)
 
-    # Data payload'da barcha qiymatlar `str` bo'lishi shart (FCM talabi).
+    # FCM data payload'da barcha qiymatlar str bo'lishi shart.
     string_data: dict[str, str] = {}
     for k, v in (data or {}).items():
         if v is None:
@@ -173,7 +172,6 @@ def send_to_token(
     from firebase_admin import exceptions as fb_exceptions
 
     message = _build_message(title=title, body=body, data=data, image_url=image_url)
-    # Firebase Message ga token'ni qo'shish
     message.token = token  # type: ignore[attr-defined]
 
     try:
