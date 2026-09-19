@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -53,7 +55,12 @@ class _Content extends ConsumerWidget {
   const _Content({required this.list});
   final ShoppingList list;
 
-  static const _karzinkaAppUrl = 'https://korzinka.uz/go';
+  // Karzinka Go identifikatorlari. Deep-link scheme rasman e'lon qilinmagan,
+  // shuning uchun Android'da package name orqali intent qilamiz, iOS'da esa
+  // to'g'ridan App Store'ga (o'sha yerda "Open" tugmasi ilovani ochadi).
+  static const _karzinkaPackageName = 'com.korzinka.go';
+  static const _karzinkaAppStoreId = '1671724827';
+  static const _karzinkaWebUrl = 'https://korzinka.uz/go';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -169,9 +176,44 @@ class _Content extends ConsumerWidget {
   }
 
   Future<void> _openAppMain(BuildContext context, WidgetRef ref) async {
-    final uri = Uri.parse(_karzinkaAppUrl);
-    final ok = await launchUrl(uri, mode: LaunchMode.externalApplication);
-    if (!ok && context.mounted) {
+    if (Platform.isAndroid) {
+      final intentUri = Uri.parse(
+        'intent://open/#Intent;package=$_karzinkaPackageName;end;',
+      );
+      try {
+        if (await launchUrl(intentUri, mode: LaunchMode.externalApplication)) {
+          return;
+        }
+      } catch (_) {}
+
+      final market = Uri.parse('market://details?id=$_karzinkaPackageName');
+      try {
+        if (await launchUrl(market, mode: LaunchMode.externalApplication)) {
+          return;
+        }
+      } catch (_) {}
+
+      final playStoreWeb = Uri.parse(
+        'https://play.google.com/store/apps/details?id=$_karzinkaPackageName',
+      );
+      if (await launchUrl(playStoreWeb, mode: LaunchMode.externalApplication)) {
+        return;
+      }
+    } else if (Platform.isIOS) {
+      final appStore = Uri.parse(
+        'https://apps.apple.com/uz/app/id$_karzinkaAppStoreId',
+      );
+      if (await launchUrl(appStore, mode: LaunchMode.externalApplication)) {
+        return;
+      }
+    } else {
+      final web = Uri.parse(_karzinkaWebUrl);
+      if (await launchUrl(web, mode: LaunchMode.externalApplication)) {
+        return;
+      }
+    }
+
+    if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(ref.tr('karzinka_open_failed'))),
       );
