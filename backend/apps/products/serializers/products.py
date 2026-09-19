@@ -23,6 +23,7 @@ class ShoppingItemSerializer(serializers.ModelSerializer):
 
     ingredient = NestedIngredientSerializer(read_only=True)
     kgo_available = serializers.SerializerMethodField()
+    kgo_in_stock = serializers.SerializerMethodField()
     kgo_price_per_unit = serializers.SerializerMethodField()
     kgo_unit = serializers.SerializerMethodField()
     price_total = serializers.SerializerMethodField()
@@ -35,8 +36,8 @@ class ShoppingItemSerializer(serializers.ModelSerializer):
         model = ShoppingItem
         fields = [
             'id', 'ingredient', 'total_amount', 'unit', 'is_purchased',
-            'kgo_available', 'kgo_price_per_unit', 'kgo_unit', 'price_total',
-            'kgo_image_url', 'kgo_product_url', 'kgo_title', 'kgo_weight',
+            'kgo_available', 'kgo_in_stock', 'kgo_price_per_unit', 'kgo_unit',
+            'price_total', 'kgo_image_url', 'kgo_product_url', 'kgo_title', 'kgo_weight',
         ]
         read_only_fields = [f for f in fields if f != 'is_purchased']
 
@@ -50,6 +51,10 @@ class ShoppingItemSerializer(serializers.ModelSerializer):
 
     def get_kgo_available(self, obj) -> bool:
         return self._kg_product(obj) is not None
+
+    def get_kgo_in_stock(self, obj) -> bool:
+        p = self._kg_product(obj)
+        return p.in_stock if p is not None else False
 
     def get_kgo_price_per_unit(self, obj) -> str | None:
         p = self._kg_product(obj)

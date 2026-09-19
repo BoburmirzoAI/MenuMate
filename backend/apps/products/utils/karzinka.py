@@ -25,8 +25,11 @@ from apps.recipes.models.recipes import Ingredient
 logger = logging.getLogger(__name__)
 
 _API_URL = "https://catalog.korzinka.uz/api/catalogs/categories/"
-_CACHE_KEY = "karzinka:catalog:v1"
-_CACHE_TTL = 60 * 60  # 1 soat
+# Cache versiyasi (v2) — schema o'zgardi (in_stock qo'shildi), eski cache
+# yozuvlari yangi kod bilan mos kelmasligi uchun key ni yangiladik.
+_CACHE_KEY = "karzinka:catalog:v2"
+# 5 daqiqa — real vaqtga yaqin ma'lumot, Karzinka'ga yuk kam.
+_CACHE_TTL = 5 * 60
 _HTTP_TIMEOUT = 10
 
 
@@ -43,6 +46,7 @@ class KarzinkaProduct:
     product_url: str
     weight_param: str
     category_id: int
+    in_stock: bool = True
 
 
 def _parse_price(raw: object) -> Decimal | None:
@@ -94,6 +98,7 @@ def _fetch_from_lavka() -> list[KarzinkaProduct]:
             product_url=f"https://korzinka.uz/go",
             weight_param=p.amount,
             category_id=0,
+            in_stock=p.available,
         ))
     return result
 
@@ -110,7 +115,8 @@ def get_catalog() -> list[KarzinkaProduct]:
         return [KarzinkaProduct(
             **{**p,
                'price': Decimal(p['price']),
-               'old_price': Decimal(p['old_price']) if p.get('old_price') else None}
+               'old_price': Decimal(p['old_price']) if p.get('old_price') else None,
+               'in_stock': p.get('in_stock', True)}
         ) for p in cached]
 
     products: list[KarzinkaProduct] = _fetch_from_lavka()
@@ -133,9 +139,9 @@ def get_catalog() -> list[KarzinkaProduct]:
                 product_url=p.get("product_url") or "",
                 weight_param=p.get("weight_param") or "",
                 category_id=p.get("catalog_category_id") or 0,
+                in_stock=_parse_stock(p),
             ))
 
-    # Cache saqlab qo'yamiz — dataclass'ni dict shakliga o'girib.
     cache.set(
         _CACHE_KEY,
         [{
@@ -145,11 +151,47 @@ def get_catalog() -> list[KarzinkaProduct]:
             "is_discount": p.is_discount, "image_url": p.image_url,
             "product_url": p.product_url, "weight_param": p.weight_param,
             "category_id": p.category_id,
+            "in_stock": p.in_stock,
         } for p in products],
         _CACHE_TTL,
     )
-    logger.info("Karzinka catalog cached: %s products", len(products))
+    in_stock_count = sum(1 for p in products if p.in_stock)
+    logger.info(
+        "Karzinka catalog cached: %s products (%s in-stock)",
+        len(products), in_stock_count,
+    )
     return products
+
+
+def _parse_stock(p: dict) -> bool:
+    """catalog.korzinka.uz javobidan mahsulotning mavjudligini aniqlaydi.
+
+    Karzinka API field nomlari aniq hujjatlashtirilmagan, shuning uchun
+    keng tarqalgan variantlarni tekshirib chiqamiz. Hech biri topilmasa
+    default True qaytariladi (eski xatti-harakat saqlanadi).
+
+    Tekshiriladigan field nomlari (bool, priority order):
+      - "in_stock", "available", "is_available", "is_in_stock"
+      - "is_sold_out", "sold_out", "is_out_of_stock", "out_of_stock" (teskari)
+      - "stock" > 0 (raqamli)
+      - "stock_status" == "in_stock" (matn)
+    """
+    for key in ("in_stock", "available", "is_available", "is_in_stock"):
+        if key in p:
+            return bool(p[key])
+    for key in ("is_sold_out", "sold_out", "is_out_of_stock", "out_of_stock"):
+        if key in p:
+            return not bool(p[key])
+    if "stock" in p:
+        try:
+            return int(p["stock"]) > 0
+        except (TypeError, ValueError):
+            pass
+    if str(p.get("stock_status") or "").lower() in {"in_stock", "available", "instock"}:
+        return True
+    if str(p.get("stock_status") or "").lower() in {"out_of_stock", "sold_out", "outofstock"}:
+        return False
+    return True
 
 
 # ---------------------------------------------------------------------------
@@ -174,6 +216,11 @@ def find_karzinka_match(ingredient: Ingredient) -> KarzinkaProduct | None:
     Qattiq qoida: mahsulot nomi ingredient nomi bilan **boshlanishi** kerak.
     Masalan: "Olma" ingredienti → "Olma Jeromin O'zb, kg" ✓, lekin
     "Sabzavotli chips" ✗ (ichida "sabzavot" bo'lsa ham nomdan boshlanmaydi).
+
+    Stock filtri: agar biror nomga bir nechta mahsulot mos kelsa,
+    **avval in_stock=True** bo'lganini qaytaramiz. Faqat tugagan (in_stock=False)
+    variantlar bo'lsa ham qaytariladi — mobile UI kerak bo'lsa "tugagan" belgisi
+    ko'rsatishi mumkin. Aks holda hech nima topilmasa None qaytadi.
     """
     names = [
         _normalize(ingredient.name_uz or ""),
@@ -181,21 +228,24 @@ def find_karzinka_match(ingredient: Ingredient) -> KarzinkaProduct | None:
         _normalize(ingredient.name_en or ""),
         _normalize(ingredient.name),
     ]
-    # Bo'sh yoki juda qisqa nomlarni tashlaymiz
     names = [n for n in names if n and len(n) >= 3]
     if not names:
         return None
 
+    fallback: KarzinkaProduct | None = None
     for product in get_catalog():
         for text in (product.title_uz, product.title_ru, product.title_en):
             if not text:
                 continue
             normalized = _normalize(text)
             for name in names:
-                # Nom mahsulotning boshida turgan bo'lishi kerak
                 if normalized == name or normalized.startswith(name + " "):
-                    return product
-    return None
+                    if product.in_stock:
+                        return product
+                    if fallback is None:
+                        fallback = product
+                    break
+    return fallback
 
 
 def match_ingredients(ingredients: Iterable[Ingredient]) -> dict[int, KarzinkaProduct]:
