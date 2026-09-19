@@ -35,7 +35,7 @@ class ChangePasswordAPIView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return CustomResponse.success(
-            request=request, message_key="PASSWORD_CHANGED",
+            request=request, message_key="PASSWORD_CHANGED", status_code=200,
         )
 
 
@@ -53,7 +53,7 @@ class ForgotPasswordAPIView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return CustomResponse.success(
-            request=request, message_key="PASSWORD_RESET_CODE_SENT",
+            request=request, message_key="PASSWORD_RESET_CODE_SENT", status_code=200,
         )
 
 
@@ -75,7 +75,7 @@ class ResetPasswordAPIView(APIView):
         self._blacklist_all_tokens(user)
 
         return CustomResponse.success(
-            request=request, message_key="PASSWORD_RESET_SUCCESSFUL",
+            request=request, message_key="PASSWORD_RESET_SUCCESSFUL", status_code=200,
         )
 
     @staticmethod
@@ -103,7 +103,7 @@ class SendEmailVerificationAPIView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return CustomResponse.success(
-            request=request, message_key="VERIFICATION_CODE_SENT",
+            request=request, message_key="VERIFICATION_CODE_SENT", status_code=200,
         )
 
 
@@ -119,7 +119,7 @@ class ConfirmEmailVerificationAPIView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return CustomResponse.success(
-            request=request, message_key="EMAIL_VERIFIED",
+            request=request, message_key="EMAIL_VERIFIED", status_code=200,
         )
 
 
@@ -139,5 +139,5 @@ class DeleteAccountAPIView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return CustomResponse.success(
-            request=request, message_key="ACCOUNT_DELETED",
+            request=request, message_key="ACCOUNT_DELETED", status_code=200,
         )

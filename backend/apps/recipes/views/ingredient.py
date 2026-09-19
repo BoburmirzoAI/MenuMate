@@ -20,7 +20,7 @@ class AllergenTagListAPIView(ListAPIView):
 
     def list(self, request, *args, **kwargs):
         serializer = self.get_serializer(self.get_queryset(), many=True)
-        return CustomResponse.success(request=request, data=serializer.data)
+        return CustomResponse.success(request=request, data=serializer.data, status_code=200)
 
 
 class IngredientListAPIView(ListAPIView):
@@ -52,8 +52,10 @@ class IngredientListAPIView(ListAPIView):
         if page is not None:
             serializer = self.get_serializer(page, many=True)
             return CustomResponse.success(
-                request=request, data=self.paginator.get_paginated_data(serializer.data),
+                request=request,
+                data=self.paginator.get_paginated_data(serializer.data),
+                status_code=200,
             )
 
         serializer = self.get_serializer(qs, many=True)
-        return CustomResponse.success(request=request, data=serializer.data)
+        return CustomResponse.success(request=request, data=serializer.data, status_code=200)

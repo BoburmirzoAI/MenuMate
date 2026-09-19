@@ -32,7 +32,7 @@ class HolidayListAPIView(ListAPIView):
 
     def list(self, request, *args, **kwargs):
         serializer = self.get_serializer(self.get_queryset(), many=True)
-        return CustomResponse.success(request=request, data=serializer.data)
+        return CustomResponse.success(request=request, data=serializer.data, status_code=200)
 
 
 class UpcomingHolidaysAPIView(APIView):
@@ -68,7 +68,7 @@ class UpcomingHolidaysAPIView(APIView):
                 upcoming.append(data)
 
         upcoming.sort(key=lambda x: x['days_until'])
-        return CustomResponse.success(request=request, data=upcoming)
+        return CustomResponse.success(request=request, data=upcoming, status_code=200)
 
 
 class NotificationListAPIView(ListAPIView):
@@ -91,9 +91,10 @@ class NotificationListAPIView(ListAPIView):
             return CustomResponse.success(
                 request=request,
                 data=self.paginator.get_paginated_data(serializer.data),
+                status_code=200,
             )
         serializer = self.get_serializer(qs, many=True)
-        return CustomResponse.success(request=request, data=serializer.data)
+        return CustomResponse.success(request=request, data=serializer.data, status_code=200)
 
 
 class MarkNotificationReadAPIView(APIView):
@@ -105,7 +106,7 @@ class MarkNotificationReadAPIView(APIView):
             id=notification_id, user=request.user,
         ).first()
         if not notif:
-            raise CustomException("NOTIFICATION_NOT_FOUND")
+            raise CustomException("NOTIFICATION_NOT_FOUND", status_code=404)
 
         if not notif.is_read:
             notif.is_read = True
@@ -115,6 +116,7 @@ class MarkNotificationReadAPIView(APIView):
             request=request,
             data=NotificationSerializer(notif).data,
             message_key="UPDATED",
+            status_code=200,
         )
 
 
@@ -130,4 +132,5 @@ class MarkAllNotificationsReadAPIView(APIView):
             request=request,
             data={'marked_count': count},
             message_key="ALL_NOTIFICATIONS_READ",
+            status_code=200,
         )

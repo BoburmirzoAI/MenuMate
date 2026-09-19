@@ -12,7 +12,7 @@ class HealthConditionListAPIView(ListAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = HealthConditionSerializer
     queryset = HealthCondition.objects.all()
-    pagination_class = None  # to'liq ro'yxat (kam yozuv)
+    pagination_class = None
 
     def list(self, request, *args, **kwargs):
         qs = self.get_queryset()
@@ -22,4 +22,4 @@ class HealthConditionListAPIView(ListAPIView):
             qs = qs.filter(category=category.upper())
 
         serializer = self.get_serializer(qs, many=True)
-        return CustomResponse.success(request=request, data=serializer.data)
+        return CustomResponse.success(request=request, data=serializer.data, status_code=200)

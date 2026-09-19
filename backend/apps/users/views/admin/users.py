@@ -41,6 +41,7 @@ class UsersAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=UserAdminListSerializer(qs, many=True).data,
+            status_code=200,
         )
 
     def post(self, request):
@@ -50,6 +51,7 @@ class UsersAdminListAPIView(APIView):
         return CustomResponse.created(
             request=request,
             data=UserAdminDetailSerializer(user).data,
+            status_code=201,
         )
 
 
@@ -60,7 +62,7 @@ class UsersAdminDetailAPIView(APIView):
     def _get(self, user_id: int) -> User:
         user = User.objects.filter(id=user_id, is_deleted=False).first()
         if not user:
-            raise CustomException("USER_NOT_FOUND")
+            raise CustomException("USER_NOT_FOUND", status_code=404)
         return user
 
     def get(self, request, user_id):
@@ -68,6 +70,7 @@ class UsersAdminDetailAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=UserAdminDetailSerializer(user).data,
+            status_code=200,
         )
 
     def patch(self, request, user_id):
@@ -78,15 +81,19 @@ class UsersAdminDetailAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=UserAdminDetailSerializer(user).data,
+            status_code=200,
         )
 
     def delete(self, request, user_id):
         user = self._get(user_id)
-        # Superuser'ni o'chirmaymiz
         if user.is_superuser:
-            raise CustomException("VALIDATION_ERROR", errors={"detail": "Superuser o'chirilmaydi"})
+            raise CustomException(
+                "VALIDATION_ERROR",
+                status_code=400,
+                errors={"detail": "Superuser o'chirilmaydi"},
+            )
         user.soft_delete() if hasattr(user, 'soft_delete') else user.delete()
-        return CustomResponse.success(request=request, message_key="DELETED")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)
 
 
 class UsersAdminPasswordAPIView(APIView):
@@ -96,10 +103,10 @@ class UsersAdminPasswordAPIView(APIView):
     def post(self, request, user_id):
         user = User.objects.filter(id=user_id, is_deleted=False).first()
         if not user:
-            raise CustomException("USER_NOT_FOUND")
+            raise CustomException("USER_NOT_FOUND", status_code=404)
 
         serializer = UserAdminPasswordSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user.set_password(serializer.validated_data['password'])
         user.save(update_fields=['password'])
-        return CustomResponse.success(request=request, message_key="OK")
+        return CustomResponse.success(request=request, message_key="PASSWORD_CHANGED", status_code=200)

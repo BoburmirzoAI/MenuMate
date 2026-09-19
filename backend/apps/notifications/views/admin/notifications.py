@@ -23,6 +23,7 @@ class NotificationsAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=NotificationAdminSerializer(qs, many=True).data,
+            status_code=200,
         )
 
 
@@ -85,6 +86,7 @@ class BroadcastAPIView(APIView):
                 'devices_reached': devices_reached,
                 'sent_at': now.isoformat(),
             },
+            status_code=201,
         )
 
 

@@ -26,6 +26,7 @@ class RolesAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=RoleAdminSerializer(qs, many=True).data,
+            status_code=200,
         )
 
     def post(self, request):
@@ -35,6 +36,7 @@ class RolesAdminListAPIView(APIView):
         return CustomResponse.created(
             request=request,
             data=RoleAdminSerializer(role).data,
+            status_code=201,
         )
 
 
@@ -44,13 +46,14 @@ class RolesAdminDetailAPIView(APIView):
     def _get(self, role_id):
         r = Role.objects.filter(id=role_id).first()
         if not r:
-            raise CustomException("NOT_FOUND")
+            raise CustomException("NOT_FOUND", status_code=404)
         return r
 
     def get(self, request, role_id):
         return CustomResponse.success(
             request=request,
             data=RoleAdminSerializer(self._get(role_id)).data,
+            status_code=200,
         )
 
     def patch(self, request, role_id):
@@ -61,11 +64,12 @@ class RolesAdminDetailAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=RoleAdminSerializer(role).data,
+            status_code=200,
         )
 
     def delete(self, request, role_id):
         self._get(role_id).delete()
-        return CustomResponse.success(request=request, message_key="DELETED")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)
 
 
 class _PermissionWriteSerializer(serializers.ModelSerializer):
@@ -86,6 +90,7 @@ class PermissionsAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=PermissionAdminSerializer(qs, many=True).data,
+            status_code=200,
         )
 
     def post(self, request):
@@ -95,6 +100,7 @@ class PermissionsAdminListAPIView(APIView):
         return CustomResponse.created(
             request=request,
             data=PermissionAdminSerializer(perm).data,
+            status_code=201,
         )
 
 
@@ -105,13 +111,14 @@ class PermissionsAdminDetailAPIView(APIView):
     def _get(self, perm_id):
         perm = Permission.objects.filter(id=perm_id).first()
         if not perm:
-            raise CustomException("NOT_FOUND")
+            raise CustomException("NOT_FOUND", status_code=404)
         return perm
 
     def get(self, request, perm_id):
         return CustomResponse.success(
             request=request,
             data=PermissionAdminSerializer(self._get(perm_id)).data,
+            status_code=200,
         )
 
     def patch(self, request, perm_id):
@@ -122,11 +129,12 @@ class PermissionsAdminDetailAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=PermissionAdminSerializer(perm).data,
+            status_code=200,
         )
 
     def delete(self, request, perm_id):
         self._get(perm_id).delete()
-        return CustomResponse.success(request=request, message_key="DELETED")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)
 
 
 class _EndpointWriteSerializer(serializers.ModelSerializer):
@@ -150,6 +158,7 @@ class EndpointsAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=EndpointAdminSerializer(qs, many=True).data,
+            status_code=200,
         )
 
 
@@ -160,13 +169,14 @@ class EndpointsAdminDetailAPIView(APIView):
     def _get(self, endpoint_id):
         ep = Endpoint.objects.filter(id=endpoint_id).first()
         if not ep:
-            raise CustomException("NOT_FOUND")
+            raise CustomException("NOT_FOUND", status_code=404)
         return ep
 
     def get(self, request, endpoint_id):
         return CustomResponse.success(
             request=request,
             data=EndpointAdminSerializer(self._get(endpoint_id)).data,
+            status_code=200,
         )
 
     def patch(self, request, endpoint_id):
@@ -177,4 +187,5 @@ class EndpointsAdminDetailAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=EndpointAdminSerializer(ep).data,
+            status_code=200,
         )

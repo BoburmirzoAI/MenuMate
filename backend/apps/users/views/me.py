@@ -19,6 +19,7 @@ class MeAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=UserResponseSerializer(request.user).data,
+            status_code=200,
         )
 
     def patch(self, request):
@@ -31,4 +32,5 @@ class MeAPIView(APIView):
             request=request,
             message_key="UPDATED",
             data=UserResponseSerializer(request.user).data,
+            status_code=200,
         )

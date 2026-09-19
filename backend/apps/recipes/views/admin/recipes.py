@@ -39,6 +39,7 @@ class RecipesAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=RecipeAdminListSerializer(qs, many=True).data,
+            status_code=200,
         )
 
     def post(self, request):
@@ -48,6 +49,7 @@ class RecipesAdminListAPIView(APIView):
         return CustomResponse.created(
             request=request,
             data=RecipeAdminDetailSerializer(recipe).data,
+            status_code=201,
         )
 
 
@@ -58,13 +60,14 @@ class RecipesAdminDetailAPIView(APIView):
     def _get(self, recipe_id) -> Recipe:
         recipe = Recipe.objects.filter(id=recipe_id).first()
         if not recipe:
-            raise CustomException("RECIPE_NOT_FOUND")
+            raise CustomException("RECIPE_NOT_FOUND", status_code=400)
         return recipe
 
     def get(self, request, recipe_id):
         return CustomResponse.success(
             request=request,
             data=RecipeAdminDetailSerializer(self._get(recipe_id)).data,
+            status_code=200,
         )
 
     def patch(self, request, recipe_id):
@@ -75,11 +78,12 @@ class RecipesAdminDetailAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=RecipeAdminDetailSerializer(recipe).data,
+            status_code=200,
         )
 
     def delete(self, request, recipe_id):
         self._get(recipe_id).delete()
-        return CustomResponse.success(request=request, message_key="DELETED")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)
 
 
 class IngredientsAdminListAPIView(APIView):
@@ -97,6 +101,7 @@ class IngredientsAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=IngredientAdminSerializer(qs, many=True).data,
+            status_code=200,
         )
 
     def post(self, request):
@@ -106,6 +111,7 @@ class IngredientsAdminListAPIView(APIView):
         return CustomResponse.created(
             request=request,
             data=IngredientAdminSerializer(ingredient).data,
+            status_code=201,
         )
 
 
@@ -116,13 +122,14 @@ class IngredientsAdminDetailAPIView(APIView):
     def _get(self, ingredient_id) -> Ingredient:
         ing = Ingredient.objects.filter(id=ingredient_id).first()
         if not ing:
-            raise CustomException("NOT_FOUND")
+            raise CustomException("NOT_FOUND", status_code=404)
         return ing
 
     def get(self, request, ingredient_id):
         return CustomResponse.success(
             request=request,
             data=IngredientAdminSerializer(self._get(ingredient_id)).data,
+            status_code=200,
         )
 
     def patch(self, request, ingredient_id):
@@ -133,6 +140,7 @@ class IngredientsAdminDetailAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=IngredientAdminSerializer(ing).data,
+            status_code=200,
         )
 
     def delete(self, request, ingredient_id):
@@ -142,9 +150,10 @@ class IngredientsAdminDetailAPIView(APIView):
         except Exception:
             raise CustomException(
                 "VALIDATION_ERROR",
+                status_code=400,
                 errors={"detail": "Ingredient retseptlarda ishlatilmoqda"},
             )
-        return CustomResponse.success(request=request, message_key="DELETED")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)
 
 
 class AllergenTagsAdminListAPIView(APIView):
@@ -156,6 +165,7 @@ class AllergenTagsAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=AllergenTagAdminSerializer(qs, many=True).data,
+            status_code=200,
         )
 
     def post(self, request):
@@ -165,6 +175,7 @@ class AllergenTagsAdminListAPIView(APIView):
         return CustomResponse.created(
             request=request,
             data=AllergenTagAdminSerializer(tag).data,
+            status_code=201,
         )
 
 
@@ -175,13 +186,14 @@ class AllergenTagsAdminDetailAPIView(APIView):
     def _get(self, tag_id) -> AllergenTag:
         tag = AllergenTag.objects.filter(id=tag_id).first()
         if not tag:
-            raise CustomException("NOT_FOUND")
+            raise CustomException("NOT_FOUND", status_code=404)
         return tag
 
     def get(self, request, tag_id):
         return CustomResponse.success(
             request=request,
             data=AllergenTagAdminSerializer(self._get(tag_id)).data,
+            status_code=200,
         )
 
     def patch(self, request, tag_id):
@@ -192,8 +204,9 @@ class AllergenTagsAdminDetailAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=AllergenTagAdminSerializer(tag).data,
+            status_code=200,
         )
 
     def delete(self, request, tag_id):
         self._get(tag_id).delete()
-        return CustomResponse.success(request=request, message_key="DELETED")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)

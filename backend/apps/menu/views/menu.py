@@ -23,14 +23,14 @@ from apps.shared.utils.custom_response import CustomResponse
 def _get_family(user) -> FamilyProfile:
     family = FamilyProfile.objects.filter(user=user).first()
     if not family:
-        raise CustomException("FAMILY_NOT_FOUND")
+        raise CustomException("FAMILY_NOT_FOUND", status_code=404)
     return family
 
 
 def _get_user_menu(user, menu_id: int) -> Menu:
     menu = Menu.objects.filter(id=menu_id, family__user=user).first()
     if not menu:
-        raise CustomException("MENU_NOT_FOUND")
+        raise CustomException("MENU_NOT_FOUND", status_code=404)
     return menu
 
 
@@ -39,7 +39,7 @@ def _get_user_meal(user, meal_id: int) -> MenuMeal:
         id=meal_id, day__menu__family__user=user,
     ).select_related('day__menu').first()
     if not meal:
-        raise CustomException("MEAL_NOT_FOUND")
+        raise CustomException("MEAL_NOT_FOUND", status_code=404)
     return meal
 
 
@@ -58,12 +58,13 @@ class MenuListCreateAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=MenuListSerializer(qs, many=True).data,
+            status_code=200,
         )
 
     def post(self, request):
         family = _get_family(request.user)
         if not family.members.exists():
-            raise CustomException("FAMILY_HAS_NO_MEMBERS")
+            raise CustomException("FAMILY_HAS_NO_MEMBERS", status_code=400)
 
         serializer = CreateMenuSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -81,6 +82,7 @@ class MenuListCreateAPIView(APIView):
             request=request,
             message_key="MENU_CREATED",
             data=MenuDetailSerializer(menu).data,
+            status_code=201,
         )
 
 
@@ -92,12 +94,13 @@ class MenuDetailAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=MenuDetailSerializer(menu).data,
+            status_code=200,
         )
 
     def delete(self, request, menu_id):
         menu = _get_user_menu(request.user, menu_id)
         menu.delete()
-        return CustomResponse.success(request=request, message_key="DELETED")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)
 
 
 class MenuClearAPIView(APIView):
@@ -110,6 +113,7 @@ class MenuClearAPIView(APIView):
             request=request,
             message_key="MENU_CLEARED",
             data=MenuDetailSerializer(menu).data,
+            status_code=200,
         )
 
 
@@ -118,7 +122,7 @@ class MenuStatsAPIView(APIView):
 
     def get(self, request, menu_id):
         menu = _get_user_menu(request.user, menu_id)
-        return CustomResponse.success(request=request, data=menu_stats(menu))
+        return CustomResponse.success(request=request, data=menu_stats(menu), status_code=200)
 
 
 class RecommendationsAPIView(APIView):
@@ -133,6 +137,7 @@ class RecommendationsAPIView(APIView):
         if category not in valid:
             raise CustomException(
                 "VALIDATION_ERROR",
+                status_code=400,
                 errors={"category": f"kerak: {sorted(valid)}"},
             )
 
@@ -140,6 +145,7 @@ class RecommendationsAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=RecipeShortSerializer(recipes, many=True).data,
+            status_code=200,
         )
 
 
@@ -157,7 +163,7 @@ class MealItemsAPIView(APIView):
             id=serializer.validated_data['recipe_id'],
         ).first()
         if not recipe:
-            raise CustomException("RECIPE_NOT_FOUND")
+            raise CustomException("RECIPE_NOT_FOUND", status_code=400)
 
         item, _ = MenuMealItem.objects.update_or_create(
             meal=meal, category=category, defaults={'recipe': recipe},
@@ -166,6 +172,7 @@ class MealItemsAPIView(APIView):
             request=request,
             message_key="MEAL_ITEM_ADDED",
             data=MenuMealItemSerializer(item).data,
+            status_code=201,
         )
 
 
@@ -177,6 +184,6 @@ class MealItemDetailAPIView(APIView):
         meal = _get_user_meal(request.user, meal_id)
         item = MenuMealItem.objects.filter(id=item_id, meal=meal).first()
         if not item:
-            raise CustomException("MEAL_ITEM_NOT_FOUND")
+            raise CustomException("MEAL_ITEM_NOT_FOUND", status_code=404)
         item.delete()
-        return CustomResponse.success(request=request, message_key="DELETED")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)

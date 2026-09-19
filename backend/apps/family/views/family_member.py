@@ -22,14 +22,14 @@ from apps.shared.utils.custom_response import CustomResponse
 def _get_family_or_raise(user) -> FamilyProfile:
     family = FamilyProfile.objects.filter(user=user).first()
     if not family:
-        raise CustomException("FAMILY_NOT_FOUND")
+        raise CustomException("FAMILY_NOT_FOUND", status_code=404)
     return family
 
 
 def _get_member_or_raise(family: FamilyProfile, member_id: int) -> FamilyMember:
     member = FamilyMember.objects.filter(family=family, pk=member_id).first()
     if not member:
-        raise CustomException("MEMBER_NOT_FOUND")
+        raise CustomException("MEMBER_NOT_FOUND", status_code=404)
     return member
 
 
@@ -46,6 +46,7 @@ class FamilyMemberListCreateAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=FamilyMemberReadSerializer(members, many=True).data,
+            status_code=200,
         )
 
     def post(self, request):
@@ -59,6 +60,7 @@ class FamilyMemberListCreateAPIView(APIView):
             request=request,
             message_key="MEMBER_CREATED",
             data=FamilyMemberReadSerializer(member).data,
+            status_code=201,
         )
 
 
@@ -72,6 +74,7 @@ class FamilyMemberDetailAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=FamilyMemberReadSerializer(member).data,
+            status_code=200,
         )
 
     def patch(self, request, member_id: int):
@@ -89,6 +92,7 @@ class FamilyMemberDetailAPIView(APIView):
             request=request,
             message_key="UPDATED",
             data=FamilyMemberReadSerializer(member).data,
+            status_code=200,
         )
 
     def delete(self, request, member_id: int):
@@ -96,5 +100,5 @@ class FamilyMemberDetailAPIView(APIView):
         member = _get_member_or_raise(family, member_id)
         member.delete()
         return CustomResponse.success(
-            request=request, message_key="MEMBER_DELETED",
+            request=request, message_key="MEMBER_DELETED", status_code=200,
         )

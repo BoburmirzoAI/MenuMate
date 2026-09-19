@@ -34,6 +34,7 @@ class RegisterAPIView(APIView):
                 'user': UserResponseSerializer(user).data,
                 'tokens': _tokens_for(user),
             },
+            status_code=201,
         )
 
 
@@ -53,6 +54,7 @@ class LoginAPIView(APIView):
                 'user': UserResponseSerializer(user).data,
                 'tokens': _tokens_for(user),
             },
+            status_code=200,
         )
 
 
@@ -65,5 +67,5 @@ class LogoutAPIView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return CustomResponse.success(
-            request=request, message_key="LOGOUT_SUCCESSFUL",
+            request=request, message_key="LOGOUT_SUCCESSFUL", status_code=200,
         )
