@@ -47,8 +47,7 @@ class MenuListCreateAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get_throttles(self):
-        # POST (menyu yaratish) — og'ir hisoblash, alohida limit.
-        # GET (ro'yxat) — oddiy default user throttle bilan ketadi.
+        """POST menyu yaratish og'ir hisoblash — alohida limit; GET default'da qoladi."""
         if self.request.method == 'POST':
             return [MenuGenerateThrottle()]
         return super().get_throttles()
@@ -71,9 +70,8 @@ class MenuListCreateAPIView(APIView):
         start_date = serializer.validated_data['start_date']
         duration = serializer.validated_data['duration']
 
-        # Foydalanuvchi menyuni "almashtirmoqda" — shu start_date ga menyu bo'lsa,
-        # eskini o'chirib yangisini yaratamiz. Aks holda ikkita menyu bir vaqtda
-        # qolib, list.first ordering shubhali bo'lardi.
+        # Shu start_date'ga mavjud menyu bo'lsa eskisini o'chiramiz — aks holda
+        # ikkita menyu bir vaqtda qolib list ordering shubhali bo'lardi.
         Menu.objects.filter(family=family, start_date=start_date).delete()
 
         menu = create_empty_menu(

@@ -16,10 +16,6 @@ from apps.users.models.verification import VerificationCode
 logger = logging.getLogger(__name__)
 
 
-# =====================================================================
-# Logout
-# =====================================================================
-
 class LogoutSerializer(serializers.Serializer):
     refresh = serializers.CharField(write_only=True)
 
@@ -30,10 +26,6 @@ class LogoutSerializer(serializers.Serializer):
         except TokenError:
             raise CustomException("INVALID_TOKEN")
 
-
-# =====================================================================
-# Change password
-# =====================================================================
 
 class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(write_only=True)
@@ -65,10 +57,6 @@ class ChangePasswordSerializer(serializers.Serializer):
         user.save(update_fields=['password'])
         return user
 
-
-# =====================================================================
-# Forgot / Reset password
-# =====================================================================
 
 class ForgotPasswordSerializer(serializers.Serializer):
     email = serializers.EmailField()
@@ -128,10 +116,6 @@ class ResetPasswordSerializer(serializers.Serializer):
         return user
 
 
-# =====================================================================
-# Email verification
-# =====================================================================
-
 class SendEmailVerificationSerializer(serializers.Serializer):
     def save(self, **kwargs):
         user: User = self.context['request'].user
@@ -144,7 +128,7 @@ class SendEmailVerificationSerializer(serializers.Serializer):
             destination=user.email,
             lifetime_minutes=15,
         )
-        # DEV: kodni log'ga chiqaramiz. Production'da real email service (celery task) bilan almashtiriladi.
+        # DEV vaqtincha: kodni log'ga yozamiz. Production'da email service (celery task) bilan almashtiriladi.
         logger.warning(
             "EMAIL_VERIFY code for %s: %s", user.email, code.code,
         )
@@ -174,10 +158,6 @@ class ConfirmEmailVerificationSerializer(serializers.Serializer):
         user.verify_email()
         return user
 
-
-# =====================================================================
-# Delete account
-# =====================================================================
 
 class DeleteAccountSerializer(serializers.Serializer):
     password = serializers.CharField(write_only=True)

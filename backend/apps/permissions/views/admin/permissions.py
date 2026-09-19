@@ -15,11 +15,6 @@ from apps.shared.permissions import IsAdminUser
 from apps.shared.utils.custom_response import CustomResponse
 
 
-# ═══════════════════════════════════════════════════════════════════════════
-#  Roles CRUD
-# ═══════════════════════════════════════════════════════════════════════════
-
-
 class RolesAdminListAPIView(APIView):
     permission_classes = [IsAdminUser]
 
@@ -71,11 +66,6 @@ class RolesAdminDetailAPIView(APIView):
     def delete(self, request, role_id):
         self._get(role_id).delete()
         return CustomResponse.success(request=request, message_key="DELETED")
-
-
-# ═══════════════════════════════════════════════════════════════════════════
-#  Permissions CRUD
-# ═══════════════════════════════════════════════════════════════════════════
 
 
 class _PermissionWriteSerializer(serializers.ModelSerializer):
@@ -137,11 +127,6 @@ class PermissionsAdminDetailAPIView(APIView):
     def delete(self, request, perm_id):
         self._get(perm_id).delete()
         return CustomResponse.success(request=request, message_key="DELETED")
-
-
-# ═══════════════════════════════════════════════════════════════════════════
-#  Endpoints (access_type + permission sozlash)
-# ═══════════════════════════════════════════════════════════════════════════
 
 
 class _EndpointWriteSerializer(serializers.ModelSerializer):

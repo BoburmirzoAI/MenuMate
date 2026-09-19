@@ -23,10 +23,6 @@ from apps.shared.exceptions.custom_exceptions import CustomException
 from apps.shared.utils.custom_response import CustomResponse
 
 
-# =====================================================================
-# Holidays
-# =====================================================================
-
 class HolidayListAPIView(ListAPIView):
     """GET /notifications/holidays/"""
     permission_classes = [IsAuthenticated]
@@ -58,12 +54,10 @@ class UpcomingHolidaysAPIView(APIView):
 
         upcoming = []
         for holiday in Holiday.objects.all():
-            # Bu yilgi holiday sanasi
             try:
                 this_year = date(today.year, holiday.month, holiday.day)
             except ValueError:
                 continue
-            # Agar bu yilgi o'tgan bo'lsa — keyingi yil
             check_date = this_year if this_year >= today else date(
                 today.year + 1, holiday.month, holiday.day,
             )
@@ -76,10 +70,6 @@ class UpcomingHolidaysAPIView(APIView):
         upcoming.sort(key=lambda x: x['days_until'])
         return CustomResponse.success(request=request, data=upcoming)
 
-
-# =====================================================================
-# Notifications (user)
-# =====================================================================
 
 class NotificationListAPIView(ListAPIView):
     """GET /notifications/ — user'ning notification'lari."""

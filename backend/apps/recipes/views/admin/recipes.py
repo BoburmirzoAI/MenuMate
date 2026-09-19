@@ -17,11 +17,6 @@ from apps.shared.permissions import IsAdminUser
 from apps.shared.utils.custom_response import CustomResponse
 
 
-# ═══════════════════════════════════════════════════════════════════════════
-#  Recipes
-# ═══════════════════════════════════════════════════════════════════════════
-
-
 class RecipesAdminListAPIView(APIView):
     """GET/POST /admin/recipes/"""
     permission_classes = [IsAdminUser]
@@ -87,11 +82,6 @@ class RecipesAdminDetailAPIView(APIView):
         return CustomResponse.success(request=request, message_key="DELETED")
 
 
-# ═══════════════════════════════════════════════════════════════════════════
-#  Ingredients
-# ═══════════════════════════════════════════════════════════════════════════
-
-
 class IngredientsAdminListAPIView(APIView):
     """GET/POST /admin/recipes/ingredients/"""
     permission_classes = [IsAdminUser]
@@ -150,17 +140,11 @@ class IngredientsAdminDetailAPIView(APIView):
         try:
             ing.delete()
         except Exception:
-            # PROTECT bilan bog'langan retseptlar bo'lsa o'chirilmaydi
             raise CustomException(
                 "VALIDATION_ERROR",
                 errors={"detail": "Ingredient retseptlarda ishlatilmoqda"},
             )
         return CustomResponse.success(request=request, message_key="DELETED")
-
-
-# ═══════════════════════════════════════════════════════════════════════════
-#  Allergen tags
-# ═══════════════════════════════════════════════════════════════════════════
 
 
 class AllergenTagsAdminListAPIView(APIView):
