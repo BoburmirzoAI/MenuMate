@@ -24,9 +24,9 @@ down:  ## Barcha servislarni to'xtatish
 restart:  ## Restart
 	$(COMPOSE) restart
 
-redis-flush:  ## Redis cache'ni to'liq tozalash (karzinka, weather, throttle)
-	$(COMPOSE) exec redis redis-cli FLUSHDB
-	@echo "✅ Redis cache tozalandi"
+redis-flush:  ## Redis cache'ni to'liq tozalash (Django cache DB 1 + Celery DB 2)
+	$(COMPOSE) exec redis redis-cli FLUSHALL
+	@echo "✅ Redis cache tozalandi (barcha DB'lar)"
 
 restart-fresh: restart redis-flush  ## Restart + cache flush (yangi kod deploy qilingandan keyin)
 	@echo "✅ Backend qayta ishga tushdi va cache tozalandi"
