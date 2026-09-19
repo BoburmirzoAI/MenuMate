@@ -24,6 +24,7 @@ class MenusAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=MenuAdminListSerializer(qs, many=True).data,
+            status_code=200,
         )
 
 
@@ -33,15 +34,16 @@ class MenusAdminDetailAPIView(APIView):
     def get(self, request, menu_id):
         menu = Menu.objects.filter(id=menu_id).first()
         if not menu:
-            raise CustomException("MENU_NOT_FOUND")
+            raise CustomException("MENU_NOT_FOUND", status_code=404)
         return CustomResponse.success(
             request=request,
             data=MenuAdminDetailSerializer(menu).data,
+            status_code=200,
         )
 
     def delete(self, request, menu_id):
         menu = Menu.objects.filter(id=menu_id).first()
         if not menu:
-            raise CustomException("MENU_NOT_FOUND")
+            raise CustomException("MENU_NOT_FOUND", status_code=404)
         menu.delete()
-        return CustomResponse.success(request=request, message_key="DELETED")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)

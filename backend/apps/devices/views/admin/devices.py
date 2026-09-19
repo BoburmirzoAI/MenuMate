@@ -27,4 +27,5 @@ class DevicesAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=DeviceAdminSerializer(qs, many=True).data,
+            status_code=200,
         )

@@ -23,7 +23,7 @@ class RegisterSerializer(serializers.Serializer):
     def validate_email(self, value: str) -> str:
         value = value.strip().lower()
         if User.objects.with_deleted().filter(email__iexact=value).exists():
-            raise CustomException("EMAIL_ALREADY_EXISTS")
+            raise CustomException("EMAIL_ALREADY_EXISTS", status_code=400)
         return value
 
     def validate_language(self, value: str) -> str:
@@ -31,12 +31,12 @@ class RegisterSerializer(serializers.Serializer):
             return ''
         v = value.upper()
         if v not in Language.values:
-            raise CustomException("INVALID_LANGUAGE_TYPE")
+            raise CustomException("INVALID_LANGUAGE_TYPE", status_code=400)
         return v
 
     def validate(self, attrs):
         if attrs.get('password') != attrs.get('password_confirm'):
-            raise CustomException("PASSWORDS_DO_NOT_MATCH")
+            raise CustomException("PASSWORDS_DO_NOT_MATCH", status_code=400)
         return attrs
 
     @transaction.atomic
@@ -68,14 +68,14 @@ class LoginSerializer(serializers.Serializer):
         user = User.objects.with_deleted().filter(email__iexact=email).first()
 
         if not user or user.is_deleted:
-            raise CustomException("INVALID_CREDENTIALS")
+            raise CustomException("INVALID_CREDENTIALS", status_code=400)
 
         if not user.is_active:
-            raise CustomException("USER_INACTIVE")
+            raise CustomException("USER_INACTIVE", status_code=403)
 
         auth_user = authenticate(username=email, password=attrs['password'])
         if not auth_user:
-            raise CustomException("INVALID_CREDENTIALS")
+            raise CustomException("INVALID_CREDENTIALS", status_code=400)
 
         attrs['user'] = auth_user
         return attrs

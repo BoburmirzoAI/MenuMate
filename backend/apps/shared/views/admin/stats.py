@@ -22,7 +22,6 @@ class DashboardStatsAPIView(APIView):
         now = timezone.now()
         thirty_days_ago = now - timedelta(days=30)
 
-        # 30 kunlik menyu grafi
         chart_data = []
         for i in range(30):
             day_start = (now - timedelta(days=29 - i)).replace(
@@ -52,4 +51,4 @@ class DashboardStatsAPIView(APIView):
             },
             'chart_menus_last_30_days': chart_data,
         }
-        return CustomResponse.success(request=request, data=payload)
+        return CustomResponse.success(request=request, data=payload, status_code=200)

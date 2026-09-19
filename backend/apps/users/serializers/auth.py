@@ -24,7 +24,7 @@ class LogoutSerializer(serializers.Serializer):
             token = RefreshToken(self.validated_data['refresh'])
             token.blacklist()
         except TokenError:
-            raise CustomException("INVALID_TOKEN")
+            raise CustomException("INVALID_TOKEN", status_code=401)
 
 
 class ChangePasswordSerializer(serializers.Serializer):
@@ -36,18 +36,18 @@ class ChangePasswordSerializer(serializers.Serializer):
         user: User = self.context['request'].user
 
         if not user.check_password(attrs['old_password']):
-            raise CustomException("INVALID_OLD_PASSWORD")
+            raise CustomException("INVALID_OLD_PASSWORD", status_code=400)
 
         if attrs['new_password'] != attrs['new_password_confirm']:
-            raise CustomException("PASSWORDS_DO_NOT_MATCH")
+            raise CustomException("PASSWORDS_DO_NOT_MATCH", status_code=400)
 
         if attrs['old_password'] == attrs['new_password']:
-            raise CustomException("NEW_PASSWORD_SAME_AS_OLD")
+            raise CustomException("NEW_PASSWORD_SAME_AS_OLD", status_code=400)
 
         try:
             validate_password(attrs['new_password'], user=user)
         except DjangoValidationError as e:
-            raise CustomException("WEAK_PASSWORD", errors=list(e.messages))
+            raise CustomException("WEAK_PASSWORD", status_code=400, errors=list(e.messages))
 
         return attrs
 
@@ -87,7 +87,7 @@ class ResetPasswordSerializer(serializers.Serializer):
         email = attrs['email'].strip().lower()
         user = User.objects.filter(email__iexact=email, is_active=True).first()
         if not user:
-            raise CustomException("INVALID_VERIFICATION_CODE")
+            raise CustomException("INVALID_VERIFICATION_CODE", status_code=400)
 
         code_obj = VerificationCode.objects.filter(
             user=user,
@@ -96,15 +96,15 @@ class ResetPasswordSerializer(serializers.Serializer):
         ).order_by('-created_at').first()
 
         if not code_obj or not code_obj.verify(attrs['code']):
-            raise CustomException("INVALID_VERIFICATION_CODE")
+            raise CustomException("INVALID_VERIFICATION_CODE", status_code=400)
 
         if attrs['new_password'] != attrs['new_password_confirm']:
-            raise CustomException("PASSWORDS_DO_NOT_MATCH")
+            raise CustomException("PASSWORDS_DO_NOT_MATCH", status_code=400)
 
         try:
             validate_password(attrs['new_password'], user=user)
         except DjangoValidationError as e:
-            raise CustomException("WEAK_PASSWORD", errors=list(e.messages))
+            raise CustomException("WEAK_PASSWORD", status_code=400, errors=list(e.messages))
 
         attrs['user'] = user
         return attrs
@@ -120,7 +120,7 @@ class SendEmailVerificationSerializer(serializers.Serializer):
     def save(self, **kwargs):
         user: User = self.context['request'].user
         if user.is_email_verified:
-            raise CustomException("EMAIL_ALREADY_VERIFIED")
+            raise CustomException("EMAIL_ALREADY_VERIFIED", status_code=400)
 
         code = VerificationCode.generate(
             user=user,
@@ -140,7 +140,7 @@ class ConfirmEmailVerificationSerializer(serializers.Serializer):
     def validate(self, attrs):
         user: User = self.context['request'].user
         if user.is_email_verified:
-            raise CustomException("EMAIL_ALREADY_VERIFIED")
+            raise CustomException("EMAIL_ALREADY_VERIFIED", status_code=400)
 
         code_obj = VerificationCode.objects.filter(
             user=user,
@@ -149,7 +149,7 @@ class ConfirmEmailVerificationSerializer(serializers.Serializer):
         ).order_by('-created_at').first()
 
         if not code_obj or not code_obj.verify(attrs['code']):
-            raise CustomException("INVALID_VERIFICATION_CODE")
+            raise CustomException("INVALID_VERIFICATION_CODE", status_code=400)
 
         return attrs
 
@@ -166,9 +166,9 @@ class DeleteAccountSerializer(serializers.Serializer):
     def validate(self, attrs):
         user: User = self.context['request'].user
         if attrs['confirmation'] != 'DELETE':
-            raise CustomException("DELETE_CONFIRMATION_INVALID")
+            raise CustomException("DELETE_CONFIRMATION_INVALID", status_code=400)
         if not user.check_password(attrs['password']):
-            raise CustomException("INVALID_PASSWORD")
+            raise CustomException("INVALID_PASSWORD", status_code=400)
         return attrs
 
     def save(self, **kwargs):

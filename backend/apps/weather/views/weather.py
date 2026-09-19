@@ -22,16 +22,16 @@ class WeatherAPIView(APIView):
     def get(self, request):
         city = request.query_params.get('city')
 
-        # Shahar berilmasa — oila shahridan olamiz
         if not city:
             family = FamilyProfile.objects.filter(user=request.user).first()
             if not family:
-                raise CustomException("FAMILY_NOT_FOUND")
+                raise CustomException("FAMILY_NOT_FOUND", status_code=404)
             city = family.city
 
         if not city:
             raise CustomException(
                 "VALIDATION_ERROR",
+                status_code=400,
                 errors={"city": "shahar ko'rsatilmagan"},
             )
 
@@ -42,4 +42,5 @@ class WeatherAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=WeatherSnapshotSerializer(snapshot).data,
+            status_code=200,
         )

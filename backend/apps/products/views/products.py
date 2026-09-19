@@ -16,10 +16,10 @@ from apps.shared.utils.custom_response import CustomResponse
 def _get_user_menu(user, menu_id: int) -> Menu:
     family = FamilyProfile.objects.filter(user=user).first()
     if not family:
-        raise CustomException("FAMILY_NOT_FOUND")
+        raise CustomException("FAMILY_NOT_FOUND", status_code=404)
     menu = Menu.objects.filter(id=menu_id, family=family).first()
     if not menu:
-        raise CustomException("MENU_NOT_FOUND")
+        raise CustomException("MENU_NOT_FOUND", status_code=404)
     return menu
 
 
@@ -32,6 +32,7 @@ class ShoppingListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=ShoppingListSerializer(shopping_list).data,
+            status_code=200,
         )
 
 
@@ -45,6 +46,7 @@ class RegenerateShoppingListAPIView(APIView):
             request=request,
             message_key="SHOPPING_LIST_REGENERATED",
             data=ShoppingListSerializer(shopping_list).data,
+            status_code=200,
         )
 
 
@@ -57,7 +59,7 @@ class ShoppingItemToggleAPIView(APIView):
             shopping_list__menu__family__user=request.user,
         ).first()
         if not item:
-            raise CustomException("SHOPPING_ITEM_NOT_FOUND")
+            raise CustomException("SHOPPING_ITEM_NOT_FOUND", status_code=404)
 
         is_purchased = request.data.get('is_purchased')
         if is_purchased is not None:
@@ -68,4 +70,5 @@ class ShoppingItemToggleAPIView(APIView):
             request=request,
             data=ShoppingItemSerializer(item).data,
             message_key="UPDATED",
+            status_code=200,
         )

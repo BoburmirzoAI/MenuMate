@@ -17,14 +17,14 @@ class WeatherAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=WeatherAdminSerializer(qs, many=True).data,
+            status_code=200,
         )
 
     def delete(self, request):
-        # Cache'dan barcha ob-havo yozuvlari o'chirish uchun eng oddiy usul
         WeatherSnapshot.objects.all().delete()
-        # Redis cache'dagi lookup key'larni ham tozalaymiz
+        # django-redis kengaytmasi: mos key pattern'ni tozalaydi
         try:
-            cache.delete_pattern('weather:*')  # django-redis extension
+            cache.delete_pattern('weather:*')
         except AttributeError:
             pass
-        return CustomResponse.success(request=request, message_key="OK")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)

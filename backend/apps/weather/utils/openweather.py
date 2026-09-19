@@ -41,45 +41,52 @@ def get_weather_for_city(city: str, force_refresh: bool = False) -> WeatherSnaps
     """
     city = city.strip()
     if not city:
-        raise CustomException("VALIDATION_ERROR", errors={"city": "bo'sh"})
+        raise CustomException(
+            "VALIDATION_ERROR",
+            status_code=400,
+            errors={"city": "bo'sh"},
+        )
 
-    # 1. Cache tekshirish
     if not force_refresh:
         cached = _get_cached(city)
         if cached:
             return cached
 
-    # 2. API key mavjudmi
     api_key = config.OPENWEATHER_API_KEY
     if not api_key:
         raise CustomException(
             "WEATHER_FETCH_FAILED",
+            status_code=502,
             context={"reason": "API key sozlanmagan"},
         )
 
-    # 3. OpenWeatherMap'ga so'rov
     try:
         response = requests.get(
             OPENWEATHER_URL,
             params={
                 'q': city,
                 'appid': api_key,
-                'units': 'metric',  # Celsius
+                'units': 'metric',
                 'lang': 'en',
             },
             timeout=REQUEST_TIMEOUT_SECONDS,
         )
     except requests.RequestException as e:
         logger.error("OpenWeatherMap request failed: %s", e)
-        raise CustomException("WEATHER_FETCH_FAILED")
+        raise CustomException("WEATHER_FETCH_FAILED", status_code=502)
 
     if response.status_code == 404:
-        raise CustomException("WEATHER_CITY_NOT_FOUND", context={"city": city})
+        raise CustomException(
+            "WEATHER_CITY_NOT_FOUND",
+            status_code=404,
+            context={"city": city},
+        )
 
     if response.status_code == 401:
         logger.error("OpenWeatherMap 401 — API key noto'g'ri yoki hali aktiv emas")
         raise CustomException(
             "WEATHER_FETCH_FAILED",
+            status_code=502,
             context={"reason": "API key noto'g'ri yoki hali aktiv emas"},
         )
 
@@ -87,9 +94,8 @@ def get_weather_for_city(city: str, force_refresh: bool = False) -> WeatherSnaps
         logger.error(
             "OpenWeatherMap error: %s — %s", response.status_code, response.text[:200],
         )
-        raise CustomException("WEATHER_FETCH_FAILED")
+        raise CustomException("WEATHER_FETCH_FAILED", status_code=502)
 
-    # 4. Response'ni parse qilamiz
     data = response.json()
     return _save_snapshot(city, data)
 

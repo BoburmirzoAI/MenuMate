@@ -31,6 +31,7 @@ class DeviceRegisterAPIView(APIView):
             request=request,
             data=DeviceListSerializer(device).data,
             message_key="CREATED",
+            status_code=201,
         )
 
 
@@ -50,9 +51,10 @@ class UserDeviceListAPIView(ListAPIView):
             return CustomResponse.success(
                 request=request,
                 data=self.paginator.get_paginated_data(serializer.data),
+                status_code=200,
             )
         serializer = self.get_serializer(qs, many=True)
-        return CustomResponse.success(request=request, data=serializer.data)
+        return CustomResponse.success(request=request, data=serializer.data, status_code=200)
 
 
 class DeviceDeleteAPIView(APIView):
@@ -64,7 +66,7 @@ class DeviceDeleteAPIView(APIView):
             user=request.user, device_id=device_id,
         ).first()
         if not device:
-            raise CustomException("DEVICE_NOT_FOUND")
+            raise CustomException("DEVICE_NOT_FOUND", status_code=404)
         device.is_active = False
         device.save(update_fields=['is_active'])
-        return CustomResponse.success(request=request, message_key="DELETED")
+        return CustomResponse.success(request=request, message_key="DELETED", status_code=200)

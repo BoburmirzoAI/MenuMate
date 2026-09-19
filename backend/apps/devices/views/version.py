@@ -27,7 +27,6 @@ class VersionCheckAPIView(APIView):
 
         policy = VersionPolicy.objects.filter(platform=platform).first()
         if not policy:
-            # Policy hali sozlanmagan — barcha versiyalar ruxsat etiladi
             return CustomResponse.success(
                 request=request,
                 data={
@@ -37,6 +36,7 @@ class VersionCheckAPIView(APIView):
                     'min_required_version': app_version,
                     'store_url': '',
                 },
+                status_code=200,
             )
 
         result = policy.check_version(client_version=app_version, os_version=os_version)
@@ -49,4 +49,4 @@ class VersionCheckAPIView(APIView):
         accept_lang = (request.headers.get('Accept-Language') or 'uz').split(',')[0].split('-')[0]
         result['message'] = lang_map.get(accept_lang) or policy.message_uz or ''
 
-        return CustomResponse.success(request=request, data=result)
+        return CustomResponse.success(request=request, data=result, status_code=200)

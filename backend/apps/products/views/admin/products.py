@@ -18,6 +18,7 @@ class ShoppingListsAdminListAPIView(APIView):
         return CustomResponse.success(
             request=request,
             data=ShoppingListAdminSerializer(qs, many=True).data,
+            status_code=200,
         )
 
 
@@ -29,8 +30,9 @@ class ShoppingListsAdminDetailAPIView(APIView):
             'menu__family',
         ).prefetch_related('items__ingredient').first()
         if not sl:
-            raise CustomException("NOT_FOUND")
+            raise CustomException("NOT_FOUND", status_code=404)
         return CustomResponse.success(
             request=request,
             data=ShoppingListAdminSerializer(sl).data,
+            status_code=200,
         )

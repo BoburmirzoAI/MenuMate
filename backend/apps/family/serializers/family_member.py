@@ -106,6 +106,7 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
         if missing:
             raise CustomException(
                 "HEALTH_CONDITION_NOT_FOUND",
+                status_code=400,
                 context={"ids": missing},
                 errors={"health_condition_ids": missing},
             )
@@ -127,6 +128,7 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
         if missing:
             raise CustomException(
                 "INGREDIENT_NOT_FOUND",
+                status_code=400,
                 context={"ids": missing},
                 errors={"allergen_ingredient_ids": missing},
             )
@@ -143,6 +145,7 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
         if missing:
             raise CustomException(
                 "RECIPE_NOT_FOUND",
+                status_code=400,
                 context={"ids": missing},
                 errors={field_name: missing},
             )
@@ -155,6 +158,7 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
         if conflict:
             raise CustomException(
                 "RECIPE_LIKE_DISLIKE_CONFLICT",
+                status_code=400,
                 context={"ids": list(conflict)},
                 errors={"liked_recipe_ids": list(conflict)},
             )

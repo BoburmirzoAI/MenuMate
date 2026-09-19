@@ -47,13 +47,17 @@ class CreateFamilySerializer(serializers.Serializer):
     def validate(self, attrs):
         user = self.context['request'].user
         if hasattr(user, 'family') and user.family is not None:
-            raise CustomException("FAMILY_ALREADY_EXISTS")
+            raise CustomException("FAMILY_ALREADY_EXISTS", status_code=400)
         return attrs
 
     def validate_family_name(self, value: str) -> str:
         value = value.strip()
         if not value:
-            raise CustomException("VALIDATION_ERROR", errors={"family_name": "bo'sh bo'lmasin"})
+            raise CustomException(
+                "VALIDATION_ERROR",
+                status_code=400,
+                errors={"family_name": "bo'sh bo'lmasin"},
+            )
         return value
 
     def validate_city(self, value: str) -> str:
