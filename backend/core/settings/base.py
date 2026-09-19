@@ -62,7 +62,8 @@ INSTALLED_APPS += MY_APPS
 # -------------------------------------------------------------------
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # CommonMiddleware'dan OLDIN bo'lishi kerak
+    # corsheaders CommonMiddleware'dan OLDIN turishi shart (CORS spec talab)
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -123,7 +124,6 @@ LANGUAGES = (
     ('en', 'English'),
 )
 
-# --- modeltranslation ---
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
 MODELTRANSLATION_LANGUAGES = ('uz', 'ru', 'en')
 MODELTRANSLATION_FALLBACK_LANGUAGES = ('uz', 'en', 'ru')
@@ -177,17 +177,13 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.UserRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
-        # Global limitlar — hech qanday `throttle_classes` belgilamagan
-        # endpointlar uchun avtomatik qo'llanadi.
-        'anon': '60/min',        # Autentifikatsiyasiz IP: daqiqasiga 60
-        'user': '300/min',       # Autentifikatsiya qilingan foydalanuvchi
-
-        # Alohida (scoped) limitlar — apps.shared.throttling'dagi sinflar ishlatadi
-        'login': '5/min',            # Brute-force login'ga qarshi
-        'register': '5/hour',        # Spam ro'yxatdan o'tish
-        'password': '5/hour',        # Parol tiklash email spam
-        'menu_generate': '5/min',    # Og'ir hisoblash
-        'broadcast': '10/hour',      # Admin push spam
+        'anon': '60/min',
+        'user': '300/min',
+        'login': '5/min',
+        'register': '5/hour',
+        'password': '5/hour',
+        'menu_generate': '5/min',
+        'broadcast': '10/hour',
     },
 }
 
@@ -220,13 +216,11 @@ from core import config as _cfg
 CELERY_BROKER_URL = _cfg.CELERY_BROKER_URL
 CELERY_RESULT_BACKEND = _cfg.CELERY_RESULT_BACKEND
 
-# External APIs
 OPENWEATHER_API_KEY = _cfg.OPENWEATHER_API_KEY
 FCM_SERVER_KEY = _cfg.FCM_SERVER_KEY
 FIREBASE_SERVICE_ACCOUNT_PATH = _cfg.FIREBASE_SERVICE_ACCOUNT_PATH
 PUSH_NOTIFICATIONS_ENABLED = _cfg.PUSH_NOTIFICATIONS_ENABLED
 
-# Karzinka Go (Yandex Lavka B2B) — token bo'sh bo'lsa Lavka fetch o'zi o'tkazib yuboradi.
 KARZINKA_LAVKA_TOKEN = _cfg.KARZINKA_LAVKA_TOKEN
 KARZINKA_LAVKA_YAUID = _cfg.KARZINKA_LAVKA_YAUID
 KARZINKA_LAVKA_GEOID = _cfg.KARZINKA_LAVKA_GEOID
@@ -234,7 +228,6 @@ KARZINKA_LAVKA_SESSION_ID = _cfg.KARZINKA_LAVKA_SESSION_ID
 KARZINKA_LAVKA_LAT = _cfg.KARZINKA_LAVKA_LAT
 KARZINKA_LAVKA_LON = _cfg.KARZINKA_LAVKA_LON
 
-# Telegram alerts
 TELEGRAM_BOT_TOKEN = _cfg.TELEGRAM_BOT_TOKEN
 TELEGRAM_CHANNEL_ID = _cfg.TELEGRAM_CHANNEL_ID
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
