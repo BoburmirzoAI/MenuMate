@@ -25,14 +25,26 @@ class WeatherAPIView(APIView):
         if not city:
             family = FamilyProfile.objects.filter(user=request.user).first()
             if not family:
-                raise CustomException("FAMILY_NOT_FOUND", status_code=404)
+                raise CustomException(
+                    "FAMILY_NOT_FOUND",
+                    status_code=404,
+                    errors={
+                        "detail": f"User user_id={request.user.pk} has no family and no ?city= query param",
+                        "user_id": request.user.pk,
+                        "reason": "user_has_no_family",
+                    },
+                )
             city = family.city
 
         if not city:
             raise CustomException(
                 "VALIDATION_ERROR",
                 status_code=400,
-                errors={"city": "shahar ko'rsatilmagan"},
+                errors={
+                    "detail": "city is empty — neither ?city= query param nor family.city is set",
+                    "field": "city",
+                    "reason": "empty_city",
+                },
             )
 
         force = request.query_params.get('refresh', '').lower() in ('true', '1')

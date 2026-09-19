@@ -60,7 +60,15 @@ class RecipesAdminDetailAPIView(APIView):
     def _get(self, recipe_id) -> Recipe:
         recipe = Recipe.objects.filter(id=recipe_id).first()
         if not recipe:
-            raise CustomException("RECIPE_NOT_FOUND", status_code=400)
+            raise CustomException(
+                "RECIPE_NOT_FOUND",
+                status_code=400,
+                errors={
+                    "detail": f"Recipe id={recipe_id} does not exist",
+                    "recipe_id": recipe_id,
+                    "reason": "recipe_not_found",
+                },
+            )
         return recipe
 
     def get(self, request, recipe_id):
@@ -122,7 +130,15 @@ class IngredientsAdminDetailAPIView(APIView):
     def _get(self, ingredient_id) -> Ingredient:
         ing = Ingredient.objects.filter(id=ingredient_id).first()
         if not ing:
-            raise CustomException("NOT_FOUND", status_code=404)
+            raise CustomException(
+                "NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Ingredient id={ingredient_id} does not exist",
+                    "ingredient_id": ingredient_id,
+                    "reason": "ingredient_not_found",
+                },
+            )
         return ing
 
     def get(self, request, ingredient_id):
@@ -147,11 +163,17 @@ class IngredientsAdminDetailAPIView(APIView):
         ing = self._get(ingredient_id)
         try:
             ing.delete()
-        except Exception:
+        except Exception as exc:
             raise CustomException(
                 "VALIDATION_ERROR",
                 status_code=400,
-                errors={"detail": "Ingredient retseptlarda ishlatilmoqda"},
+                errors={
+                    "detail": f"Cannot delete ingredient id={ing.pk}: still referenced by RecipeIngredient (PROTECT)",
+                    "ingredient_id": ing.pk,
+                    "ingredient_name": ing.name,
+                    "db_error": str(exc)[:200],
+                    "reason": "ingredient_in_use_by_recipes",
+                },
             )
         return CustomResponse.success(request=request, message_key="DELETED", status_code=200)
 
@@ -186,7 +208,15 @@ class AllergenTagsAdminDetailAPIView(APIView):
     def _get(self, tag_id) -> AllergenTag:
         tag = AllergenTag.objects.filter(id=tag_id).first()
         if not tag:
-            raise CustomException("NOT_FOUND", status_code=404)
+            raise CustomException(
+                "NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"AllergenTag id={tag_id} does not exist",
+                    "tag_id": tag_id,
+                    "reason": "allergen_tag_not_found",
+                },
+            )
         return tag
 
     def get(self, request, tag_id):

@@ -26,7 +26,15 @@ class FamilyProfileAPIView(APIView):
     def _get_family(self, user):
         family = FamilyProfile.objects.filter(user=user).first()
         if not family:
-            raise CustomException("FAMILY_NOT_FOUND", status_code=404)
+            raise CustomException(
+                "FAMILY_NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"User user_id={user.pk} has no family profile",
+                    "user_id": user.pk,
+                    "reason": "user_has_no_family",
+                },
+            )
         return family
 
     def get(self, request):

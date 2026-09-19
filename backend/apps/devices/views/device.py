@@ -66,7 +66,16 @@ class DeviceDeleteAPIView(APIView):
             user=request.user, device_id=device_id,
         ).first()
         if not device:
-            raise CustomException("DEVICE_NOT_FOUND", status_code=404)
+            raise CustomException(
+                "DEVICE_NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Device device_id={device_id} not found for user_id={request.user.pk}",
+                    "device_id": device_id,
+                    "user_id": request.user.pk,
+                    "reason": "device_not_found_or_forbidden",
+                },
+            )
         device.is_active = False
         device.save(update_fields=['is_active'])
         return CustomResponse.success(request=request, message_key="DELETED", status_code=200)

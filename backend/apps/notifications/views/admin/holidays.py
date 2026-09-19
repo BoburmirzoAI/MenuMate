@@ -35,7 +35,15 @@ class HolidaysAdminDetailAPIView(APIView):
     def _get(self, holiday_id):
         h = Holiday.objects.filter(id=holiday_id).first()
         if not h:
-            raise CustomException("NOT_FOUND", status_code=404)
+            raise CustomException(
+                "NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Holiday id={holiday_id} does not exist",
+                    "holiday_id": holiday_id,
+                    "reason": "holiday_not_found",
+                },
+            )
         return h
 
     def get(self, request, holiday_id):

@@ -16,10 +16,28 @@ from apps.shared.utils.custom_response import CustomResponse
 def _get_user_menu(user, menu_id: int) -> Menu:
     family = FamilyProfile.objects.filter(user=user).first()
     if not family:
-        raise CustomException("FAMILY_NOT_FOUND", status_code=404)
+        raise CustomException(
+            "FAMILY_NOT_FOUND",
+            status_code=404,
+            errors={
+                "detail": f"User user_id={user.pk} has no family profile",
+                "user_id": user.pk,
+                "reason": "user_has_no_family",
+            },
+        )
     menu = Menu.objects.filter(id=menu_id, family=family).first()
     if not menu:
-        raise CustomException("MENU_NOT_FOUND", status_code=404)
+        raise CustomException(
+            "MENU_NOT_FOUND",
+            status_code=404,
+            errors={
+                "detail": f"Menu id={menu_id} not found in family_id={family.pk}",
+                "menu_id": menu_id,
+                "family_id": family.pk,
+                "user_id": user.pk,
+                "reason": "menu_not_found_or_wrong_family",
+            },
+        )
     return menu
 
 
@@ -59,7 +77,16 @@ class ShoppingItemToggleAPIView(APIView):
             shopping_list__menu__family__user=request.user,
         ).first()
         if not item:
-            raise CustomException("SHOPPING_ITEM_NOT_FOUND", status_code=404)
+            raise CustomException(
+                "SHOPPING_ITEM_NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"ShoppingItem id={item_id} not found for user_id={request.user.pk}",
+                    "item_id": item_id,
+                    "user_id": request.user.pk,
+                    "reason": "shopping_item_not_found_or_forbidden",
+                },
+            )
 
         is_purchased = request.data.get('is_purchased')
         if is_purchased is not None:

@@ -54,7 +54,15 @@ class FamilyAdminDetailAPIView(APIView):
     def _get(self, family_id) -> FamilyProfile:
         family = FamilyProfile.objects.filter(id=family_id).first()
         if not family:
-            raise CustomException("FAMILY_NOT_FOUND", status_code=404)
+            raise CustomException(
+                "FAMILY_NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Family id={family_id} does not exist",
+                    "family_id": family_id,
+                    "reason": "family_not_found",
+                },
+            )
         return family
 
     def get(self, request, family_id):
@@ -87,7 +95,15 @@ class FamilyMembersAdminListAPIView(APIView):
 
     def get(self, request, family_id):
         if not FamilyProfile.objects.filter(id=family_id).exists():
-            raise CustomException("FAMILY_NOT_FOUND", status_code=404)
+            raise CustomException(
+                "FAMILY_NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Family id={family_id} does not exist",
+                    "family_id": family_id,
+                    "reason": "family_not_found",
+                },
+            )
         qs = FamilyMember.objects.filter(family_id=family_id).prefetch_related('health_conditions')
         return CustomResponse.success(
             request=request,
@@ -97,7 +113,15 @@ class FamilyMembersAdminListAPIView(APIView):
 
     def post(self, request, family_id):
         if not FamilyProfile.objects.filter(id=family_id).exists():
-            raise CustomException("FAMILY_NOT_FOUND", status_code=404)
+            raise CustomException(
+                "FAMILY_NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Family id={family_id} does not exist",
+                    "family_id": family_id,
+                    "reason": "family_not_found",
+                },
+            )
         data = {**request.data, 'family': family_id}
         serializer = FamilyMemberAdminSerializer(data=data)
         serializer.is_valid(raise_exception=True)
@@ -116,7 +140,16 @@ class FamilyMemberDetailAdminAPIView(APIView):
     def _get(self, family_id, member_id) -> FamilyMember:
         member = FamilyMember.objects.filter(id=member_id, family_id=family_id).first()
         if not member:
-            raise CustomException("NOT_FOUND", status_code=404)
+            raise CustomException(
+                "NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Member id={member_id} not found in family_id={family_id}",
+                    "family_id": family_id,
+                    "member_id": member_id,
+                    "reason": "member_not_found_or_wrong_family",
+                },
+            )
         return member
 
     def get(self, request, family_id, member_id):

@@ -23,14 +23,31 @@ from apps.shared.utils.custom_response import CustomResponse
 def _get_family(user) -> FamilyProfile:
     family = FamilyProfile.objects.filter(user=user).first()
     if not family:
-        raise CustomException("FAMILY_NOT_FOUND", status_code=404)
+        raise CustomException(
+            "FAMILY_NOT_FOUND",
+            status_code=404,
+            errors={
+                "detail": f"User user_id={user.pk} has no family profile",
+                "user_id": user.pk,
+                "reason": "user_has_no_family",
+            },
+        )
     return family
 
 
 def _get_user_menu(user, menu_id: int) -> Menu:
     menu = Menu.objects.filter(id=menu_id, family__user=user).first()
     if not menu:
-        raise CustomException("MENU_NOT_FOUND", status_code=404)
+        raise CustomException(
+            "MENU_NOT_FOUND",
+            status_code=404,
+            errors={
+                "detail": f"Menu id={menu_id} not found or does not belong to user_id={user.pk}",
+                "menu_id": menu_id,
+                "user_id": user.pk,
+                "reason": "menu_not_found_or_forbidden",
+            },
+        )
     return menu
 
 
@@ -39,7 +56,16 @@ def _get_user_meal(user, meal_id: int) -> MenuMeal:
         id=meal_id, day__menu__family__user=user,
     ).select_related('day__menu').first()
     if not meal:
-        raise CustomException("MEAL_NOT_FOUND", status_code=404)
+        raise CustomException(
+            "MEAL_NOT_FOUND",
+            status_code=404,
+            errors={
+                "detail": f"Meal id={meal_id} not found or does not belong to user_id={user.pk}",
+                "meal_id": meal_id,
+                "user_id": user.pk,
+                "reason": "meal_not_found_or_forbidden",
+            },
+        )
     return meal
 
 
@@ -64,7 +90,18 @@ class MenuListCreateAPIView(APIView):
     def post(self, request):
         family = _get_family(request.user)
         if not family.members.exists():
-            raise CustomException("FAMILY_HAS_NO_MEMBERS", status_code=400)
+            raise CustomException(
+                "FAMILY_HAS_NO_MEMBERS",
+                status_code=400,
+                errors={
+                    "detail": f"Family family_id={family.pk} has zero members — cannot build menu",
+                    "family_id": family.pk,
+                    "user_id": request.user.pk,
+                    "member_count": 0,
+                    "reason": "family_has_no_members",
+                    "action_required": "add_family_members_first",
+                },
+            )
 
         serializer = CreateMenuSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -138,7 +175,13 @@ class RecommendationsAPIView(APIView):
             raise CustomException(
                 "VALIDATION_ERROR",
                 status_code=400,
-                errors={"category": f"kerak: {sorted(valid)}"},
+                errors={
+                    "detail": f"category='{category}' is not in allowed set: {sorted(valid)}",
+                    "field": "category",
+                    "value": category,
+                    "allowed": sorted(valid),
+                    "reason": "invalid_meal_category",
+                },
             )
 
         recipes = recommend_recipes(meal.day.menu.family, meal, category)[:50]
@@ -163,7 +206,17 @@ class MealItemsAPIView(APIView):
             id=serializer.validated_data['recipe_id'],
         ).first()
         if not recipe:
-            raise CustomException("RECIPE_NOT_FOUND", status_code=400)
+            recipe_id = serializer.validated_data['recipe_id']
+            raise CustomException(
+                "RECIPE_NOT_FOUND",
+                status_code=400,
+                errors={
+                    "detail": f"Recipe id={recipe_id} does not exist",
+                    "field": "recipe_id",
+                    "recipe_id": recipe_id,
+                    "reason": "unknown_recipe_id",
+                },
+            )
 
         item, _ = MenuMealItem.objects.update_or_create(
             meal=meal, category=category, defaults={'recipe': recipe},
@@ -184,6 +237,16 @@ class MealItemDetailAPIView(APIView):
         meal = _get_user_meal(request.user, meal_id)
         item = MenuMealItem.objects.filter(id=item_id, meal=meal).first()
         if not item:
-            raise CustomException("MEAL_ITEM_NOT_FOUND", status_code=404)
+            raise CustomException(
+                "MEAL_ITEM_NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Meal item id={item_id} not found in meal_id={meal_id}",
+                    "meal_id": meal_id,
+                    "item_id": item_id,
+                    "user_id": request.user.pk,
+                    "reason": "meal_item_not_found_or_forbidden",
+                },
+            )
         item.delete()
         return CustomResponse.success(request=request, message_key="DELETED", status_code=200)

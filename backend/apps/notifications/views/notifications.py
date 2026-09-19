@@ -106,7 +106,16 @@ class MarkNotificationReadAPIView(APIView):
             id=notification_id, user=request.user,
         ).first()
         if not notif:
-            raise CustomException("NOTIFICATION_NOT_FOUND", status_code=404)
+            raise CustomException(
+                "NOTIFICATION_NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Notification id={notification_id} not found for user_id={request.user.pk}",
+                    "notification_id": notification_id,
+                    "user_id": request.user.pk,
+                    "reason": "notification_not_found_or_forbidden",
+                },
+            )
 
         if not notif.is_read:
             notif.is_read = True

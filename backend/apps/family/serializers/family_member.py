@@ -108,7 +108,12 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
                 "HEALTH_CONDITION_NOT_FOUND",
                 status_code=400,
                 context={"ids": missing},
-                errors={"health_condition_ids": missing},
+                errors={
+                    "detail": f"HealthCondition IDs not found in DB: {missing}",
+                    "field": "health_condition_ids",
+                    "missing_ids": missing,
+                    "reason": "unknown_health_condition_ids",
+                },
             )
         return ids
 
@@ -130,7 +135,12 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
                 "INGREDIENT_NOT_FOUND",
                 status_code=400,
                 context={"ids": missing},
-                errors={"allergen_ingredient_ids": missing},
+                errors={
+                    "detail": f"Ingredient IDs not found in DB: {missing}",
+                    "field": "allergen_ingredient_ids",
+                    "missing_ids": missing,
+                    "reason": "unknown_ingredient_ids",
+                },
             )
         return ids
 
@@ -147,7 +157,12 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
                 "RECIPE_NOT_FOUND",
                 status_code=400,
                 context={"ids": missing},
-                errors={field_name: missing},
+                errors={
+                    "detail": f"Recipe IDs not found in DB: {missing}",
+                    "field": field_name,
+                    "missing_ids": missing,
+                    "reason": "unknown_recipe_ids",
+                },
             )
         return ids
 
@@ -160,7 +175,12 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
                 "RECIPE_LIKE_DISLIKE_CONFLICT",
                 status_code=400,
                 context={"ids": list(conflict)},
-                errors={"liked_recipe_ids": list(conflict)},
+                errors={
+                    "detail": f"Same recipe IDs appear in both liked and disliked: {sorted(conflict)}",
+                    "fields": ["liked_recipe_ids", "disliked_recipe_ids"],
+                    "conflicting_ids": sorted(conflict),
+                    "reason": "recipe_in_both_liked_and_disliked",
+                },
             )
         return attrs
 

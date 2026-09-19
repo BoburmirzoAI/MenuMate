@@ -62,7 +62,15 @@ class UsersAdminDetailAPIView(APIView):
     def _get(self, user_id: int) -> User:
         user = User.objects.filter(id=user_id, is_deleted=False).first()
         if not user:
-            raise CustomException("USER_NOT_FOUND", status_code=404)
+            raise CustomException(
+                "USER_NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"User id={user_id} not found or is soft-deleted",
+                    "user_id": user_id,
+                    "reason": "user_not_found_or_deleted",
+                },
+            )
         return user
 
     def get(self, request, user_id):
@@ -90,7 +98,12 @@ class UsersAdminDetailAPIView(APIView):
             raise CustomException(
                 "VALIDATION_ERROR",
                 status_code=400,
-                errors={"detail": "Superuser o'chirilmaydi"},
+                errors={
+                    "detail": f"Refusing to soft-delete superuser id={user.pk}",
+                    "user_id": user.pk,
+                    "email": user.email,
+                    "reason": "cannot_delete_superuser",
+                },
             )
         user.soft_delete() if hasattr(user, 'soft_delete') else user.delete()
         return CustomResponse.success(request=request, message_key="DELETED", status_code=200)
@@ -103,7 +116,15 @@ class UsersAdminPasswordAPIView(APIView):
     def post(self, request, user_id):
         user = User.objects.filter(id=user_id, is_deleted=False).first()
         if not user:
-            raise CustomException("USER_NOT_FOUND", status_code=404)
+            raise CustomException(
+                "USER_NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"User id={user_id} not found or is soft-deleted",
+                    "user_id": user_id,
+                    "reason": "user_not_found_or_deleted",
+                },
+            )
 
         serializer = UserAdminPasswordSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)

@@ -30,7 +30,15 @@ class ShoppingListsAdminDetailAPIView(APIView):
             'menu__family',
         ).prefetch_related('items__ingredient').first()
         if not sl:
-            raise CustomException("NOT_FOUND", status_code=404)
+            raise CustomException(
+                "NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"ShoppingList for menu_id={menu_id} does not exist",
+                    "menu_id": menu_id,
+                    "reason": "shopping_list_not_found_for_menu",
+                },
+            )
         return CustomResponse.success(
             request=request,
             data=ShoppingListAdminSerializer(sl).data,

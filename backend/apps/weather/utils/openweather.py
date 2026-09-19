@@ -44,7 +44,11 @@ def get_weather_for_city(city: str, force_refresh: bool = False) -> WeatherSnaps
         raise CustomException(
             "VALIDATION_ERROR",
             status_code=400,
-            errors={"city": "bo'sh"},
+            errors={
+                "detail": "city argument is empty after strip",
+                "field": "city",
+                "reason": "empty_city",
+            },
         )
 
     if not force_refresh:
@@ -58,6 +62,11 @@ def get_weather_for_city(city: str, force_refresh: bool = False) -> WeatherSnaps
             "WEATHER_FETCH_FAILED",
             status_code=502,
             context={"reason": "API key sozlanmagan"},
+            errors={
+                "detail": "OPENWEATHER_API_KEY env var is empty — cannot call upstream",
+                "external_service": "openweathermap",
+                "reason": "missing_api_key",
+            },
         )
 
     try:
@@ -73,13 +82,30 @@ def get_weather_for_city(city: str, force_refresh: bool = False) -> WeatherSnaps
         )
     except requests.RequestException as e:
         logger.error("OpenWeatherMap request failed: %s", e)
-        raise CustomException("WEATHER_FETCH_FAILED", status_code=502)
+        raise CustomException(
+            "WEATHER_FETCH_FAILED",
+            status_code=502,
+            errors={
+                "detail": f"HTTP request to OpenWeatherMap raised {type(e).__name__}: {e}",
+                "external_service": "openweathermap",
+                "city": city,
+                "exception": type(e).__name__,
+                "reason": "upstream_network_error",
+            },
+        )
 
     if response.status_code == 404:
         raise CustomException(
             "WEATHER_CITY_NOT_FOUND",
             status_code=404,
             context={"city": city},
+            errors={
+                "detail": f"OpenWeatherMap returned 404 for city='{city}'",
+                "external_service": "openweathermap",
+                "external_status": 404,
+                "city": city,
+                "reason": "city_unknown_to_upstream",
+            },
         )
 
     if response.status_code == 401:
@@ -88,13 +114,30 @@ def get_weather_for_city(city: str, force_refresh: bool = False) -> WeatherSnaps
             "WEATHER_FETCH_FAILED",
             status_code=502,
             context={"reason": "API key noto'g'ri yoki hali aktiv emas"},
+            errors={
+                "detail": "OpenWeatherMap returned 401 — API key invalid or not yet activated",
+                "external_service": "openweathermap",
+                "external_status": 401,
+                "reason": "invalid_or_inactive_api_key",
+            },
         )
 
     if response.status_code != 200:
         logger.error(
             "OpenWeatherMap error: %s — %s", response.status_code, response.text[:200],
         )
-        raise CustomException("WEATHER_FETCH_FAILED", status_code=502)
+        raise CustomException(
+            "WEATHER_FETCH_FAILED",
+            status_code=502,
+            errors={
+                "detail": f"OpenWeatherMap returned unexpected status {response.status_code}",
+                "external_service": "openweathermap",
+                "external_status": response.status_code,
+                "city": city,
+                "body_snippet": response.text[:200],
+                "reason": "upstream_unexpected_status",
+            },
+        )
 
     data = response.json()
     return _save_snapshot(city, data)

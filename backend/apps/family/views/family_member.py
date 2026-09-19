@@ -22,14 +22,31 @@ from apps.shared.utils.custom_response import CustomResponse
 def _get_family_or_raise(user) -> FamilyProfile:
     family = FamilyProfile.objects.filter(user=user).first()
     if not family:
-        raise CustomException("FAMILY_NOT_FOUND", status_code=404)
+        raise CustomException(
+            "FAMILY_NOT_FOUND",
+            status_code=404,
+            errors={
+                "detail": f"User user_id={user.pk} has no family profile",
+                "user_id": user.pk,
+                "reason": "user_has_no_family",
+            },
+        )
     return family
 
 
 def _get_member_or_raise(family: FamilyProfile, member_id: int) -> FamilyMember:
     member = FamilyMember.objects.filter(family=family, pk=member_id).first()
     if not member:
-        raise CustomException("MEMBER_NOT_FOUND", status_code=404)
+        raise CustomException(
+            "MEMBER_NOT_FOUND",
+            status_code=404,
+            errors={
+                "detail": f"Member id={member_id} not found in family_id={family.pk}",
+                "family_id": family.pk,
+                "member_id": member_id,
+                "reason": "member_not_found_or_wrong_family",
+            },
+        )
     return member
 
 

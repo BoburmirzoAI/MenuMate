@@ -47,7 +47,16 @@ class CreateFamilySerializer(serializers.Serializer):
     def validate(self, attrs):
         user = self.context['request'].user
         if hasattr(user, 'family') and user.family is not None:
-            raise CustomException("FAMILY_ALREADY_EXISTS", status_code=400)
+            raise CustomException(
+                "FAMILY_ALREADY_EXISTS",
+                status_code=400,
+                errors={
+                    "detail": f"User user_id={user.pk} already owns a family (OneToOne)",
+                    "user_id": user.pk,
+                    "existing_family_id": user.family.pk,
+                    "reason": "user_already_has_family",
+                },
+            )
         return attrs
 
     def validate_family_name(self, value: str) -> str:
@@ -56,7 +65,11 @@ class CreateFamilySerializer(serializers.Serializer):
             raise CustomException(
                 "VALIDATION_ERROR",
                 status_code=400,
-                errors={"family_name": "bo'sh bo'lmasin"},
+                errors={
+                    "detail": "family_name must not be empty after strip",
+                    "field": "family_name",
+                    "reason": "empty_family_name",
+                },
             )
         return value
 

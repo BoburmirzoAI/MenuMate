@@ -46,7 +46,15 @@ class RolesAdminDetailAPIView(APIView):
     def _get(self, role_id):
         r = Role.objects.filter(id=role_id).first()
         if not r:
-            raise CustomException("NOT_FOUND", status_code=404)
+            raise CustomException(
+                "NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Role id={role_id} does not exist",
+                    "role_id": role_id,
+                    "reason": "role_not_found",
+                },
+            )
         return r
 
     def get(self, request, role_id):
@@ -111,7 +119,15 @@ class PermissionsAdminDetailAPIView(APIView):
     def _get(self, perm_id):
         perm = Permission.objects.filter(id=perm_id).first()
         if not perm:
-            raise CustomException("NOT_FOUND", status_code=404)
+            raise CustomException(
+                "NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Permission id={perm_id} does not exist",
+                    "permission_id": perm_id,
+                    "reason": "permission_not_found",
+                },
+            )
         return perm
 
     def get(self, request, perm_id):
@@ -169,7 +185,15 @@ class EndpointsAdminDetailAPIView(APIView):
     def _get(self, endpoint_id):
         ep = Endpoint.objects.filter(id=endpoint_id).first()
         if not ep:
-            raise CustomException("NOT_FOUND", status_code=404)
+            raise CustomException(
+                "NOT_FOUND",
+                status_code=404,
+                errors={
+                    "detail": f"Endpoint id={endpoint_id} does not exist",
+                    "endpoint_id": endpoint_id,
+                    "reason": "endpoint_not_found",
+                },
+            )
         return ep
 
     def get(self, request, endpoint_id):
