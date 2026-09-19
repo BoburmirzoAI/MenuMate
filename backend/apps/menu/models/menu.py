@@ -62,7 +62,6 @@ class MenuMeal(BaseModel):
 
     class Meta:
         db_table = 'menu_menu_meal'
-        # BREAKFAST → LUNCH → DINNER tartibida (alfavit emas)
         ordering = ['id']
         unique_together = ('day', 'meal_type')
 

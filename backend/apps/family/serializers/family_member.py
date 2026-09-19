@@ -11,6 +11,7 @@ from rest_framework import serializers
 
 from apps.family.models.family import FamilyMember, HealthCondition
 from apps.family.serializers.health_condition import HealthConditionSerializer
+from apps.recipes.models.recipes import Ingredient, Recipe
 from apps.shared.exceptions.custom_exceptions import CustomException
 
 
@@ -119,7 +120,6 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
     def validate_allergen_ingredient_ids(self, ids: list) -> list:
         if not ids:
             return ids
-        from apps.recipes.models.recipes import Ingredient
         existing = set(
             Ingredient.objects.filter(id__in=ids).values_list('id', flat=True)
         )
@@ -136,7 +136,6 @@ class FamilyMemberWriteSerializer(serializers.Serializer):
     def _validate_recipe_ids(ids: list, field_name: str) -> list:
         if not ids:
             return ids
-        from apps.recipes.models.recipes import Recipe
         existing = set(
             Recipe.objects.filter(id__in=ids).values_list('id', flat=True)
         )

@@ -1,6 +1,8 @@
 """
 Auth serializerlari — password (change/forgot/reset), email verify, delete.
 """
+import logging
+
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError as DjangoValidationError
 from rest_framework import serializers
@@ -10,6 +12,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from apps.shared.exceptions.custom_exceptions import CustomException
 from apps.users.models.users import User
 from apps.users.models.verification import VerificationCode
+
+logger = logging.getLogger(__name__)
 
 
 # =====================================================================
@@ -80,8 +84,7 @@ class ForgotPasswordSerializer(serializers.Serializer):
                 destination=user.email,
                 lifetime_minutes=15,
             )
-            import logging
-            logging.getLogger(__name__).info(
+            logger.info(
                 "PASSWORD_RESET code for %s: %s", user.email, code.code,
             )
 
@@ -141,10 +144,8 @@ class SendEmailVerificationSerializer(serializers.Serializer):
             destination=user.email,
             lifetime_minutes=15,
         )
-        import logging
-        # DEV: kodni log'ga chiqaramiz (warning — Django default'da ko'rinsin).
-        # Production'da real email service (celery task) bilan almashtiriladi.
-        logging.getLogger(__name__).warning(
+        # DEV: kodni log'ga chiqaramiz. Production'da real email service (celery task) bilan almashtiriladi.
+        logger.warning(
             "EMAIL_VERIFY code for %s: %s", user.email, code.code,
         )
 

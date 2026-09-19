@@ -2,10 +2,20 @@
 Sentry initsializatsiyasi — xato monitoringi.
 
 `SENTRY_DSN` sozlanmagan bo'lsa hech narsa qilmaydi (masalan, dev muhitida
-yoki test paytida). Faqat bir marta chaqirilishi kerak — settings faylidan
+yoki test paytida). Faqat bir marta chaqirilishi kerak — settings faylining
 oxirida.
 """
 import logging
+
+try:
+    import sentry_sdk
+    from sentry_sdk.integrations.celery import CeleryIntegration
+    from sentry_sdk.integrations.django import DjangoIntegration
+    from sentry_sdk.integrations.logging import LoggingIntegration
+    from sentry_sdk.integrations.redis import RedisIntegration
+    _SENTRY_AVAILABLE = True
+except ImportError:
+    _SENTRY_AVAILABLE = False
 
 logger = logging.getLogger(__name__)
 
@@ -25,19 +35,13 @@ def init_sentry(*, dsn: str, environment: str = 'production', release: str | Non
     if not dsn:
         return False
 
-    try:
-        import sentry_sdk
-        from sentry_sdk.integrations.django import DjangoIntegration
-        from sentry_sdk.integrations.celery import CeleryIntegration
-        from sentry_sdk.integrations.redis import RedisIntegration
-        from sentry_sdk.integrations.logging import LoggingIntegration
-    except ImportError:
+    if not _SENTRY_AVAILABLE:
         logger.warning("sentry-sdk o'rnatilmagan — Sentry init o'tkazib yuborildi.")
         return False
 
     sentry_logging = LoggingIntegration(
-        level=logging.INFO,        # breadcrumb sifatida INFO+ yig'iladi
-        event_level=logging.ERROR, # Sentry'ga faqat ERROR+ yuboriladi
+        level=logging.INFO,
+        event_level=logging.ERROR,
     )
 
     sentry_sdk.init(
@@ -54,11 +58,8 @@ def init_sentry(*, dsn: str, environment: str = 'production', release: str | Non
             RedisIntegration(),
             sentry_logging,
         ],
-        # Performance monitoring — kichik ulush (production'da yuklamani oshirmaslik uchun)
         traces_sample_rate=0.1,
-        # PII yuborilmaydi (email/parol Sentry'ga bormasin)
         send_default_pii=False,
-        # Nozik ma'lumotlarni scrub qiladi (default 'True' — profilaktik)
         request_bodies='small',
     )
     return True

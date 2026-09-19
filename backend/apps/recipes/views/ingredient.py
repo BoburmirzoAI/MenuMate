@@ -1,4 +1,5 @@
 """Ingredient va AllergenTag view'lari — read-only reference data."""
+from django.db.models import Q
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
 
@@ -41,7 +42,6 @@ class IngredientListAPIView(ListAPIView):
 
         search = request.query_params.get('search')
         if search:
-            from django.db.models import Q
             qs = qs.filter(
                 Q(name_uz__icontains=search)
                 | Q(name_ru__icontains=search)

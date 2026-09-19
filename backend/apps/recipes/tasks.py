@@ -14,6 +14,8 @@ from celery import shared_task
 from celery.signals import worker_ready
 from django.core.management import call_command
 
+from apps.recipes.models.recipes import Recipe
+
 logger = logging.getLogger(__name__)
 
 _FIXTURES = [
@@ -31,8 +33,6 @@ def seed_initial_data() -> str:
 
     Idempotent: mavjud ma'lumotlarni buzmasdan, faqat bo'sh jadvallarni to'ldiradi.
     """
-    from apps.recipes.models.recipes import Recipe
-
     if Recipe.objects.exists():
         logger.info("Seed: retseptlar mavjud, o'tkazib yuborildi")
         return "already seeded"

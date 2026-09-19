@@ -18,6 +18,8 @@ from typing import Iterable
 import requests
 from django.core.cache import cache
 
+from apps.products.utils.karzinka_lavka import fetch_all_products
+
 from apps.recipes.models.recipes import Ingredient
 
 logger = logging.getLogger(__name__)
@@ -73,7 +75,6 @@ def _fetch_from_lavka() -> list[KarzinkaProduct]:
     Faqat KARZINKA_LAVKA_TOKEN .env'da bo'lsa ishlaydi. Aks holda bo'sh ro'yxat.
     """
     try:
-        from apps.products.utils.karzinka_lavka import fetch_all_products
         lavka = fetch_all_products()
     except Exception as e:
         logger.warning("Lavka fetch failed: %s", e)

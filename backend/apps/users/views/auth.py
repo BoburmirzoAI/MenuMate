@@ -5,6 +5,7 @@ Hammasi murakkab flow — APIView + plain Serializer.
 """
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
+from rest_framework_simplejwt.token_blacklist.models import OutstandingToken
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.shared.throttling import PasswordThrottle
@@ -80,7 +81,6 @@ class ResetPasswordAPIView(APIView):
     @staticmethod
     def _blacklist_all_tokens(user):
         try:
-            from rest_framework_simplejwt.token_blacklist.models import OutstandingToken
             tokens = OutstandingToken.objects.filter(user=user)
             for t in tokens:
                 try:

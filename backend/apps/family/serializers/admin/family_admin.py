@@ -2,6 +2,7 @@
 from rest_framework import serializers
 
 from apps.family.models.family import FamilyMember, FamilyProfile, HealthCondition
+from apps.users.models.users import User
 
 
 class _HealthConditionMini(serializers.ModelSerializer):
@@ -52,8 +53,6 @@ class FamilyAdminCreateSerializer(serializers.ModelSerializer):
         fields = ['user_id', 'family_name', 'city']
 
     def validate_user_id(self, value: int) -> int:
-        from apps.users.models.users import User
-
         if not User.objects.filter(id=value, is_deleted=False).exists():
             raise serializers.ValidationError("Foydalanuvchi topilmadi")
         if FamilyProfile.objects.filter(user_id=value).exists():

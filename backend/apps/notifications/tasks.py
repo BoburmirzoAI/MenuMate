@@ -10,7 +10,9 @@ import logging
 from typing import Any
 
 from celery import shared_task
+from django.utils import timezone
 
+from apps.notifications.models.notifications import Notification
 from apps.notifications.utils.fcm import (
     deactivate_invalid_tokens,
     send_multicast,
@@ -90,7 +92,4 @@ def send_push_multicast(
 
 def _mark_sent(notification_id: int) -> None:
     """Yuborilgan Notification'ning `sent_at`ini yozib qo'yadi."""
-    from django.utils import timezone
-    from apps.notifications.models.notifications import Notification
-
     Notification.objects.filter(id=notification_id).update(sent_at=timezone.now())

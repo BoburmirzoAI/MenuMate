@@ -2,6 +2,7 @@ import os
 import uuid
 
 from django.db import models
+from django.utils import timezone
 
 
 class Language(models.TextChoices):
@@ -36,7 +37,6 @@ class BaseModel(models.Model):
 
 def media_upload_path(instance, filename):
     """uploads/<file_type>/YYYY/MM/<uuid>_<filename>"""
-    from django.utils import timezone
     now = timezone.now()
     ext = os.path.splitext(filename)[1]
     unique_name = f"{instance.uuid}{ext}"

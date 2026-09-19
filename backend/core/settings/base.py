@@ -21,9 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # -------------------------------------------------------------------
 
 INSTALLED_APPS = [
-    # 'modeltranslation' django.contrib.admin dan OLDIN bo'lishi kerak.
-    # Model'larda bitta `name` field yozamiz, u har til uchun DB'da
-    # `name_uz`, `name_ru`, `name_en` ustunlarga aylanadi (translation.py'ga qarang).
     'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',

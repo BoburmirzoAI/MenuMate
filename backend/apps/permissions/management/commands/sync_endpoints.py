@@ -5,6 +5,8 @@ Auto-registers every URL pattern under /api/ into the Endpoint table.
 Existing rows are preserved (access_type, permission not overwritten);
 new rows are created with sensible defaults.
 """
+import re
+
 from django.core.management.base import BaseCommand
 from django.urls import get_resolver, URLPattern, URLResolver
 
@@ -21,7 +23,6 @@ def _extract_paths(url_patterns, prefix=''):
             new_prefix = prefix + str(pattern.pattern)
             routes.extend(_extract_paths(pattern.url_patterns, new_prefix))
         elif isinstance(pattern, URLPattern):
-            import re
             route = prefix + str(pattern.pattern)
             # Django path converters (<int:member_id>, <str:x>, <uuid:x>, <pk>, <name>)
             # → hammasi {id} bo'ladi (middleware'ning normalize_path'i bilan mos)
