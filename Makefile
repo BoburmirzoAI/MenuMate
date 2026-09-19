@@ -24,6 +24,13 @@ down:  ## Barcha servislarni to'xtatish
 restart:  ## Restart
 	$(COMPOSE) restart
 
+redis-flush:  ## Redis cache'ni to'liq tozalash (karzinka, weather, throttle)
+	$(COMPOSE) exec redis redis-cli FLUSHDB
+	@echo "✅ Redis cache tozalandi"
+
+restart-fresh: restart redis-flush  ## Restart + cache flush (yangi kod deploy qilingandan keyin)
+	@echo "✅ Backend qayta ishga tushdi va cache tozalandi"
+
 build:  ## Docker imagelarni qayta qurish
 	$(COMPOSE) build
 
@@ -113,8 +120,8 @@ init: build up migrate sync-endpoints  ## To'liq initial setup
 	@echo "\n🎉 Loyiha ishga tayyor!"
 	@echo "Superuser yaratish uchun: make superuser"
 
-.PHONY: help up down restart build logs logs-all ps clean shell dj-shell \
-        migrate makemigrations superuser sync-endpoints collectstatic loaddata \
-        test lint format local-install local-run local-migrate \
-        prod-up prod-down prod-logs prod-migrate prod-collectstatic \
+.PHONY: help up down restart redis-flush restart-fresh build logs logs-all \
+        ps clean shell dj-shell migrate makemigrations superuser sync-endpoints \
+        collectstatic loaddata test lint format local-install local-run \
+        local-migrate prod-up prod-down prod-logs prod-migrate prod-collectstatic \
         db-backup db-restore init
