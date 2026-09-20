@@ -13,23 +13,13 @@ import time
 
 from celery import shared_task
 from celery.signals import worker_ready
-from django.core.cache import cache
 
 from apps.products.utils.images import ingredient_image_url, recipe_image_url
 from apps.recipes.models.recipes import Ingredient, Recipe
 
 logger = logging.getLogger(__name__)
 
-# Wikipedia REST API'ni 429 yubormasligi uchun so'rovlar orasidagi kichik pauza.
-# API ~200 req/sec ni qabul qiladi lekin biz konservativ qilib
-# 3 req/sec chegarasida ishlaymiz (Karzinka/DB rasmi bor yozuvlar pauzasiz o'tadi).
 _WIKI_REQUEST_DELAY_SEC = 0.35
-
-
-def _pause_if_wiki_hit(before: int, after: int) -> None:
-    """Wikipedia'ga haqiqiy so'rov yuborilganini cache miss orqali aniqlaymiz."""
-    if after > before:
-        time.sleep(_WIKI_REQUEST_DELAY_SEC)
 
 
 @shared_task(name='products.warmup_images')
@@ -43,7 +33,6 @@ def warmup_images() -> dict[str, int]:
     for ing in Ingredient.objects.all().only(
         'id', 'name', 'name_uz', 'name_ru', 'name_en', 'image_url',
     ):
-        before = cache.get_stats() if hasattr(cache, 'get_stats') else None
         try:
             url = ingredient_image_url(ing)
         except Exception as exc:
@@ -54,7 +43,6 @@ def warmup_images() -> dict[str, int]:
             ing_done += 1
         else:
             ing_missing += 1
-        # Bir mahsulot uchun 1-4 ta Wikipedia so'rov ketishi mumkin — konservativ pauza.
         time.sleep(_WIKI_REQUEST_DELAY_SEC)
 
     rec_done = rec_missing = 0
@@ -87,7 +75,7 @@ def warmup_images() -> dict[str, int]:
 def _warmup_on_worker_start(sender, **_kwargs) -> None:
     """Worker ishga tushganda cache'ni bir marta to'ldirib qo'yamiz.
 
-    Bu birinchi deploy'da yoki cache tozalangandan keyin bo'sh Redis holatini
+    Birinchi deploy'da yoki cache tozalangandan keyin bo'sh Redis holatini
     hal qiladi — foydalanuvchi birinchi so'rov yuborganida rasmlar tayyor.
     """
     try:
