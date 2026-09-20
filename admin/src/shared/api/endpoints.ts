@@ -28,6 +28,8 @@ export const endpoints = {
       detail: (id: number | string) => `/admin/recipes/${id}/`,
       ingredients: '/admin/recipes/ingredients/',
       allergens: '/admin/recipes/allergens/',
+      searchImage: '/admin/recipes/search-image/',
+      uploadImage: '/admin/recipes/upload-image/',
     },
     menus: {
       list: '/admin/menus/',

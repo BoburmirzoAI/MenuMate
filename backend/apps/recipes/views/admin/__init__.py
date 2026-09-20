@@ -1,10 +1,14 @@
+from apps.recipes.views.admin.images import (
+    ImageSearchAPIView,
+    ImageUploadAPIView,
+)
 from apps.recipes.views.admin.recipes import (
-    RecipesAdminListAPIView,
-    RecipesAdminDetailAPIView,
-    IngredientsAdminListAPIView,
-    IngredientsAdminDetailAPIView,
-    AllergenTagsAdminListAPIView,
     AllergenTagsAdminDetailAPIView,
+    AllergenTagsAdminListAPIView,
+    IngredientsAdminDetailAPIView,
+    IngredientsAdminListAPIView,
+    RecipesAdminDetailAPIView,
+    RecipesAdminListAPIView,
 )
 
 __all__ = [
@@ -14,4 +18,6 @@ __all__ = [
     'IngredientsAdminDetailAPIView',
     'AllergenTagsAdminListAPIView',
     'AllergenTagsAdminDetailAPIView',
+    'ImageSearchAPIView',
+    'ImageUploadAPIView',
 ]

@@ -29,6 +29,22 @@
   margin-bottom: var(--space-1);
 }
 
+.imageSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background-color: var(--color-bg-surface-2);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.sectionLabel {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
 .namesRow {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

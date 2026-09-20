@@ -1,8 +1,50 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { api } from '@shared/api/client';
+import { api, authClient } from '@shared/api/client';
 import { endpoints } from '@shared/api/endpoints';
 import type { AllergenTag, Ingredient, Recipe } from '@/types/domain';
+
+export interface ImageCandidate {
+  url: string;
+  thumb_url: string;
+  source: 'wikipedia' | 'commons' | string;
+  title: string;
+  lang: string;
+}
+
+export interface ImageSearchResult {
+  query: string;
+  count: number;
+  candidates: ImageCandidate[];
+}
+
+export interface UploadResult {
+  url: string;
+  filename: string;
+  size: number;
+}
+
+export function useImageSearch() {
+  return useMutation({
+    mutationFn: (query: string) =>
+      api.get<ImageSearchResult>(endpoints.admin.recipes.searchImage, {
+        params: { query },
+      }),
+  });
+}
+
+export function useImageUpload() {
+  return useMutation({
+    mutationFn: async (file: File) => {
+      const form = new FormData();
+      form.append('file', file);
+      const res = await authClient.post(endpoints.admin.recipes.uploadImage, form, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      return res.data.data as UploadResult;
+    },
+  });
+}
 
 interface RecipesListParams {
   search?: string;

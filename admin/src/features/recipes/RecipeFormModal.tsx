@@ -17,6 +17,7 @@ import {
   useAllergens,
   type RecipePayload,
 } from './api';
+import { RecipeImagePicker } from './RecipeImagePicker';
 import styles from './RecipeFormModal.module.css';
 
 interface RecipeFormModalProps {
@@ -269,13 +270,15 @@ export function RecipeFormModal({
               {...(errors.servings ? { errorText: errors.servings } : {})}
             />
           </div>
-          <div className={styles.row}>
-            <Input
-              label="Rasm URL (ixtiyoriy)"
+          <div className={styles.imageSection}>
+            <div className={styles.sectionLabel}>Rasm</div>
+            <RecipeImagePicker
               value={form.image_url}
-              onChange={(e) => update('image_url', e.target.value)}
-              placeholder="https://... (bo'sh bo'lsa Wikipedia'dan dinamik)"
+              onChange={(url) => update('image_url', url)}
+              query={form.name_uz || form.name_en || form.name_ru}
             />
+          </div>
+          <div className={styles.row}>
             <div className={styles.hotToggle}>
               <div className={styles.toggleLabel}>Harorat</div>
               <div className={styles.toggleRow}>
