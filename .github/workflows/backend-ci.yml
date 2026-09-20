@@ -99,4 +99,6 @@ jobs:
           DB_PASSWORD: postgres
           DB_HOST: localhost
           DB_PORT: 5432
-        run: python manage.py test --verbosity 2
+          REDIS_HOST: localhost
+          REDIS_PORT: '6379'
+        run: python manage.py test apps --verbosity 2
