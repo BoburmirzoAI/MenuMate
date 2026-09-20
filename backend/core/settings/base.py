@@ -237,4 +237,8 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'menu.roll_over_menus',
         'schedule': crontab(hour=1, minute=0),
     },
+    'warmup-images-daily': {
+        'task': 'products.warmup_images',
+        'schedule': crontab(hour=2, minute=30),
+    },
 }
