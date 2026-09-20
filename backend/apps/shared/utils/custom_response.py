@@ -80,11 +80,12 @@ class CustomResponse:
             request: Request = None,
             data: Any = None,
             context: Optional[Dict[str, Any]] = None,
+            status_code: Optional[int] = 201,
             **kwargs,
     ) -> Response:
         return CustomResponse.success(
             message_key=message_key, request=request, data=data,
-            context=context, status_code=201, **kwargs,
+            context=context, status_code=status_code, **kwargs,
         )
 
     @staticmethod
