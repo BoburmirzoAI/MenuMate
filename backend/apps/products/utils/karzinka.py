@@ -9,11 +9,13 @@ from __future__ import annotations
 import logging
 import re
 from dataclasses import dataclass
+from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
 from typing import Iterable
 
 import requests
 from django.core.cache import cache
+from django.utils import timezone
 
 from apps.products.utils.karzinka_lavka import fetch_all_products
 
@@ -22,10 +24,15 @@ from apps.recipes.models.recipes import Ingredient
 logger = logging.getLogger(__name__)
 
 _API_URL = "https://catalog.korzinka.uz/api/catalogs/categories/"
-# `:v2` — in_stock schema o'zgargani sababli eski `:v1` yozuvlari o'qilmaydi.
-_CACHE_KEY = "karzinka:catalog:v2"
+# `:v3` — promotion_end schema o'zgargani sababli eski `:v2` yozuvlari o'qilmaydi.
+_CACHE_KEY = "karzinka:catalog:v3"
 _CACHE_TTL = 5 * 60
 _HTTP_TIMEOUT = 10
+
+# "17.09.2026-23.09.2026" ko'rinishidagi aksiya sanalari uchun regex.
+_PROMO_DATE_RANGE_RE = re.compile(
+    r'(\d{2})\.(\d{2})\.(\d{4})\s*-\s*(\d{2})\.(\d{2})\.(\d{4})'
+)
 
 
 @dataclass(frozen=True)
@@ -42,6 +49,7 @@ class KarzinkaProduct:
     weight_param: str
     category_id: int
     in_stock: bool = True
+    promotion_end: date | None = None
 
 
 def _parse_price(raw: object) -> Decimal | None:
@@ -94,6 +102,7 @@ def _fetch_from_lavka() -> list[KarzinkaProduct]:
             weight_param=p.amount,
             category_id=0,
             in_stock=p.available,
+            promotion_end=None,
         ))
     return result
 
@@ -107,21 +116,18 @@ def get_catalog() -> list[KarzinkaProduct]:
     """
     cached = cache.get(_CACHE_KEY)
     if cached is not None:
-        return [KarzinkaProduct(
-            **{**p,
-               'price': Decimal(p['price']),
-               'old_price': Decimal(p['old_price']) if p.get('old_price') else None,
-               'in_stock': p.get('in_stock', True)}
-        ) for p in cached]
+        return [_from_cache_dict(p) for p in cached]
 
     products: list[KarzinkaProduct] = _fetch_from_lavka()
 
+    today = timezone.localdate()
     raw = _fetch_raw()
     for cat in raw:
         for p in cat.get("products") or []:
             price = _parse_price(p.get("prices", {}).get("actual_price"))
             if price is None:
                 continue
+            promotion_end = _parse_promotion_end(p.get("promotion_tags"))
             products.append(KarzinkaProduct(
                 id=p["id"],
                 title_uz=p.get("title_uz") or p.get("title") or "",
@@ -134,7 +140,8 @@ def get_catalog() -> list[KarzinkaProduct]:
                 product_url=p.get("product_url") or "",
                 weight_param=p.get("weight_param") or "",
                 category_id=p.get("catalog_category_id") or 0,
-                in_stock=_parse_stock(p),
+                in_stock=_derive_in_stock(p, promotion_end, today),
+                promotion_end=promotion_end,
             ))
 
     cache.set(
@@ -147,6 +154,7 @@ def get_catalog() -> list[KarzinkaProduct]:
             "product_url": p.product_url, "weight_param": p.weight_param,
             "category_id": p.category_id,
             "in_stock": p.in_stock,
+            "promotion_end": p.promotion_end.isoformat() if p.promotion_end else None,
         } for p in products],
         _CACHE_TTL,
     )
@@ -158,12 +166,65 @@ def get_catalog() -> list[KarzinkaProduct]:
     return products
 
 
-def _parse_stock(p: dict) -> bool:
-    """catalog.korzinka.uz javobidan mahsulot mavjudligini aniqlaydi.
+def _from_cache_dict(p: dict) -> KarzinkaProduct:
+    """Cache'dagi dict'ni KarzinkaProduct'ga qayta hosil qiladi."""
+    promotion_end = None
+    raw_end = p.get('promotion_end')
+    if raw_end:
+        try:
+            promotion_end = date.fromisoformat(raw_end)
+        except (TypeError, ValueError):
+            promotion_end = None
+    return KarzinkaProduct(
+        id=p['id'],
+        title_uz=p['title_uz'],
+        title_ru=p['title_ru'],
+        title_en=p['title_en'],
+        price=Decimal(p['price']),
+        old_price=Decimal(p['old_price']) if p.get('old_price') else None,
+        is_discount=p.get('is_discount', False),
+        image_url=p.get('image_url', ''),
+        product_url=p.get('product_url', ''),
+        weight_param=p.get('weight_param', ''),
+        category_id=p.get('category_id', 0),
+        in_stock=p.get('in_stock', True),
+        promotion_end=promotion_end,
+    )
 
-    Karzinka API field nomlari hujjatlashtirilmagan — bir necha keng tarqalgan
-    variantni birma-bir sinaymiz. Hech biri topilmasa default True (eski
-    xatti-harakat).
+
+def _parse_promotion_end(promotion_tags: list | None) -> date | None:
+    """`promotion_tags` ro'yxatidan aksiya tugash sanasini oladi.
+
+    Karzinka javobida shunday keladi:
+        [{"id": 2, "value": "17.09.2026-23.09.2026"}, {"id": 3, "value": "17"}]
+    Bizga faqat `DD.MM.YYYY-DD.MM.YYYY` formatidagi qiymat kerak — oxirgi sana
+    aksiyaning tugash kuni sifatida qaytariladi.
+    """
+    if not promotion_tags:
+        return None
+    for tag in promotion_tags:
+        value = (tag or {}).get('value') if isinstance(tag, dict) else None
+        if not isinstance(value, str):
+            continue
+        m = _PROMO_DATE_RANGE_RE.search(value)
+        if not m:
+            continue
+        try:
+            return datetime(int(m.group(6)), int(m.group(5)), int(m.group(4))).date()
+        except ValueError:
+            continue
+    return None
+
+
+def _derive_in_stock(p: dict, promotion_end: date | None, today: date) -> bool:
+    """API javobidan mahsulot mavjudligini aniqlaydi.
+
+    Karzinka public API stock haqida to'g'ridan-to'g'ri ma'lumot bermaydi.
+    Tekshirish tartibi:
+      1. Agar API'da stock field bo'lsa — o'shani ishlatamiz.
+      2. Aks holda `promotion_end` bugundan avval bo'lsa — aksiya tugagan
+         hisoblab `False` qaytaramiz (eskirgan taklif ko'rsatilmasin).
+      3. Boshqa holatlarda default `True` (eski xatti-harakat).
     """
     for key in ("in_stock", "available", "is_available", "is_in_stock"):
         if key in p:
@@ -176,9 +237,13 @@ def _parse_stock(p: dict) -> bool:
             return int(p["stock"]) > 0
         except (TypeError, ValueError):
             pass
-    if str(p.get("stock_status") or "").lower() in {"in_stock", "available", "instock"}:
+    status = str(p.get("stock_status") or "").lower()
+    if status in {"in_stock", "available", "instock"}:
         return True
-    if str(p.get("stock_status") or "").lower() in {"out_of_stock", "sold_out", "outofstock"}:
+    if status in {"out_of_stock", "sold_out", "outofstock"}:
+        return False
+
+    if promotion_end is not None and promotion_end < today:
         return False
     return True
 
